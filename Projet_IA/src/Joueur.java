@@ -1,14 +1,16 @@
-import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Joueur {
 	//Attributs
-	public HashMap<String,ArrayList<Case>> plateauJoueur;
-	public HashMap<String,ArrayList<Case>> plateauAdverse;
+	//Plateau contenant les bateaux du joueur
+	public Plateau plateauJoueur;
+	//Plateau contenant la connaissance du joueur sur le plateau adverse
+	public Plateau plateauAdverse;
 	
 	//Constructeur
 	public Joueur() {
-		this.plateauJoueur= new HashMap<String, ArrayList<Case>>(10);
-		this.plateauAdverse= new HashMap<String, ArrayList<Case>>(10);
+		this.plateauJoueur= new Plateau();
+		this.plateauAdverse= new Plateau();
 	}
+	
+	//Methodes
 }
