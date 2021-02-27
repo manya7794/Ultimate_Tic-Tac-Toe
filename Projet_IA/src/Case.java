@@ -20,9 +20,21 @@ public class Case {
 		this.type=1;
 	}
 	
+	//Definit la case i j sur Bateau
+	public void setCaseBateau(Plateau plat, int i, int j) {
+		Case[][] caseCourant = plat.getPlateau();
+		caseCourant[i][j].type = 1;
+	}
+	
 	//Definit la case sur vide apres un tir
 	public void setCaseVide() {
 		this.type=2;
+	}
+	
+	//Definit la case i j sur vide apres un tir
+	public void setCaseVide(Plateau plat, int i, int j) {
+		Case[][] caseCourant = plat.getPlateau();
+		caseCourant[i][j].type = 2;
 	}
 	
 	//Definit la case sur detruit apres un tir
@@ -30,9 +42,21 @@ public class Case {
 		this.type=3;
 	}
 	
+	//Definit la case i j sur detruit apres un tir
+	public void setCaseDetruit(Plateau plat, int i, int j) {
+		Case[][] caseCourant = plat.getPlateau();
+		caseCourant[i][j].type = 3;
+	}
+	
 	//Renvoie le type de la case
 	public int getCaseType() {
 		return type;
+	}
+	
+	//Renvoie le type de la case i j du plateau courant
+	public int getCaseType(Plateau plat, int i, int j) {
+		Case[][] caseCourant = plat.getPlateau();
+		return caseCourant[i][j].type;
 	}
 	
 	//Renvoie le symbole de la case
@@ -41,7 +65,7 @@ public class Case {
 		case 0:
 			return "~";
 		case 1:
-			return "~";
+			return "b";
 		case 2:
 			return "o";
 		case 3:
