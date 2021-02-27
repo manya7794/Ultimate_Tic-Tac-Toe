@@ -19,6 +19,21 @@ public class Plateau {
 	
 	//Methodes
 	
+	//Renvoie le plateau
+	public Case[][] getPlateau() {
+		return plateau;
+	}
+	
+	//Renvoie la hauteur du plateau
+	public int getHauteur() {
+		return hauteur;
+	}
+	
+	//Renvoie la largeur du plateau
+	public int getLargeur() {
+		return largeur;
+	}
+	
 	//Initialise les cases du plateau
 	public void initValeur() {
 		for(int i=0;i<plateau.length;i++) {
