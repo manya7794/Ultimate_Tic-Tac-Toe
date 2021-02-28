@@ -1,8 +1,6 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-import java.util.Set;
 
 public class Bateau {
 
@@ -44,7 +42,7 @@ public class Bateau {
 	 * Placement des bateaux aleatoirement sur le terrain
 	 * @param plat : le plateau 
 	 */
-	public static void mettreBateauxAleatoire(Plateau plat) {
+	public void mettreBateauxAleatoire(Plateau plat) {
 		Random rand = new Random();
 		Case caseCourant = new Case();
 		
@@ -63,10 +61,10 @@ public class Bateau {
 				
 				//Coordonnee i j de la case (debut du bateau), orientation (k) du bateau 
 				int i = 0, j = 0, k = 0;
-				//Coordonnee temporaire de i et j afin de verifier si les coordonnees choisit sont acceptables
+				//Coordonnee temporaire de i et j afin de verifier si les coordonnees choisies sont acceptables
 				int tmpi = 0, tmpj = 0;
 				
-				//Boucle tant que l'emplacement du bateau choisit n'est pas bon (depassement du plateau ou collision)
+				//Boucle tant que l'emplacement du bateau choisi n'est pas bon (depassement du plateau ou collision)
 				do {
 					//On selectionne une case i j aleatoirement qui represente le debut du bateau
 					i = rand.nextInt(plat.getLargeur());
@@ -77,7 +75,7 @@ public class Bateau {
 					tmpi = i;
 					tmpj = j;
 					caseLibre = true;
-					//listBateau.get(n) a changer par la taille du bateau donc faut faire un get de la clé pour savoir quel bateau
+					//listBateau.get(n) a changer par la taille du bateau donc faut faire un get de la cle pour savoir quel bateau
 					for(int m = 0 ; m < tailleQuantiteBateau[0] && caseLibre ; m++) {
 						
 						switch(k) {
@@ -145,7 +143,7 @@ public class Bateau {
 					}
 				} while(!caseLibre);
 				
-				//listBateau.get(n) a changer par la taille du bateau donc faut faire un get de la clé pour savoir quel bateau
+				//listBateau.get(n) a changer par la taille du bateau donc faut faire un get de la cle pour savoir quel bateau
 				for(int m = 0 ; m < tailleQuantiteBateau[0] ; m++) {
 					switch(k) {
 					//Vers la gauche
