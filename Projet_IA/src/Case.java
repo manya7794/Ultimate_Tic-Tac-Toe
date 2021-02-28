@@ -60,12 +60,27 @@ public class Case {
 	}
 	
 	//Renvoie le symbole de la case
-	public String getSymbole() {
+	public String getSymboleJoueur() {
 		switch(type) {
 		case 0:
 			return "~";
 		case 1:
 			return "b";
+		case 2:
+			return "o";
+		case 3:
+			return "x";
+		default:
+			return "~";
+		}
+	}
+	
+	public String getSymboleAdverse() {
+		switch(type) {
+		case 0:
+			return "~";
+		case 1:
+			return "~";
 		case 2:
 			return "o";
 		case 3:

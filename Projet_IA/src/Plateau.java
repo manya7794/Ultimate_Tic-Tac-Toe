@@ -17,6 +17,14 @@ public class Plateau {
 		initValeur();
 	}
 	
+	public Plateau(Bateau listeBateau) {
+		this.hauteur=10;
+		this.largeur=10;
+		this.plateau= new Case[hauteur][largeur];
+		initValeur();
+		listeBateau.mettreBateauxAleatoire(this);
+	}
+	
 	//Methodes
 	
 	//Renvoie le plateau
@@ -41,6 +49,7 @@ public class Plateau {
 				plateau[i][j]= new Case();
 			}
 		}
+		
 	}
 	
 	//Renvoie l'affichage du plateau de jeu
@@ -48,7 +57,7 @@ public class Plateau {
 		StringBuilder tmp= new StringBuilder();
 		for(int i=0;i<plateau.length;i++) {
 			for(int j=0; j<plateau[i].length;j++) {
-				tmp.append(plateau[i][j].getSymbole()+" ");
+				tmp.append(plateau[i][j].getSymboleJoueur()+" ");
 			}
 			tmp.append("\n");
 		}

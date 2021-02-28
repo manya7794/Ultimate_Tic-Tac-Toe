@@ -5,17 +5,34 @@ public class Joueur {
 	public Plateau plateauJoueur;
 	//Plateau contenant la connaissance du joueur sur le plateau adverse
 	public Plateau plateauAdverse;
+	//Liste des bateaux du joueur
+	public Bateau listeBateau;
 	
 	//Constructeur
+	
+	//Cree un profil joueur avec un plateau adverse vide
 	public Joueur() {
-		this.plateauJoueur= new Plateau();
+		this.listeBateau= new Bateau();
+		this.plateauJoueur= new Plateau(listeBateau);
 		this.plateauAdverse= new Plateau();
 	}
 	
-		public Joueur(Plateau adv) {
-		this.plateauJoueur= new Plateau();
+	/*
+	 * Cree un profil joueur avec un plateau adverse identique a celui de l'adversaire
+	 * @param adv le plateau de l'adversaire
+	 */
+	public Joueur(Plateau adv) {
+		this.listeBateau= new Bateau();
+		this.plateauJoueur= new Plateau(listeBateau);
 		this.plateauAdverse= adv;
 	}
+	
+	//Setter
+	
+	public void setPlateauAdverse(Plateau adv) {
+		this.plateauAdverse=adv;
+	}
+	
 	//Methodes
 	
 	/*
@@ -40,5 +57,31 @@ public class Joueur {
 			System.out.println("Un tir a deja ete effectue sur la case. Choisissez une autre case.");
 			break;
 		}
+	}
+	
+	/*
+	 * Affiche les plateaux de jeu du joueur actuel et sa connaissance du plateau adverse
+	 */
+	public String toString() {
+		StringBuilder tmp= new StringBuilder();
+		tmp.append(" Plateau joueur\t\t\t Plateau adverse\n");
+		//Parcourt les lignes
+		for(int i=0;i<plateauJoueur.getPlateau().length;i++) {
+			//Parcourt les colonnes du plateau joueur
+			for(int j=0; j<plateauJoueur.getPlateau()[i].length;j++) {
+				//Ajoute le contenu de chaque case
+				tmp.append(plateauJoueur.getPlateau()[i][j].getSymboleJoueur()+" ");
+			}
+			//Ajout d'un separateur entre les deux plateaux
+			tmp.append("\t*\t");
+			
+			//Parcourt les colonnes du plateau adverse
+			for(int j=0;j<plateauAdverse.getPlateau()[i].length;j++) {
+				//Ajoute le contenu de chaque case
+				tmp.append(plateauAdverse.getPlateau()[i][j].getSymboleAdverse()+" ");
+			}
+			tmp.append("\n");
+		}
+		return tmp.toString();
 	}
 }

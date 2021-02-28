@@ -7,7 +7,7 @@ public class TestPlateau {
 		System.out.print(c1.getCaseType());
 		System.out.println();
 		System.out.println();
-		System.out.println(PlateauTest.toString());	
+		System.out.println(PlateauTest.toString());
 	}
 
 }

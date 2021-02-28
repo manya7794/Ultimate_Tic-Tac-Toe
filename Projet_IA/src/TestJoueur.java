@@ -11,6 +11,9 @@ public class TestJoueur {
 		Joueur j = new Joueur(PlateauTest);
 		j.Tir(0, 0);
 		System.out.println(j.plateauAdverse.toString());
+		System.out.println();
+		System.out.println();
+		System.out.println(j.toString());
 	}
 
 }
