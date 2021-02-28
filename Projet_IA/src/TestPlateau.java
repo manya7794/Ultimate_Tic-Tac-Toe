@@ -8,6 +8,9 @@ public class TestPlateau {
 		System.out.println();
 		System.out.println();
 		System.out.println(PlateauTest.toString());
+		PlateauTest.getPlateau()[4][1].setCaseBateau();
+		
+		System.out.println(PlateauTest.getCase("b5").getCaseType());
 	}
 
 }
