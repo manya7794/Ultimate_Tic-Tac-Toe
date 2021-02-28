@@ -32,7 +32,7 @@ public class Case {
 	}
 	
 	//Definit la case i j sur vide apres un tir
-	public void setCaseVide(Plateau plat, int i, int j) {
+	public static void setCaseVide(Plateau plat, int i, int j) {
 		Case[][] caseCourant = plat.getPlateau();
 		caseCourant[i][j].type = 2;
 	}
@@ -43,7 +43,7 @@ public class Case {
 	}
 	
 	//Definit la case i j sur detruit apres un tir
-	public void setCaseDetruit(Plateau plat, int i, int j) {
+	public static void setCaseDetruit(Plateau plat, int i, int j) {
 		Case[][] caseCourant = plat.getPlateau();
 		caseCourant[i][j].type = 3;
 	}
@@ -54,7 +54,7 @@ public class Case {
 	}
 	
 	//Renvoie le type de la case i j du plateau courant
-	public int getCaseType(Plateau plat, int i, int j) {
+	public static int getCaseType(Plateau plat, int i, int j) {
 		Case[][] caseCourant = plat.getPlateau();
 		return caseCourant[i][j].type;
 	}
