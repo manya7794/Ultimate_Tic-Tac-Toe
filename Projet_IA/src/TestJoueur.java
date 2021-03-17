@@ -5,12 +5,15 @@ public class TestJoueur {
 	public static void main(String[] args) {
 		Bateau bateauAdv= new Bateau();
 		Plateau PlateauTest= new Plateau(bateauAdv);
-		Case c1= new Case();
+		//Case c1= new Case();
+		/*
 		System.out.print(c1.getCaseType());
 		System.out.println();
 		System.out.println();
+		*/
 		//PlateauTest.getPlateau()[0][0].setCaseBateau();
 		Joueur j = new Joueur(PlateauTest);
+		/*
 		j.tir(0, 0);
 		System.out.println(j.plateauAdverse.toString());
 		System.out.println();
@@ -18,6 +21,7 @@ public class TestJoueur {
 		System.out.println(j.toString());
 		//j.tir(9, 0);
 		System.out.println(j.toString());
+		*/
 		
 		//Test de tir en boucle
 		Scanner sc= new Scanner(System.in);
