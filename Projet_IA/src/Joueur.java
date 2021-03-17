@@ -7,7 +7,8 @@ public class Joueur {
 	public Plateau plateauAdverse;
 	//Liste des bateaux du joueur
 	public Bateau listeBateau;
-	
+	//Definit si le joueur doit jouer son tour ou non
+	private boolean tour;
 	//Constructeur
 	
 	//Cree un profil joueur avec un plateau adverse vide
@@ -15,6 +16,7 @@ public class Joueur {
 		this.listeBateau= new Bateau();
 		this.plateauJoueur= new Plateau(listeBateau);
 		this.plateauAdverse= new Plateau();
+		this.tour= false;
 	}
 	
 	/*
@@ -23,8 +25,9 @@ public class Joueur {
 	 */
 	public Joueur(Plateau adv) {
 		this.listeBateau= new Bateau();
-		this.plateauJoueur= new Plateau(listeBateau);
+		plateauJoueur= new Plateau(listeBateau);
 		this.plateauAdverse= adv;
+		this.tour= false;
 	}
 	
 	//Setter
@@ -44,17 +47,20 @@ public class Joueur {
 	 * @param i l'abscisse de la case
 	 * @param j l'ordonnee de la case 
 	 */
-	public void tir(int i, int j) {
+	public void tir(int i, int j, Joueur adversaire) {
 		switch (Case.getCaseType(plateauAdverse, i, j)) {
+		
 		//Case Mer
 		case 0:
 			//Remplace par une case vide
 			Case.setCaseVide(plateauAdverse, i, j);
+			Case.setCaseVide(adversaire.getPlateau(), i, j);
 			break;
 		//Case Bateau
 		case 1:
 			//Remplace par une case detruite
 			Case.setCaseDetruit(plateauAdverse, i, j);
+			Case.setCaseDetruit(adversaire.getPlateau(), i, j);
 			break;
 		//Tire deja effectue sur la case
 		default:
@@ -67,7 +73,7 @@ public class Joueur {
 	 * Effectue un tir sur une case definie par le joueur
 	 * @param coordoonnees les coordonnes de la case
 	 */
-	public void tir(String coordonnees) {
+	public void tir(String coordonnees, Joueur adversaire) {
 		//Recupere le type de la case ciblee
 		int typeCaseCible =plateauAdverse.getCase(coordonnees).getCaseType();
 		switch(typeCaseCible) {
@@ -78,6 +84,7 @@ public class Joueur {
 				//Cas ou la ligne est egale a 10
 				if((coordonnees.charAt(1)==1)&&(coordonnees.charAt(2)==0)) {
 					Case.setCaseVide(plateauAdverse, coordonnees);
+					Case.setCaseVide(adversaire.getPlateau(), coordonnees);
 					break;
 				}
 				//Cas ou la ligne n'existe pas
@@ -86,7 +93,8 @@ public class Joueur {
 				}
 			}
 			//Remplace par une case vide
-			Case.setCaseVide(plateauAdverse, coordonnees);
+			//Case.setCaseVide(plateauAdverse, coordonnees);
+			Case.setCaseVide(adversaire.getPlateau(), coordonnees);
 			break;
 		//Case Bateau
 		case 1:
@@ -95,6 +103,7 @@ public class Joueur {
 				//Cas ou la ligne est egale a 10
 				if((coordonnees.charAt(1)==1)&&(coordonnees.charAt(2)==0)) {
 					Case.setCaseDetruit(plateauAdverse, coordonnees);
+					Case.setCaseDetruit(adversaire.getPlateau(), coordonnees);
 					break;
 				}
 				//Cas ou la ligne n'existe pas
@@ -104,6 +113,7 @@ public class Joueur {
 			}
 			//Remplace par une case detruite
 			Case.setCaseDetruit(plateauAdverse, coordonnees);
+			Case.setCaseDetruit(adversaire.getPlateau(), coordonnees);
 			break;
 		//Tire deja effectue sur la case
 		default:
@@ -116,6 +126,64 @@ public class Joueur {
 			System.out.println("Un tir a deja ete effectue sur la case. Choisissez une autre case.");
 			break;
 		}
+	}
+	
+	/*
+	 * Definit s'il reste des bateaux sur le plateau adverse
+	 */
+	public boolean resteBateau() {
+		boolean reste=false;
+		
+		for(int i=0; i<plateauJoueur.getLargeur(); i++) {
+			for(int j=0; j<plateauJoueur.getHauteur();j++) {
+				if (Case.getCaseType(plateauJoueur, i, j)==1)
+					reste=true;
+			}
+		}
+		return reste;
+	}
+	
+	/*
+	 * Renvoie le nombre de cases bateau sur le plateau adverse
+	 */
+	public int nbCaseBateauxAdverse() {
+		int nb=0;
+		
+		for(int i=0; i<plateauJoueur.getLargeur(); i++) {
+			for(int j=0; j<plateauJoueur.getHauteur();j++) {
+				if (Case.getCaseType(plateauJoueur, i, j)==1)
+					nb++;
+			}
+		}
+		return nb;
+	}
+	
+	/*
+	 * Active le tour du joueur
+	 */
+	public void activeTour() {
+		tour= true;
+	}
+	
+	/*
+	 * Desactive le tour du joueur
+	 */
+	public void desactiveTour() {
+		tour= false;
+	}
+	
+	/*
+	 * Renvoie la valeur du tour
+	 */
+	public boolean getTour() {
+		return tour;
+	}
+	
+	/*
+	 * 
+	 */
+	public Plateau getPlateau() {
+		return plateauJoueur;
 	}
 	
 	/*

@@ -91,7 +91,7 @@ public class Bateau {
 							}
 							
 							//Test si la case est une case "mer" (=0)
-							else if(caseCourant.getCaseType(plat, tmpi, tmpj) != 0) {
+							else if(Case.getCaseType(plat, tmpi, tmpj) != 0) {
 								caseLibre = false;
 							}
 							break;
@@ -105,7 +105,7 @@ public class Bateau {
 								caseLibre = false;
 							}
 							
-							else if(caseCourant.getCaseType(plat, tmpi, tmpj) != 0) {
+							else if(Case.getCaseType(plat, tmpi, tmpj) != 0) {
 								caseLibre = false;
 							}
 							break;
@@ -119,7 +119,7 @@ public class Bateau {
 								caseLibre = false;
 							}
 							
-							else if(caseCourant.getCaseType(plat, tmpi, tmpj) != 0) {
+							else if(Case.getCaseType(plat, tmpi, tmpj) != 0) {
 								caseLibre = false;
 							}
 							
@@ -134,7 +134,7 @@ public class Bateau {
 								caseLibre = false;
 							}
 							
-							else if(caseCourant.getCaseType(plat, tmpi, tmpj) != 0) {
+							else if(Case.getCaseType(plat, tmpi, tmpj) != 0) {
 								caseLibre = false;
 							}
 							break;
