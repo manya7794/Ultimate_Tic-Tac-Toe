@@ -9,6 +9,9 @@ public class Joueur {
 	public Bateau listeBateau;
 	//Definit si le joueur doit jouer son tour ou non
 	public boolean tour;
+	//
+	public boolean repeat;
+	
 	//Constructeur
 	
 	//Cree un profil joueur avec un plateau adverse vide
@@ -38,6 +41,13 @@ public class Joueur {
 	 */
 	public void setPlateauAdverse(Plateau adv) {
 		this.plateauAdverse=adv;
+	}
+	
+	public void setRepeat() {
+		if (repeat)
+			repeat=false;
+		else 
+			repeat=true;
 	}
 	
 	//Methodes
@@ -75,7 +85,9 @@ public class Joueur {
 	 */
 	public void tir(String coordonnees, Joueur adversaire) {
 		//Recupere le type de la case ciblee
-		int typeCaseCible =plateauAdverse.getCase(coordonnees).getCaseType();
+		plateauAdverse.getCase(coordonnees).getCaseType();
+		int typeCaseCible =plateauAdverse.getCaseMemoire().getCaseType();
+		coordonnees=plateauAdverse.getCoordonneesCaseMemoire();
 		switch(typeCaseCible) {
 		//Case Mer
 		case 0:
@@ -85,16 +97,16 @@ public class Joueur {
 				if((coordonnees.charAt(1)==1)&&(coordonnees.charAt(2)==0)) {
 					Case.setCaseVide(plateauAdverse, coordonnees);
 					Case.setCaseVide(adversaire.getPlateau(), coordonnees);
+					if (repeat)
+						setRepeat();
 					break;
-				}
-				//Cas ou la ligne n'existe pas
-				else {
-					System.out.println("La case selectionnee n'existe pas.");
 				}
 			}
 			//Remplace par une case vide
 			//Case.setCaseVide(plateauAdverse, coordonnees);
 			Case.setCaseVide(adversaire.getPlateau(), coordonnees);
+			if (repeat)
+				setRepeat();
 			break;
 		//Case Bateau
 		case 1:
@@ -104,26 +116,35 @@ public class Joueur {
 				if((coordonnees.charAt(1)==1)&&(coordonnees.charAt(2)==0)) {
 					Case.setCaseDetruit(plateauAdverse, coordonnees);
 					Case.setCaseDetruit(adversaire.getPlateau(), coordonnees);
+					if (repeat)
+						setRepeat();
 					break;
-				}
-				//Cas ou la ligne n'existe pas
-				else {
-					System.out.println("La case selectionnee n'existe pas.");
 				}
 			}
 			//Remplace par une case detruite
 			Case.setCaseDetruit(plateauAdverse, coordonnees);
 			Case.setCaseDetruit(adversaire.getPlateau(), coordonnees);
+			if (repeat)
+				setRepeat();
+			break;
+		case 3:
+			System.out.println("La case n'existe pas. Choisissez une case valide");
+			if (!repeat)
+				setRepeat();
 			break;
 		//Tire deja effectue sur la case
 		default:
 			//Gerer le cas >10
 			if((coordonnees.length()>=3)) {
 				System.out.println("La case selectionnee n'existe pas.");
+				if (!repeat)
+					setRepeat();
 				break;
 			}
 			//Cas ou un tir a deja ete fait sur la case
 			System.out.println("Un tir a deja ete effectue sur la case. Choisissez une autre case.");
+			if (!repeat)
+				setRepeat();
 			break;
 		}
 	}
@@ -149,9 +170,9 @@ public class Joueur {
 	public int nbCaseBateauxAdverse() {
 		int nb=0;
 		
-		for(int i=0; i<plateauJoueur.getLargeur(); i++) {
-			for(int j=0; j<plateauJoueur.getHauteur();j++) {
-				if (Case.getCaseType(plateauJoueur, i, j)==1)
+		for(int i=0; i<plateauAdverse.getLargeur(); i++) {
+			for(int j=0; j<plateauAdverse.getHauteur();j++) {
+				if (Case.getCaseType(plateauAdverse, i, j)==1)
 					nb++;
 			}
 		}

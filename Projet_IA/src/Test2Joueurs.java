@@ -40,26 +40,30 @@ public class Test2Joueurs {
 						j1.tir(cible, j2);
 						sortie=true;
 						//Cas ou le tir n'a touche aucun bateau
-						if (nbBateau==j2.nbCaseBateauxAdverse()){
-							//Desactive le tour du joueur 1
-							j1.desactiveTour();
-							//Active le tour du joueur 2
-							j2.activeTour();
-							System.out.println("Case vide touchee\n\n");
-							try {
-								Thread.sleep(1000);
-							} catch (InterruptedException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
+						if (nbBateau==j1.nbCaseBateauxAdverse()){
+							if (!j1.repeat) {
+								//Desactive le tour du joueur 1
+								j1.desactiveTour();
+								//Active le tour du joueur 2
+								j2.activeTour();
+								System.out.println("Case vide touchee\n\n");
+								try {
+									Thread.sleep(1000);
+								} catch (InterruptedException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
 							}
 						}
 						else {
-							System.out.println("Case bateau touchee\n\n");
-							try {
-								Thread.sleep(1000);
-							} catch (InterruptedException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
+							if(!j1.repeat) {
+								System.out.println("Case bateau touchee\n\n");
+								try {
+									Thread.sleep(1000);
+								} catch (InterruptedException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
 							}
 						}
 							
@@ -90,27 +94,30 @@ public class Test2Joueurs {
 						j2.tir(cible, j1);
 						sortie=true;
 						//Cas ou le tir n'a touche aucun bateau
-						if (nbBateau==j1.nbCaseBateauxAdverse()){
-							//Desactive le tour du joueur 2
-							j2.desactiveTour();
-							//Active le tour du joueur 1
-							j1.activeTour();
-							System.out.println("Case vide touchee\n\n");
-							try {
-								Thread.sleep(1000);
-							} catch (InterruptedException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
+						if (nbBateau==j2.nbCaseBateauxAdverse()){
+							if (!j2.repeat) {
+								//Desactive le tour du joueur 2
+								j2.desactiveTour();
+								//Active le tour du joueur 1
+								j1.activeTour();
+								System.out.println("Case vide touchee\n\n");
+								try {
+									Thread.sleep(1000);
+								} catch (InterruptedException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
 							}
 						}
-						
 						else {
-							System.out.println("Case bateau touchee\n\n");
-							try {
-								Thread.sleep(1000);
-							} catch (InterruptedException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
+							if (!j2.repeat) {
+								System.out.println("Case bateau touchee\n\n");
+								try {
+									Thread.sleep(1000);
+								} catch (InterruptedException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
 							}
 						}
 					}

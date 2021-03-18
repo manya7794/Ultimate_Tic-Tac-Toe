@@ -185,6 +185,10 @@ public class Case {
 		}
 	}
 	
+	public void setCaseInexistante() {
+		this.type=3;
+	}
+	
 	//Renvoie le type de la case
 	public int getCaseType() {
 		return type;
