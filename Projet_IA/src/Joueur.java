@@ -118,7 +118,7 @@ public class Joueur {
 		//Tire deja effectue sur la case
 		default:
 			//Gerer le cas >10
-			if((coordonnees.charAt(1)!=1)||(coordonnees.charAt(2)!=0)) {
+			if((coordonnees.length()>=3)) {
 				System.out.println("La case selectionnee n'existe pas.");
 				break;
 			}
