@@ -8,7 +8,7 @@ public class Joueur {
 	//Liste des bateaux du joueur
 	public Bateau listeBateau;
 	//Definit si le joueur doit jouer son tour ou non
-	private boolean tour;
+	public boolean tour;
 	//Constructeur
 	
 	//Cree un profil joueur avec un plateau adverse vide
