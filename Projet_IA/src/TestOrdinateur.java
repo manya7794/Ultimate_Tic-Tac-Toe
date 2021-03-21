@@ -74,41 +74,44 @@ public class TestOrdinateur {
 				while(!sortie) {
 					//Nombre de bateau du joueur adverse
 					int nbBateau= j1.nbCaseBateauxAdverse();
-					System.out.println("Joueur 2\n");
+					
+					//System.out.println("Joueur 2\n");
 					//Affichage du plateau de jeu et de la connaissance du plateau adverse
-					System.out.println(o2.toString());
+					//System.out.println(o2.toString());
 					
 					//Tir automatique par l'ordinateur
 					o2.sequenceTir(j1);
 					sortie=true;
 					//Cas ou le tir n'a touche aucun bateau
-					if (nbBateau==j1.nbCaseBateauxAdverse()){
-						//Desactive le tour du joueur 2
-						o2.desactiveTour();
-						//Active le tour du joueur 1
-						j1.activeTour();
-						System.out.println("Case vide touchee\n\n");
-						try {
-							Thread.sleep(1000);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
+					if (nbBateau==o2.nbCaseBateauxAdverse()){
+						if (!o2.repeat) {
+							//Desactive le tour du joueur 2
+							o2.desactiveTour();
+							//Active le tour du joueur 1
+							j1.activeTour();
+							System.out.println("Case vide touchee\n\n");
+							try {
+								Thread.sleep(1000);
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 						}
 					}
-					
 					else {
-						System.out.println("Case bateau touchee\n\n");
-						try {
-							Thread.sleep(1000);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
+						if (!o2.repeat) {
+							System.out.println("Case bateau touchee\n\n");
+							try {
+								Thread.sleep(1000);
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 					}
-				
-				}
 			}
 		}
-
 	}
 }
-
+	}
+}
 

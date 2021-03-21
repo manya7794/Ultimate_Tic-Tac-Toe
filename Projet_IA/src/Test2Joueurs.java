@@ -15,10 +15,11 @@ public class Test2Joueurs {
 		j1.activeTour();
 		
 		while(j1.resteBateau()||j2.resteBateau()) {
+			boolean sortie=false;
 			//Cas ou il s'agit du tour du joueur 1
 			if(j1.getTour()) {
 				//Condition de sortie de la boucle
-				boolean sortie=false;
+				
 				while(!sortie) {
 					//Nombre de cases bateau du joueur adverse
 					int nbBateau= j2.nbCaseBateauxAdverse();
@@ -41,6 +42,7 @@ public class Test2Joueurs {
 						sortie=true;
 						//Cas ou le tir n'a touche aucun bateau
 						if (nbBateau==j1.nbCaseBateauxAdverse()){
+							//Si la repetition est desactivee
 							if (!j1.repeat) {
 								//Desactive le tour du joueur 1
 								j1.desactiveTour();
@@ -56,7 +58,8 @@ public class Test2Joueurs {
 							}
 						}
 						else {
-							if(!j1.repeat) {
+							//Si repetition activee
+							if(j1.repeat) {
 								System.out.println("Case bateau touchee\n\n");
 								try {
 									Thread.sleep(1000);
@@ -72,7 +75,6 @@ public class Test2Joueurs {
 			}
 			else {
 				//Condition de sortie de la boucle
-				boolean sortie=false;
 				while(!sortie) {
 					//Nombre de bateau du joueur adverse
 					int nbBateau= j1.nbCaseBateauxAdverse();
@@ -95,6 +97,7 @@ public class Test2Joueurs {
 						sortie=true;
 						//Cas ou le tir n'a touche aucun bateau
 						if (nbBateau==j2.nbCaseBateauxAdverse()){
+							//Si la repetition est desactivee
 							if (!j2.repeat) {
 								//Desactive le tour du joueur 2
 								j2.desactiveTour();
@@ -106,11 +109,12 @@ public class Test2Joueurs {
 								} catch (InterruptedException e) {
 									// TODO Auto-generated catch block
 									e.printStackTrace();
+									}
 								}
 							}
-						}
 						else {
-							if (!j2.repeat) {
+							//Si la repetition est activee
+							if (j2.repeat) {
 								System.out.println("Case bateau touchee\n\n");
 								try {
 									Thread.sleep(1000);

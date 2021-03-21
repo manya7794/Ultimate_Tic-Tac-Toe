@@ -65,12 +65,20 @@ public class Joueur {
 			//Remplace par une case vide
 			Case.setCaseVide(plateauAdverse, i, j);
 			Case.setCaseVide(adversaire.getPlateau(), i, j);
+			//Si la repetition est activee
+			if (repeat)
+				//Desactive la repetition du tour
+				setRepeat();
 			break;
 		//Case Bateau
 		case 1:
 			//Remplace par une case detruite
 			Case.setCaseDetruit(plateauAdverse, i, j);
 			Case.setCaseDetruit(adversaire.getPlateau(), i, j);
+			//Si la repetition est desactivee
+			if (!repeat)
+				//Active la repetition du tour
+				setRepeat();
 			break;
 		//Tire deja effectue sur la case
 		default:
@@ -97,7 +105,9 @@ public class Joueur {
 				if((coordonnees.charAt(1)==1)&&(coordonnees.charAt(2)==0)) {
 					Case.setCaseVide(plateauAdverse, coordonnees);
 					Case.setCaseVide(adversaire.getPlateau(), coordonnees);
+					//Si repetition activee
 					if (repeat)
+						//Desactive la repetition
 						setRepeat();
 					break;
 				}
@@ -105,7 +115,9 @@ public class Joueur {
 			//Remplace par une case vide
 			//Case.setCaseVide(plateauAdverse, coordonnees);
 			Case.setCaseVide(adversaire.getPlateau(), coordonnees);
+			//Si repetition activee
 			if (repeat)
+				//Desactive la repetition
 				setRepeat();
 			break;
 		//Case Bateau
@@ -116,7 +128,9 @@ public class Joueur {
 				if((coordonnees.charAt(1)==1)&&(coordonnees.charAt(2)==0)) {
 					Case.setCaseDetruit(plateauAdverse, coordonnees);
 					Case.setCaseDetruit(adversaire.getPlateau(), coordonnees);
-					if (repeat)
+					//Si la repetition est desactivee
+					if (!repeat)
+						//Active la repetition
 						setRepeat();
 					break;
 				}
@@ -124,12 +138,16 @@ public class Joueur {
 			//Remplace par une case detruite
 			Case.setCaseDetruit(plateauAdverse, coordonnees);
 			Case.setCaseDetruit(adversaire.getPlateau(), coordonnees);
-			if (repeat)
+			//Si la repetition est desactivee
+			if (!repeat)
+				//Active la repetition
 				setRepeat();
 			break;
 		case 3:
 			System.out.println("La case n'existe pas. Choisissez une case valide");
+			//Si la repetition est desactivee
 			if (!repeat)
+				//Active la repetition
 				setRepeat();
 			break;
 		//Tire deja effectue sur la case
@@ -137,13 +155,17 @@ public class Joueur {
 			//Gerer le cas >10
 			if((coordonnees.length()>=3)) {
 				System.out.println("La case selectionnee n'existe pas.");
+				//Si la repetition est desactivee
 				if (!repeat)
+					//Active la repetition
 					setRepeat();
 				break;
 			}
 			//Cas ou un tir a deja ete fait sur la case
 			System.out.println("Un tir a deja ete effectue sur la case. Choisissez une autre case.");
+			//Si la repetition est desactivee
 			if (!repeat)
+				//Active la repetition
 				setRepeat();
 			break;
 		}
@@ -151,6 +173,8 @@ public class Joueur {
 	
 	/*
 	 * Definit s'il reste des bateaux sur le plateau adverse
+	 * 
+	 * @return true s'il reste des cases bateau, false sinon
 	 */
 	public boolean resteBateau() {
 		boolean reste=false;
@@ -166,6 +190,8 @@ public class Joueur {
 	
 	/*
 	 * Renvoie le nombre de cases bateau sur le plateau adverse
+	 * 
+	 * @return le nombre de cases bateau adverses
 	 */
 	public int nbCaseBateauxAdverse() {
 		int nb=0;
@@ -195,13 +221,17 @@ public class Joueur {
 	
 	/*
 	 * Renvoie la valeur du tour
+	 * 
+	 * @return tour
 	 */
 	public boolean getTour() {
 		return tour;
 	}
 	
 	/*
+	 * Renvoie le plateau du joueur
 	 * 
+	 * @return plateauJoueur
 	 */
 	public Plateau getPlateau() {
 		return plateauJoueur;
@@ -209,6 +239,7 @@ public class Joueur {
 	
 	/*
 	 * Affiche les plateaux de jeu du joueur actuel et sa connaissance du plateau adverse
+	 * 
 	 * @return les plateaux de jeu du joueur et sa connaissance du plateau adverse
 	 */
 	public String toString() {

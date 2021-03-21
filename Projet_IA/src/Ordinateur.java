@@ -47,13 +47,46 @@ public class Ordinateur extends Joueur {
 			 */
 			
 			if( (Case.getCaseType(adversaire.getPlateau(), i, j) != 2) && (Case.getCaseType(adversaire.getPlateau(), i, j) != 3) ) {
-				System.out.println("Tir sur la case (" +i+ "," +j+ ")");
+				System.out.println("Tir sur la case " +getColonne(j)+(i+1));
 				//Tir sur la case (i,j) du plateau de l'adversaire
 				super.tir(i,j,adversaire);
 				tirer = true;
 			}
 			
 		}while(!tirer);
+	}
+	/*
+	 * Renvoie la colonne sur laquelle l'ordinateur a tire
+	 * 
+	 * @param j le numero de la colonne
+	 * 
+	 * @return col la lettre de la colonne
+	 */
+	public String getColonne(int j) {
+		switch(j) {
+			case 0:
+				return "A";
+			case 1:
+				return "B";
+			case 2:
+				return "C";
+			case 3:
+				return "D";
+			case 4:
+				return "E";
+			case 5:
+				return "F";
+			case 6:
+				return "G";
+			case 7:
+				return "H";
+			case 8:
+				return "I";
+			case 9:
+				return "J";
+			default:
+				return "Colonne non trouvee";
+		}
 	}
 	
 }
