@@ -14,6 +14,7 @@ public class Test2Joueurs {
 		//Active le tour du joueur 1
 		j1.activeTour();
 		
+		//La partie continue, jusqu'a que l'un des deux plateaux ne possede plus aucun bateau
 		while(j1.resteBateau()||j2.resteBateau()) {
 			//Cas ou il s'agit du tour du joueur 1
 			if(j1.getTour()) {
@@ -40,13 +41,14 @@ public class Test2Joueurs {
 						j1.tir(cible, j2);
 						sortie=true;
 						//Cas ou le tir n'a touche aucun bateau
-						if (nbBateau==j1.nbCaseBateauxAdverse()){
-							if (!j1.repeat) {
+						if (!j1.repeat) {
+							if (nbBateau==j2.nbCaseBateauxAdverse()){
+							
 								//Desactive le tour du joueur 1
 								j1.desactiveTour();
 								//Active le tour du joueur 2
 								j2.activeTour();
-								System.out.println("Case vide touchee\n\n");
+								//System.out.println("Case vide touchee\n\n");
 								try {
 									Thread.sleep(1000);
 								} catch (InterruptedException e) {
@@ -54,9 +56,9 @@ public class Test2Joueurs {
 									e.printStackTrace();
 								}
 							}
-						}
-						else {
-							if(!j1.repeat) {
+						/*
+							else {
+							
 								System.out.println("Case bateau touchee\n\n");
 								try {
 									Thread.sleep(1000);
@@ -65,6 +67,7 @@ public class Test2Joueurs {
 									e.printStackTrace();
 								}
 							}
+						*/
 						}
 							
 					}
@@ -94,13 +97,14 @@ public class Test2Joueurs {
 						j2.tir(cible, j1);
 						sortie=true;
 						//Cas ou le tir n'a touche aucun bateau
-						if (nbBateau==j2.nbCaseBateauxAdverse()){
-							if (!j2.repeat) {
+						if (!j2.repeat) {
+							if (nbBateau==j1.nbCaseBateauxAdverse()){
+							
 								//Desactive le tour du joueur 2
 								j2.desactiveTour();
 								//Active le tour du joueur 1
 								j1.activeTour();
-								System.out.println("Case vide touchee\n\n");
+								//System.out.println("Case vide touchee\n\n");
 								try {
 									Thread.sleep(1000);
 								} catch (InterruptedException e) {
@@ -108,9 +112,9 @@ public class Test2Joueurs {
 									e.printStackTrace();
 								}
 							}
-						}
-						else {
-							if (!j2.repeat) {
+						/*
+							else {
+							
 								System.out.println("Case bateau touchee\n\n");
 								try {
 									Thread.sleep(1000);
@@ -119,6 +123,7 @@ public class Test2Joueurs {
 									e.printStackTrace();
 								}
 							}
+						*/
 						}
 					}
 				}

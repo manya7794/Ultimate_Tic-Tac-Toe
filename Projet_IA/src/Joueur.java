@@ -20,6 +20,7 @@ public class Joueur {
 		this.plateauJoueur= new Plateau(listeBateau);
 		this.plateauAdverse= new Plateau();
 		this.tour= false;
+		this.repeat = false;
 	}
 	
 	/*
@@ -31,6 +32,7 @@ public class Joueur {
 		plateauJoueur= new Plateau(listeBateau);
 		this.plateauAdverse= adv;
 		this.tour= false;
+		this.repeat = false;
 	}
 	
 	//Setter
@@ -95,6 +97,7 @@ public class Joueur {
 			if(coordonnees.length()>=3) {
 				//Cas ou la ligne est egale a 10
 				if((coordonnees.charAt(1)==1)&&(coordonnees.charAt(2)==0)) {
+					System.out.println("Plouff, vous avez touchez l'eau\n");
 					Case.setCaseVide(plateauAdverse, coordonnees);
 					Case.setCaseVide(adversaire.getPlateau(), coordonnees);
 					if (repeat)
@@ -104,6 +107,7 @@ public class Joueur {
 			}
 			//Remplace par une case vide
 			//Case.setCaseVide(plateauAdverse, coordonnees);
+			System.out.println("Plouff, vous avez touchez l'eau\n");
 			Case.setCaseVide(adversaire.getPlateau(), coordonnees);
 			if (repeat)
 				setRepeat();
@@ -114,21 +118,23 @@ public class Joueur {
 			if(coordonnees.length()>=3) {
 				//Cas ou la ligne est egale a 10
 				if((coordonnees.charAt(1)==1)&&(coordonnees.charAt(2)==0)) {
+					System.out.println("Vous avez touchez un bateau !\n");
 					Case.setCaseDetruit(plateauAdverse, coordonnees);
 					Case.setCaseDetruit(adversaire.getPlateau(), coordonnees);
-					if (repeat)
+					if (!repeat)
 						setRepeat();
 					break;
 				}
 			}
 			//Remplace par une case detruite
+			System.out.println("Vous avez touchez un bateau !\n");
 			Case.setCaseDetruit(plateauAdverse, coordonnees);
 			Case.setCaseDetruit(adversaire.getPlateau(), coordonnees);
-			if (repeat)
+			if (!repeat)
 				setRepeat();
 			break;
 		case 3:
-			System.out.println("La case n'existe pas. Choisissez une case valide");
+			System.out.println("Un tir a deja touche le bateau se trouvant sur la case. Choisissez une case valide\n");
 			if (!repeat)
 				setRepeat();
 			break;
@@ -136,13 +142,13 @@ public class Joueur {
 		default:
 			//Gerer le cas >10
 			if((coordonnees.length()>=3)) {
-				System.out.println("La case selectionnee n'existe pas.");
+				System.out.println("La case selectionnee n'existe pas.\n");
 				if (!repeat)
 					setRepeat();
 				break;
 			}
 			//Cas ou un tir a deja ete fait sur la case
-			System.out.println("Un tir a deja ete effectue sur la case. Choisissez une autre case.");
+			System.out.println("Un tir a deja ete effectue sur la case. Choisissez une autre case.\n");
 			if (!repeat)
 				setRepeat();
 			break;
