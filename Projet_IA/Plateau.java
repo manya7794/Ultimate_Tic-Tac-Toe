@@ -1,10 +1,10 @@
-package git_Projet_IA;
+package Projet_IA;
 
 import java.util.ArrayList;
 
 public class Plateau<T> {
 	//Attributs
-	private ArrayList<T> plateau;
+	protected ArrayList<T> plateau;
 	
 	//Constructeurs
 	public Plateau() {
