@@ -13,6 +13,10 @@ public class Plateau<T> {
 	
 	//Méthodes
 	
+	/**
+	 * 
+	 * @return plateau le plateau de jeu actuel
+	 */
 	public ArrayList<T> getPlateau(){
 		return plateau;
 	}
