@@ -4,8 +4,12 @@ import java.util.ArrayList;
 
 public class PlateauPrincipal extends Plateau<PlateauSub>{
 		
-	//Méthodes
+	//Constructeur
 	public PlateauPrincipal() {
 		plateau= new ArrayList<PlateauSub>();
 	}
+	
+	//Methodes
+	
+
 }
