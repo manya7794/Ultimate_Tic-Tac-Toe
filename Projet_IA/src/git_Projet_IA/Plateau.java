@@ -1,5 +1,4 @@
 package git_Projet_IA;
-
 import java.util.ArrayList;
 
 public class Plateau<T> {
