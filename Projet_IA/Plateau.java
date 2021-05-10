@@ -23,9 +23,9 @@ public class Plateau<T> {
 	}
 	
 	/**
-	 * Vérifie qu'un joueur a rempli une ligne
+	 * VÃ©rifie qu'un joueur a rempli une ligne
 	 * 
-	 * @return boolean, true si une ligne est remplie par un même symbole, false sinon
+	 * @return boolean, true si une ligne est remplie par un mÄ™me symbole, false sinon
 	 */
 	public boolean verifZone() {
 		//Premiere ligne
@@ -54,6 +54,22 @@ public class Plateau<T> {
 			return true;
 		else
 			return false;
+	}
+	
+	/**
+	 * Verifie si la zone est remplie ou non
+	 * 
+	 * @return boolean, true si la zone est remplie donc si les 9 cases contiennent un symbole, false sinon
+	 */
+	public boolean verifZoneRemplie() {
+		//Verifie que toutes les cases sont remplies, donc non vide
+		if(	plateau.get(0).equals(0) || plateau.get(1).equals(0) || plateau.get(2).equals(0) ||
+			plateau.get(0).equals(3) || plateau.get(4).equals(0) || plateau.get(5).equals(0) ||
+			plateau.get(0).equals(6) || plateau.get(7).equals(0) || plateau.get(8).equals(0) 
+		)
+			return false;
+		else
+			return true;
 	}
 	
 	/**
