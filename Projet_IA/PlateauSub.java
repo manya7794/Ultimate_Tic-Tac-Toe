@@ -64,18 +64,42 @@ public class PlateauSub extends Plateau<Case>{
 		return tmp.toString();
 	}
 	
+	/**
+	 * Methode affichant la zone de jeu pour permettre au joueur de choisir sa case
+	 * 
+	 * @return String Zone de jeu avec les symboles pour les cases remplies et des chiffres pour les cases non remplies
+	 */
 	public String affiche() {
 		StringBuilder tmp= new StringBuilder();
 		
 		//tmp.append("__________\n");
-		tmp.append(" "+plateau.get(0).toString()+"|"+plateau.get(1).toString()+"|"+plateau.get(2).toString()+"\n");
+		tmp.append(" "+addNumber(plateau.get(0),1)+"|"+addNumber(plateau.get(1),2)+"|"+addNumber(plateau.get(2),3)+"\n");
 		tmp.append(" -+-+-\n");
-		tmp.append(" "+plateau.get(3).toString()+"|"+plateau.get(4).toString()+"|"+plateau.get(5).toString()+"\n");
+		tmp.append(" "+addNumber(plateau.get(3),4)+"|"+addNumber(plateau.get(4),5)+"|"+addNumber(plateau.get(5),6)+"\n");
 		tmp.append(" -+-+-\n");
-		tmp.append(" "+plateau.get(6).toString()+"|"+plateau.get(7).toString()+"|"+plateau.get(8).toString()+"\n");
+		tmp.append(" "+addNumber(plateau.get(6),7)+"|"+addNumber(plateau.get(7),8)+"|"+addNumber(plateau.get(8),9)+"\n");
 		
 		
 		tmp.append("\n");
 		return tmp.toString();
+	}
+	/**
+	 * Methode renvoyant un String correspondant au symbole ou a la position de la case dans la zone
+	 * 
+	 * @param c Case dont le contenu est examine
+	 * @param pos Position de la case dans la zone
+	 * @return Un String correspondant au numero de la case dans la zone ou de son symbole
+	 */
+	public String addNumber(Case c, int pos) {
+		if (c.getContenu()==0) {
+			String tmp = Integer.toString(pos);
+			return tmp;
+		}
+		else
+			if(c.getContenu()==-1)
+				return "X";
+			else
+				return "O";
+			
 	}
 }

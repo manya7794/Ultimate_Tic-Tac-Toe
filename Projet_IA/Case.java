@@ -38,7 +38,11 @@ public class Case {
 	public void addSymbole(int symbole) {
 		contenu=symbole;
 	}
-	
+	/**
+	 * Si le contenu est egal a 1 renvoie "O"
+	 * Si le contenu est egal a -1 renvoie "X"
+	 * Sinon renvoie " "
+	 */
 	public String toString() {
 		if(contenu==1)
 			return "O";
