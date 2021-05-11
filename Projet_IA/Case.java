@@ -6,7 +6,7 @@ public class Case {
 	
 	//Constructeurs
 	public Case() {
-		contenu = 0;
+		this.contenu = 0;
 	}
 	
 	//Méthodes 
@@ -36,8 +36,17 @@ public class Case {
 	 * @param Symbole le symbole du joueur en cours
 	 */
 	public void addSymbole(int symbole) {
-		contenu=symbole;
+		this.contenu=symbole;
 	}
+	
+	public void setCross() {
+		this.contenu=-1;
+	}
+	
+	public void setCircle() {
+		this.contenu=1;
+	}
+	
 	/**
 	 * Si le contenu est egal a 1 renvoie "O"
 	 * Si le contenu est egal a -1 renvoie "X"

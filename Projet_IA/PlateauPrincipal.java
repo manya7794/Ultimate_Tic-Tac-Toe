@@ -15,8 +15,8 @@ public class PlateauPrincipal extends Plateau<PlateauSub>{
 	 * Methode ajoutant les 9 plateaux dans le plateau principal
 	 */
 	public void initialisation() {
-		PlateauSub platSub = new PlateauSub();
 		for(int i = 0 ; i < 9 ; i++) {
+			PlateauSub platSub = new PlateauSub();
 			plateau.add(platSub);
 		}
 	}
@@ -40,7 +40,7 @@ public class PlateauPrincipal extends Plateau<PlateauSub>{
 	public String toString() {
 		StringBuilder tmp= new StringBuilder();
 		
-		tmp.append("|Â¯Â¯Â¯TÂ¯Â¯Â¯TÂ¯Â¯Â¯TTÂ¯Â¯Â¯TÂ¯Â¯Â¯TÂ¯Â¯Â¯TTÂ¯Â¯Â¯TÂ¯Â¯Â¯TÂ¯Â¯Â¯|\n");
+		tmp.append("|¯¯¯T¯¯¯T¯¯¯TT¯¯¯T¯¯¯T¯¯¯TT¯¯¯T¯¯¯T¯¯¯|\n");
 		//tmp.append("|   |   |   ||   |   |   ||   |   |    |\n");
 		tmp.append(plateau.get(0).toString()+plateau.get(1).toString()+plateau.get(2).toString());
 		tmp.append("|___|___|___||___|___|___||___|___|___|\n");

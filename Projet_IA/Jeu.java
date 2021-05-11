@@ -8,10 +8,10 @@ public class Jeu {
 	private PlateauPrincipal plateauP;
 	//private PlateauSub plateauS;
 	private Joueur j1;
-	private Case x;
+	//private Case x;
 	
-	//private Joueur j2;
-	private Case o;
+	private Joueur j2;
+	//private Case o;
 	
 	private Scanner sc;
 	
@@ -23,14 +23,14 @@ public class Jeu {
 		//plateauS = new PlateauSub();
 		//Joueur j1 commence la partie, avec le symbole "X"
 		j1 = new Joueur(true, -1);
-		//Joueur j2, joue en deuxième, avec le sylbole "O"
-		//j2 = new Joueur(false,1);
+		//Joueur j2, joue en deuxieme, avec le sylbole "O"
+		j2 = new Joueur(false,1);
 		
-		x = new Case();
-		x.addSymbole(-1);
+		//x = new Case();
+		//x.addSymbole(-1);
 		
-		o = new Case();
-		o.addSymbole(1);
+	//	o = new Case();
+	//	o.addSymbole(1);
 		
 		sc = new Scanner(System.in);
 	}
@@ -50,11 +50,11 @@ public class Jeu {
 			choixCase = sc.nextInt()-1;
 			
 			if(j1.tour) {
-				plateauP.plateau.get(choixZone).setCase(choixCase, -1);
+				plateauP.plateau.get(choixZone).setCase(choixCase, j1.symbole);
 				j1.tour = false;
 			}
 			else {
-				plateauP.plateau.get(choixZone).setCase(choixCase, 1);
+				plateauP.plateau.get(choixZone).setCase(choixCase, j2.symbole);
 				j1.tour = true;
 			}
 			
