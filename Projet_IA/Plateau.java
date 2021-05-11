@@ -71,16 +71,5 @@ public class Plateau<T> {
 		else
 			return true;
 	}
-	
-	/**
-	 * Methode initialisant les plateaux
-	 * PlateauSub : ajout des 9 cases dans un plateau
-	 * PlateauPrincipal : ajout des 9 plateaux dans le grand plateau
-	 */
-	public void initialisation(T choix) {
-		for(int i = 0 ; i < 9 ; i++) {
-			plateau.add(choix);
-		}
-	}
 
 }
