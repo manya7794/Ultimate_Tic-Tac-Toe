@@ -40,4 +40,16 @@ public class PlateauSub extends Plateau<Case>{
 		derniereCase=pos;
 	}
 	
+	/**
+	 * Renvoie le plateau sous forme de String
+	 */
+	public String toString() {
+		StringBuilder tmp = new StringBuilder();
+		
+		
+		tmp.append("| "+plateau.get(0).toString()+" | "+plateau.get(1).toString()+" | "+plateau.get(2).toString());
+		tmp.append(" || "+plateau.get(3).toString()+" | "+plateau.get(4).toString()+" | "+plateau.get(5).toString()+"");
+		tmp.append(" || "+plateau.get(6).toString()+" | "+plateau.get(7).toString()+" | "+plateau.get(8).toString()+" |\n");
+		return tmp.toString();
+	}
 }

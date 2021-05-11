@@ -25,7 +25,7 @@ public class Plateau<T> {
 	/**
 	 * Vérifie qu'un joueur a rempli une ligne
 	 * 
-	 * @return boolean, true si une ligne est remplie par un męme symbole, false sinon
+	 * @return boolean, true si une ligne est remplie par un meme symbole, false sinon
 	 */
 	public boolean verifZone() {
 		//Premiere ligne
@@ -71,24 +71,5 @@ public class Plateau<T> {
 		else
 			return true;
 	}
-	
-	/**
-	 * Renvoie le plateau sous forme de String
-	 */
-	public String toString() {
-		StringBuilder tmp= new StringBuilder();
-		
-		for(int i=0; i<plateau.size();i++) {
-			tmp.append(plateau.get(i).toString());
-			if((i!=2)||(i!=5)||(i!=8)) {
-				tmp.append("|");
-			}
-			else
-				if((i==2)||(i==5)) {
-					tmp.append("\n_____\n");
-				}
-		}
-		tmp.append("\n");
-		return tmp.toString();
-	}
+
 }

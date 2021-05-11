@@ -45,6 +45,6 @@ public class Case {
 		else if(contenu==-1)
 			return "X";
 			else
-				return "";
+				return " ";
 	}
 }
