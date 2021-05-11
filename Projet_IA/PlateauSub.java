@@ -9,9 +9,20 @@ public class PlateauSub extends Plateau<Case>{
 	//Constructeur
 	public PlateauSub() {
 		plateau = new ArrayList<Case>();
+		initialisation();
 	}
 	
 	//Methodes
+	
+	/**
+	 * Methode ajoutant les 9 cases dans le plateau 
+	 */
+	public void initialisation() {
+		Case laCase = new Case();
+		for(int i = 0 ; i < 9 ; i++) {
+			plateau.add(laCase);
+		}
+	}
 	
 	/**
 	 * Methode renvoyant la case choisie par l'utilisateur
