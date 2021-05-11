@@ -7,6 +7,7 @@ public class PlateauPrincipal extends Plateau<PlateauSub>{
 	//Constructeur
 	public PlateauPrincipal() {
 		plateau= new ArrayList<PlateauSub>();
+		initialisation();
 	}
 	
 	//Methodes
@@ -39,7 +40,7 @@ public class PlateauPrincipal extends Plateau<PlateauSub>{
 	public String toString() {
 		StringBuilder tmp= new StringBuilder();
 		
-		tmp.append("|¯¯¯T¯¯¯T¯¯¯TT¯¯¯T¯¯¯T¯¯¯TT¯¯¯T¯¯¯T¯¯¯|\n");
+		tmp.append("|Â¯Â¯Â¯TÂ¯Â¯Â¯TÂ¯Â¯Â¯TTÂ¯Â¯Â¯TÂ¯Â¯Â¯TÂ¯Â¯Â¯TTÂ¯Â¯Â¯TÂ¯Â¯Â¯TÂ¯Â¯Â¯|\n");
 		//tmp.append("|   |   |   ||   |   |   ||   |   |    |\n");
 		tmp.append(plateau.get(0).toString()+plateau.get(1).toString()+plateau.get(2).toString());
 		tmp.append("|___|___|___||___|___|___||___|___|___|\n");
