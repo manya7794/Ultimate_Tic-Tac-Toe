@@ -63,4 +63,19 @@ public class PlateauSub extends Plateau<Case>{
 		tmp.append(" || "+plateau.get(6).toString()+" | "+plateau.get(7).toString()+" | "+plateau.get(8).toString()+" |\n");
 		return tmp.toString();
 	}
+	
+	public String affiche() {
+		StringBuilder tmp= new StringBuilder();
+		
+		//tmp.append("__________\n");
+		tmp.append(" "+plateau.get(0).toString()+"|"+plateau.get(1).toString()+"|"+plateau.get(2).toString()+"\n");
+		tmp.append(" -+-+-\n");
+		tmp.append(" "+plateau.get(3).toString()+"|"+plateau.get(4).toString()+"|"+plateau.get(5).toString()+"\n");
+		tmp.append(" +-+-\n");
+		tmp.append(" "+plateau.get(6).toString()+"|"+plateau.get(7).toString()+"|"+plateau.get(8).toString()+"\n");
+		
+		
+		tmp.append("\n");
+		return tmp.toString();
+	}
 }

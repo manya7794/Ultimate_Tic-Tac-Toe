@@ -8,7 +8,7 @@ public class TestPlateauSub {
 			Case c = new Case();
 			plat.getPlateau().add(c);
 		}
-		System.out.println(plat.toString());
+		System.out.println(plat.affiche());
 	}
 
 }
