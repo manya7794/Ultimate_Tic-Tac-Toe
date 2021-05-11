@@ -52,6 +52,16 @@ public class PlateauSub extends Plateau<Case>{
 	}
 	
 	/**
+	 * Methode ajoutant le symbole à la position donnée
+	 * 
+	 * @param pos : la position de la case dans le plateau
+	 * @param symbole : le symbole "X" (-1) ou "O" (1)
+	 */
+	public void setCase(int pos, int symbole) {
+		plateau.get(pos).addSymbole(symbole);
+	}
+	
+	/**
 	 * Renvoie le plateau sous forme de String
 	 */
 	public String toString() {
