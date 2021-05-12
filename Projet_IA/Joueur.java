@@ -22,6 +22,7 @@ public class Joueur {
 	public void cocheCase(PlateauSub plat) {
 		boolean sortie = false;
 		while(!sortie) {
+			//Affichage des instructions
 			System.out.println("Cochez une case :\n");
 			System.out.println("1|2|3\n");
 			System.out.println("_____\n");
@@ -36,7 +37,7 @@ public class Joueur {
 			boolean libre =	plat.getCase(choix).verifContenu();
 			if(libre) {
 				//Ajoute le symbole
-				plat.getCase(choix).addSymbole(symbole);
+				plat.getCase(choix).setSymbole(symbole);
 				//Met en memoire la position de la case
 				plat.setDerniereCase(choix);
 				//Sortie de la boucle

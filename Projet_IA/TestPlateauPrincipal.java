@@ -13,6 +13,13 @@ public class TestPlateauPrincipal {
 			plat.plateau.add(platSub);
 		}
 		System.out.println(plat.toString());
+		
+		//Ajout de symbole
+		plat.getPlateau().get(2).getCase(1).setCross();
+		plat.getPlateau().get(2).getCase(2).setCross();
+		plat.getPlateau().get(2).getCase(3).setCircle();
+		System.out.println(plat.toString1());
+		System.out.println(plat.getPlateau().get(2).affiche());
 	}
 
 }

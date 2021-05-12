@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class PlateauSub extends Plateau<Case>{
 	//Attributs
+	
+	//Derniere case remplie par un joueur dans cette zone
 	private int derniereCase;
 	
 	//Constructeur
@@ -53,13 +55,13 @@ public class PlateauSub extends Plateau<Case>{
 	}
 	
 	/**
-	 * Methode ajoutant le symbole à la position donnée
+	 * Methode ajoutant le symbole a� la position donnee
 	 * 
 	 * @param pos : la position de la case dans le plateau
 	 * @param symbole : le symbole "X" (-1) ou "O" (1)
 	 */
 	public void setCase(int pos, int symbole) {
-		plateau.get(pos).addSymbole(symbole);
+		plateau.get(pos).setSymbole(symbole);
 	}
 	
 	/**
@@ -83,17 +85,89 @@ public class PlateauSub extends Plateau<Case>{
 	public String affiche() {
 		StringBuilder tmp= new StringBuilder();
 		
-		//tmp.append("__________\n");
-		tmp.append(" "+addNumber(plateau.get(0),1)+"|"+addNumber(plateau.get(1),2)+"|"+addNumber(plateau.get(2),3)+"\n");
+		tmp.append(" "+showCase(plateau.get(0),1)+"|"+showCase(plateau.get(1),2)+"|"+showCase(plateau.get(2),3)+"\n");
 		tmp.append(" -+-+-\n");
-		tmp.append(" "+addNumber(plateau.get(3),4)+"|"+addNumber(plateau.get(4),5)+"|"+addNumber(plateau.get(5),6)+"\n");
+		tmp.append(" "+showCase(plateau.get(3),4)+"|"+showCase(plateau.get(4),5)+"|"+showCase(plateau.get(5),6)+"\n");
 		tmp.append(" -+-+-\n");
-		tmp.append(" "+addNumber(plateau.get(6),7)+"|"+addNumber(plateau.get(7),8)+"|"+addNumber(plateau.get(8),9)+"\n");
+		tmp.append(" "+showCase(plateau.get(6),7)+"|"+showCase(plateau.get(7),8)+"|"+showCase(plateau.get(8),9)+"\n");
 		
 		
 		tmp.append("\n");
 		return tmp.toString();
 	}
+	
+	/**
+	 * Affiche une ligne de la zone
+	 * @param ligne Numero de la ligne a afficher
+	 * @return String contenant la ligne a afficher
+	 */
+	public String afficheLigne(int ligne) {
+		//Premiere ligne
+		if(ligne==1) {
+			//Cas ou la zone est gagnee
+			if (verifZone()) {
+				int gagnant = getSymboleGagnant();
+				
+				//Cas ou le symbole est une croix
+				if (gagnant==-1) {
+					return "| "+gagnant+" |   | "+gagnant+" |";
+				}
+					
+				//Cas ou le symbole est un cercle
+				else {
+					return "| "+gagnant+" | "+gagnant+" | "+gagnant+" |";
+				}	
+			}
+			//Cas ou la zone est remplie ou contient encore de l'espace
+			else {
+				return "| "+showCase(plateau.get(0))+" | "+showCase(plateau.get(1))+" | "+showCase(plateau.get(2))+" |";	
+			}
+		}
+		
+		//Deuxieme ligne
+		else if(ligne==2) {
+			//Cas ou la zone est gagnee
+			if(verifZone()) {
+				int gagnant= getSymboleGagnant();
+				
+				//Cas ou le symbole est une croix
+				if (gagnant==-1) {
+					return "|   | "+gagnant+" |   |";
+				}
+					
+				//Cas ou le symbole est un cercle
+				else {
+					return "| "+gagnant+" |   | "+gagnant+" |";
+				}	
+			}
+			//Cas ou la zone est remplie ou contient encore de l'espace
+			else {
+				return "| "+showCase(plateau.get(3))+" | "+showCase(plateau.get(4))+" | "+showCase(plateau.get(5))+" |";
+			}
+		}
+		
+		//Troisieme ligne
+		else
+			//Cas ou la zone est gagnee
+			if(verifZone()) {
+				int gagnant= getSymboleGagnant();
+				
+				//Cas ou le symbole est une croix
+				if (gagnant==-1) {
+					return "| "+gagnant+" |   | "+gagnant+" |";
+				}
+					
+				//Cas ou le symbole est un cercle
+				else {
+					return "| "+gagnant+" | "+gagnant+" | "+gagnant+" |";
+				}	
+			}
+			//Cas ou la zone est remplie ou contient encore de l'espace
+			else {
+				return "| "+showCase(plateau.get(6))+" | "+showCase(plateau.get(7))+" | "+showCase(plateau.get(8))+" |";
+			}
+	}
+	
 	/**
 	 * Methode renvoyant un String correspondant au symbole ou a la position de la case dans la zone
 	 * 
@@ -101,16 +175,39 @@ public class PlateauSub extends Plateau<Case>{
 	 * @param pos Position de la case dans la zone
 	 * @return Un String correspondant au numero de la case dans la zone ou de son symbole
 	 */
-	public String addNumber(Case c, int pos) {
+	public String showCase(Case c, int pos) {
 		if (c.getContenu()==0) {
 			String tmp = Integer.toString(pos);
 			return tmp;
 		}
 		else
+			//Cas ou le contenu est egal a -1
 			if(c.getContenu()==-1)
 				return "X";
+			//Cas ou le contenu est egal a 1
 			else
 				return "O";
+			
+	}
+	
+	/**
+	 * Methode renvoyant un String contenant le symbole de la case 
+	 * ou un espace si celle-ci est vide
+	 * 
+	 * @param c la case a examiner
+	 * @return Un String contenant le symbole de la case ou un espace
+	 */
+	public String showCase(Case c) {
+		//Cas ou le contenu est egal a -1
+		if(c.getContenu()==-1)
+			return "X";
+		//Cas ou le contenu est egal a 1
+		else if(c.getContenu()==1) {
+			return "O";
+		}
+		else {
+			return " ";
+		}
 			
 	}
 }

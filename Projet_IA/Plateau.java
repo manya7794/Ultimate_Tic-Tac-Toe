@@ -6,6 +6,9 @@ public class Plateau<T> {
 	//Attributs
 	protected ArrayList<T> plateau;
 	
+	//Symbole gagnant la zone
+	protected int symboleGagnant=0;
+	
 	//Constructeurs
 	public Plateau() {
 		plateau = new ArrayList<T>();
@@ -23,7 +26,7 @@ public class Plateau<T> {
 	}
 	
 	/**
-	 * Vérifie qu'un joueur a rempli une ligne
+	 * Verifie qu'un joueur a rempli une ligne
 	 * 
 	 * @return boolean, true si une ligne est remplie par un meme symbole, false sinon
 	 */
@@ -71,5 +74,20 @@ public class Plateau<T> {
 		else
 			return true;
 	}
-
+	
+	/**
+	 * Methode changeant le symbole gagnant
+	 * @param symbole du joueur gagnant le plateau
+	 */
+	protected void setSymboleGagnant (int symbole) {
+		symboleGagnant=symbole;
+	}
+	
+	/**
+	 * Methode renvoyant le symbole gagant
+	 * @return symbole du joueur gagnant le plateau
+	 */
+	protected int getSymboleGagnant () {
+		return symboleGagnant;
+	}
 }

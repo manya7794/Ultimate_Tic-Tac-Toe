@@ -35,14 +35,20 @@ public class Case {
 	 * 
 	 * @param Symbole le symbole du joueur en cours
 	 */
-	public void addSymbole(int symbole) {
+	public void setSymbole(int symbole) {
 		this.contenu=symbole;
 	}
 	
+	/**
+	 * Ecrit un symbole croix dans la case
+	 */
 	public void setCross() {
 		this.contenu=-1;
 	}
 	
+	/**
+	 * Ecrit un symbole cercle dans la case
+	 */
 	public void setCircle() {
 		this.contenu=1;
 	}
