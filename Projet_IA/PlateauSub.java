@@ -55,7 +55,7 @@ public class PlateauSub extends Plateau<Case>{
 	}
 	
 	/**
-	 * Methode ajoutant le symbole a  la position donnee
+	 * Methode ajoutant le symbole aÂ  la position donnee
 	 * 
 	 * @param pos : la position de la case dans le plateau
 	 * @param symbole : le symbole "X" (-1) ou "O" (1)
@@ -209,5 +209,71 @@ public class PlateauSub extends Plateau<Case>{
 			return " ";
 		}
 			
+	}
+	
+	/**
+	 * Verifie qu'un joueur a rempli une ligne
+	 * 
+	 * @return boolean, true si une ligne est remplie par un meme symbole, false sinon
+	 */
+	public boolean verifZone() {
+		//Premiere ligne
+		if(plateau.get(0).getContenu()!=0 && plateau.get(1).getContenu()!=0 && plateau.get(2).getContenu()!=0) {
+			if((plateau.get(0).getContenu()==plateau.get(1).getContenu()) && (plateau.get(0).getContenu()==plateau.get(2).getContenu()))
+				return true;
+		}
+		//Deuxieme ligne
+		if(plateau.get(3).getContenu()!=0 && plateau.get(4).getContenu()!=0 && plateau.get(5).getContenu()!=0) {
+			if((plateau.get(3).getContenu()==plateau.get(4).getContenu()) && (plateau.get(3).getContenu()==plateau.get(5).getContenu()))
+				return true;
+		}
+		//Troisieme ligne
+		if(plateau.get(6).getContenu()!=0 && plateau.get(7).getContenu()!=0 && plateau.get(8).getContenu()!=0) {
+			if((plateau.get(6).getContenu()==plateau.get(7).getContenu()) && (plateau.get(6).getContenu()==plateau.get(8).getContenu()))
+				return true;
+		}
+		//Premiere colonne
+		if(plateau.get(0).getContenu()!=0 && plateau.get(3).getContenu()!=0 && plateau.get(6).getContenu()!=0) {
+			if((plateau.get(0).getContenu()==plateau.get(3).getContenu()) && (plateau.get(0).getContenu()==plateau.get(6).getContenu()))
+				return true;
+		}
+		//Deuxieme colonne
+		if(plateau.get(1).getContenu()!=0 && plateau.get(4).getContenu()!=0 && plateau.get(7).getContenu()!=0) {
+			if((plateau.get(1).getContenu()==plateau.get(4).getContenu()) && (plateau.get(1).getContenu()==plateau.get(7).getContenu()))
+				return true;
+		}
+		//Troisieme colonne
+		if(plateau.get(2).getContenu()!=0 && plateau.get(5).getContenu()!=0 && plateau.get(8).getContenu()!=0) {
+			if((plateau.get(2).getContenu()==plateau.get(5).getContenu()) && (plateau.get(2).getContenu()==plateau.get(8).getContenu()))
+				return true;
+		}
+		//Diagonale gauche
+		if(plateau.get(4).getContenu()!=0 && plateau.get(0).getContenu()!=0 && plateau.get(8).getContenu()!=0) {
+			if((plateau.get(4).getContenu()==plateau.get(0).getContenu()) && (plateau.get(4).getContenu()==plateau.get(8).getContenu()))
+				return true;
+		}
+		//Diagonale droite
+		if(plateau.get(4).getContenu()!=0 && plateau.get(2).getContenu()!=0 && plateau.get(6).getContenu()!=0) {
+			if((plateau.get(4).getContenu()==plateau.get(2).getContenu()) && (plateau.get(4).getContenu()==plateau.get(6).getContenu()))
+				return true;
+		}
+		
+		return false;
+	}
+	
+	/**
+	 * Verifie si la zone est remplie ou non
+	 * 
+	 * @return boolean, true si la zone est remplie donc si les 9 cases contiennent un symbole, false sinon
+	 */
+	public boolean verifZoneRemplie() {
+		//Verifie que toutes les cases sont remplies, donc non vide
+		if(	plateau.get(0).getContenu()==0 || plateau.get(1).getContenu()==0 || plateau.get(2).getContenu()==0 ||
+			plateau.get(3).getContenu()==0 || plateau.get(4).getContenu()==0 || plateau.get(5).getContenu()==0 ||
+			plateau.get(6).getContenu()==0 || plateau.get(7).getContenu()==0 || plateau.get(8).getContenu()==0
+		)
+			return false;
+		else
+			return true;
 	}
 }
