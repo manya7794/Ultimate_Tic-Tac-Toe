@@ -37,6 +37,7 @@ public class PlateauPrincipal extends Plateau<PlateauSub>{
 	/**
 	 * Renvoie le plateau sous forme de String
 	 */
+	/*
 	public String toString() {
 		StringBuilder tmp= new StringBuilder();
 		
@@ -55,8 +56,8 @@ public class PlateauPrincipal extends Plateau<PlateauSub>{
 		tmp.append("\n");
 		return tmp.toString();
 	}
-	
-	public String toString1() {
+	*/
+	public String toString() {
 		StringBuilder tmp = new StringBuilder();
 		tmp.append("|¯¯¯T¯¯¯T¯¯¯TT¯¯¯T¯¯¯T¯¯¯TT¯¯¯T¯¯¯T¯¯¯|\n");
 		tmp.append(plateau.get(0).afficheLigne(1)+plateau.get(1).afficheLigne(1)+plateau.get(2).afficheLigne(1)+"\n");

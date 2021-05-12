@@ -17,9 +17,9 @@ public class TestPlateauPrincipal {
 		//Ajout de symbole
 		plat.getPlateau().get(2).getCase(1).setCross();
 		plat.getPlateau().get(2).getCase(2).setCross();
-		plat.getPlateau().get(2).getCase(3).setCircle();
-		System.out.println(plat.toString1());
-		System.out.println(plat.getPlateau().get(2).affiche());
+		plat.getPlateau().get(7).getCase(7).setCircle();
+		System.out.println(plat.toString());
+		System.out.println(plat.getPlateau().get(7).affiche());
 	}
 
 }

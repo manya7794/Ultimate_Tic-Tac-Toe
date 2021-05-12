@@ -45,8 +45,8 @@ public class Jeu {
 		System.out.println("\nTour de X\n");
 		int choixZone = sc.nextInt()-1;
 		int choixCase = choixZone;
-		boolean choixC = true;
-		boolean choixZ = true;
+		boolean choixC = false;
+		boolean choixZ = false;
 		//Tant que le plateau principal est jouable, la partie n'est pas terminee
 		while(!plateauP.verifZone() || !plateauP.verifZoneRemplie()) {
 
@@ -62,7 +62,7 @@ public class Jeu {
 			while(!choixZ) {
 				affichageChoixZone();
 				choixZone = sc.nextInt()-1;
-				//Verifie si la Zone choisit est libre, donc jouable
+				//Verifie si la Zone choisie est libre, donc jouable
 				if( !plateauP.getPlateau().get(choixZone).verifZone() || plateauP.getPlateau().get(choixZone).verifZoneRemplie()) {
 					choixZ = true;
 				}
@@ -72,27 +72,37 @@ public class Jeu {
 			}
 			choixZ = false;
 			
-			while(choixC) {
+			while(!choixC) {
 				affichageZone(choixZone);
 				choixCase = sc.nextInt()-1;
+				//Verifie que la case est vide
 				if(plateauP.getPlateau().get(choixZone).getCase(choixCase).verifContenu()) {
-					choixC = false;
-				}
-				else
 					choixC = true;
+				}
+				//Case deja remplie
+				else
+					choixC = false;
 			}
-			choixC = true;
+			choixC = false;
+			
+			//Tour du joueur 1
 			if(j1.tour) {
+				//Affiche la zone en cours et le choix de la case du joueur en cours
 				System.out.println("choixZ : "+choixZone+" choixC : "+ choixCase);
 				//plateauP.getPlateau().get(choixZone).setCase(choixCase, j1.symbole);
 				plateauP.getPlateau().get(choixZone).getCase(choixCase).setCross();
+				//Desactive le tour du joueur 1
 				j1.tour = false;
 				System.out.println("\nTour de O\n");
 			}
+			
+			//Tour du joueur 2
 			else {
+				//Affiche la zone en cours et le choix de la case du joueur en cours
 				System.out.println("choixZ : "+choixZone+" choixC : "+ choixCase);
 				//plateauP.getPlateau().get(choixZone).setCase(choixCase, j2.symbole);
 				plateauP.getPlateau().get(choixZone).getCase(choixCase).setCircle();
+				//Active le tour du joueur 1
 				j1.tour = true;
 				System.out.println("\nTour de X\n");
 			}
@@ -106,7 +116,9 @@ public class Jeu {
 	 * Methode affichant le plateau principal 
 	 */
 	public void affichageChoixZone() {
+		//Affichage du plateau de jeu complet
 		System.out.println(plateauP.toString());
+		//Instructions
 		System.out.println("\nVeuillez choisir la zone sur lequel vous voulez jouer (1-9) : \n");
 	}
 	
@@ -117,9 +129,11 @@ public class Jeu {
 	 */
 	public void affichageZone(int choix) {
 		int affiche = choix + 1;
+		//Affichage du plateau de jeu complet
 		System.out.println(plateauP.toString());
+		//Numero de la zone affichee
 		System.out.println("\nZone "+affiche+"\n");
-		System.out.println(plateauP.plateau.get(choix).affiche());
+		System.out.println(plateauP.getPlateau().get(choix).affiche());
 		System.out.println("\nVeuillez choisir la case sur lequel vous voulez jouer (1-9) : \n");
 	}
 	
