@@ -37,26 +37,6 @@ public class PlateauPrincipal extends Plateau<PlateauSub>{
 	/**
 	 * Renvoie le plateau sous forme de String
 	 */
-	/*
-	public String toString() {
-		StringBuilder tmp= new StringBuilder();
-		
-		tmp.append("|¯¯¯T¯¯¯T¯¯¯TT¯¯¯T¯¯¯T¯¯¯TT¯¯¯T¯¯¯T¯¯¯|\n");
-		//tmp.append("|   |   |   ||   |   |   ||   |   |    |\n");
-		tmp.append(plateau.get(0).toString()+plateau.get(1).toString()+plateau.get(2).toString());
-		tmp.append("|___|___|___||___|___|___||___|___|___|\n");
-		tmp.append("|¯¯¯|¯¯¯|¯¯¯||¯¯¯|¯¯¯|¯¯¯||¯¯¯|¯¯¯|¯¯¯|\n");
-		tmp.append(plateau.get(3).toString()+plateau.get(4).toString()+plateau.get(5).toString());
-		tmp.append("|___|___|___||___|___|___||___|___|___|\n");
-		tmp.append("|¯¯¯|¯¯¯|¯¯¯||¯¯¯|¯¯¯|¯¯¯||¯¯¯|¯¯¯|¯¯¯|\n");
-		tmp.append(plateau.get(6).toString()+plateau.get(7).toString()+plateau.get(8).toString());
-		tmp.append("|___|___|___||___|___|___||___|___|___|");
-		
-		
-		tmp.append("\n");
-		return tmp.toString();
-	}
-	*/
 	public String toString() {
 		StringBuilder tmp = new StringBuilder();
 		tmp.append("|¯¯¯T¯¯¯T¯¯¯TT¯¯¯T¯¯¯T¯¯¯TT¯¯¯T¯¯¯T¯¯¯|\n");
