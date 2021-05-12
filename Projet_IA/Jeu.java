@@ -43,12 +43,27 @@ public class Jeu {
 	public void joueurVersusJoueur() {
 		affichageChoixZone();
 		int choixZone = sc.nextInt()-1;
-		int choixCase;
+		int choixCase = 0;
+		boolean choixC = false;
+		boolean choixZ = true;
 		//Tant que le plateau principal est jouable, la partie n'est pas terminee
 		while(plateauP.verifZone() || plateauP.verifZoneRemplie()) {
-			affichageZone(choixZone);
-			choixCase = sc.nextInt()-1;
-			
+			while(choixZ) {
+				if(plateauP.plateau.get(choixZone).verifZone() || plateauP.plateau.get(choixZone).verifZoneRemplie()) {
+					affichageChoixZone();
+					choixZone = sc.nextInt()-1;
+					choixZ = false;
+				}
+				else
+					choixZ = true;
+			}
+			while(choixC) {
+				affichageZone(choixZone);
+				choixCase = sc.nextInt()-1;
+				if(plateauP.plateau.get(choixZone).getCase(choixCase).verifContenu()) {
+					choixC = true;
+				}
+			}
 			if(j1.tour) {
 				plateauP.plateau.get(choixZone).setCase(choixCase, j1.symbole);
 				j1.tour = false;
