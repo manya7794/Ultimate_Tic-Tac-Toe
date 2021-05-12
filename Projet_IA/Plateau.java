@@ -38,7 +38,7 @@ public class Plateau<T> {
 		if(plateau.get(3).equals(plateau.get(4)) && plateau.get(3).equals(plateau.get(5)))
 			return true;
 		//Troisieme ligne
-		if(plateau.get(6).equals(plateau.get(7)) && plateau.get(6).equals(plateau.get(7)))
+		if(plateau.get(6).equals(plateau.get(7)) && plateau.get(6).equals(plateau.get(8)))
 			return true;
 		//Premiere colonne
 		if(plateau.get(0).equals(plateau.get(3)) && plateau.get(0).equals(plateau.get(6)))
@@ -47,7 +47,7 @@ public class Plateau<T> {
 		if(plateau.get(1).equals(plateau.get(4)) && plateau.get(1).equals(plateau.get(7)))
 			return true;
 		//Troisieme colonne
-		if(plateau.get(2).equals(plateau.get(5)) && plateau.get(0).equals(plateau.get(8)))
+		if(plateau.get(2).equals(plateau.get(5)) && plateau.get(2).equals(plateau.get(8)))
 			return true;
 		//Diagonale gauche
 		if(plateau.get(4).equals(plateau.get(0)) && plateau.get(4).equals(plateau.get(8)))
@@ -67,8 +67,8 @@ public class Plateau<T> {
 	public boolean verifZoneRemplie() {
 		//Verifie que toutes les cases sont remplies, donc non vide
 		if(	plateau.get(0).equals(0) || plateau.get(1).equals(0) || plateau.get(2).equals(0) ||
-			plateau.get(0).equals(3) || plateau.get(4).equals(0) || plateau.get(5).equals(0) ||
-			plateau.get(0).equals(6) || plateau.get(7).equals(0) || plateau.get(8).equals(0) 
+			plateau.get(3).equals(0) || plateau.get(4).equals(0) || plateau.get(5).equals(0) ||
+			plateau.get(6).equals(0) || plateau.get(7).equals(0) || plateau.get(8).equals(0)
 		)
 			return false;
 		else
