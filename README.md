@@ -5,7 +5,7 @@
 - Modifier PlateauPrincipal pour prendre en compte le changement de zone entre chaque tour (fait dans la méthode JVJ dans la classe Jeu)
    - Ajout d'un attribut dans PlateauSub pour signifier que le plateau n'est plus utilisable (gagné ou rempli) 
 
-Chiffres inversés :
+Chiffres inversés dans le testJeu (Aucun souci dans la classe PlateauPrincipal; tests effectués) :
 - 9 - 8 - 7
 - 6 - 5 - 4
 - 3 - 2 - 1
