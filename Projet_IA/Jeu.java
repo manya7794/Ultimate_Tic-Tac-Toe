@@ -44,7 +44,7 @@ public class Jeu {
 		affichageChoixZone();
 		System.out.println("\nTour de X\n");
 		int choixZone = sc.nextInt()-1;
-		int choixCase = 0;
+		int choixCase = choixZone;
 		boolean choixC = true;
 		boolean choixZ = true;
 		//Tant que le plateau principal est jouable, la partie n'est pas terminee
@@ -116,7 +116,8 @@ public class Jeu {
 	 * @param choix : la zone que l'on veut afficher
 	 */
 	public void affichageZone(int choix) {
-		System.out.println("\nZone "+choix+"\n");
+		int affiche = choix + 1;
+		System.out.println("\nZone "+affiche+"\n");
 		System.out.println(plateauP.plateau.get(choix).affiche());
 		System.out.println("\nVeuillez choisir la case sur lequel vous voulez jouer (1-9) : \n");
 	}
