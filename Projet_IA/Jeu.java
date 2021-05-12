@@ -117,6 +117,7 @@ public class Jeu {
 	 */
 	public void affichageZone(int choix) {
 		int affiche = choix + 1;
+		System.out.println(plateauP.toString());
 		System.out.println("\nZone "+affiche+"\n");
 		System.out.println(plateauP.plateau.get(choix).affiche());
 		System.out.println("\nVeuillez choisir la case sur lequel vous voulez jouer (1-9) : \n");
