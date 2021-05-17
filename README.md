@@ -12,3 +12,5 @@ Chiffres inversés dans le testJeu (Aucun souci dans la classe PlateauPrincipal;
                   
                   
 ![image](https://user-images.githubusercontent.com/72400479/118023431-d44bcd00-b35d-11eb-8c6f-b7c398395662.png)
+
+- Gestion des erreurs (lorsqu'on choisit un nombre en dehors de 0 et 10)
