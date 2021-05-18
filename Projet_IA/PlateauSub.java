@@ -55,7 +55,7 @@ public class PlateauSub extends Plateau<Case>{
 	}
 	
 	/**
-	 * Methode ajoutant le symbole a  la position donnee
+	 * Methode ajoutant le symbole aÂ  la position donnee
 	 * 
 	 * @param pos : la position de la case dans le plateau
 	 * @param symbole : le symbole "X" (-1) ou "O" (1)
@@ -105,7 +105,7 @@ public class PlateauSub extends Plateau<Case>{
 		//Premiere ligne
 		if(ligne==1) {
 			//Cas ou la zone est gagnee
-			if (verifZone()) {
+			if (!verifZone()) {
 				int gagnant = getSymboleGagnant();
 				
 				//Cas ou le symbole est une croix
@@ -127,7 +127,7 @@ public class PlateauSub extends Plateau<Case>{
 		//Deuxieme ligne
 		else if(ligne==2) {
 			//Cas ou la zone est gagnee
-			if(verifZone()) {
+			if(!verifZone()) {
 				int gagnant= getSymboleGagnant();
 				
 				//Cas ou le symbole est une croix
@@ -149,7 +149,7 @@ public class PlateauSub extends Plateau<Case>{
 		//Troisieme ligne
 		else
 			//Cas ou la zone est gagnee
-			if(verifZone()) {
+			if(!verifZone()) {
 				int gagnant= getSymboleGagnant();
 				
 				//Cas ou le symbole est une croix
