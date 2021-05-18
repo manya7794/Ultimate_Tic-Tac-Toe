@@ -8,10 +8,20 @@ public class PlateauSub extends Plateau<Case>{
 	//Derniere case remplie par un joueur dans cette zone
 	private int derniereCase;
 	
+	//Valeur de la zone
+	private Valeur valeur;
+	
 	//Constructeur
 	public PlateauSub() {
 		plateau = new ArrayList<Case>();
 		initialisation();
+		this.valeur=new Valeur();
+	}
+
+	public PlateauSub(int niveau) {
+		plateau = new ArrayList<Case>();
+		initialisation();
+		this.valeur=new Valeur(niveau);
 	}
 	
 	//Methodes
