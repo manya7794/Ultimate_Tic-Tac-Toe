@@ -361,4 +361,33 @@ public class Valeur {
 			plat.getPlateau().get(pos-3).getValeur().setPoids(poidsTmp);
 		}
 	}
+	
+	/**
+	 * Methode ajoutant du poids a la zone si une case adverse se trouve sur un bord
+	 * Utilisee dans les modes intermediaires et difficiles
+	 * @param symboleJoueur Symbole du joueur utilisant la methode
+	 * @param c Case a analyser
+	 */
+	public void caseAdverseBord(int symboleJoueur, Case c) {
+		if(c.getContenu()!=symboleJoueur) {
+			poids+=1;
+		}
+	}
+	
+	/**
+	 * Methode soustrayant du poids a la zone si une case alliee se trouve sur un bord
+	 * Utilisee dans les modes intermediaires et difficiles
+	 * @param symboleJoueur Symbole du joueur utilisant la methode
+	 * @param c Case a analyser
+	 */
+	public void caseAllieeBord(int symboleJoueur, Case c) {
+		if(c.getContenu()==symboleJoueur) {
+			poids-=1;
+		}
+	}
+	
+	
+	public String toString() {
+		return "Valeur de la zone : "+getPoids();
+	}
 }
