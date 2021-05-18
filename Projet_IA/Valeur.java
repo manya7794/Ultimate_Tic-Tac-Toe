@@ -10,21 +10,24 @@ public class Valeur {
 	private int niveau;
 	
 	//Constructeur
+	
 	/**
-	 * Constructeur
-	 * @param niveau
+	 * Cree une entitee valeur avec un niveau d'IA defini
+	 * @param niveau niveau de l'IA
 	 */
 	public Valeur(int niveau) {
 		this.poids=0;
 		this.niveau=niveau;
 	}
 	
+	/**
+	 * Cree
+	 */
 	public Valeur() {
 		this.poids=0;
 		this.niveau=0;
 	}
 	
-<<<<<<< HEAD
 	//Methodes
 	
 	/**
@@ -34,7 +37,8 @@ public class Valeur {
 	 */
 	public int getPoids() {
 		return poids;
-=======
+	}
+	
 	/**
 	 * Methode renvoyant le niveau choisit par l'utilisateur
 	 * 
@@ -42,6 +46,5 @@ public class Valeur {
 	 */
 	public int getNiveau() {
 		return niveau
->>>>>>> refs/remotes/origin/main
 	}
 }
