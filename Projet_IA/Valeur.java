@@ -23,4 +23,13 @@ public class Valeur {
 		this.poids=0;
 		this.niveau=0;
 	}
+	
+	/**
+	 * Methode renvoyant le niveau choisit par l'utilisateur
+	 * 
+	 * @return le niveau choisit
+	 */
+	public int getNiveau() {
+		return niveau
+	}
 }
