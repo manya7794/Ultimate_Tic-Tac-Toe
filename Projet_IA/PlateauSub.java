@@ -13,7 +13,7 @@ public class PlateauSub extends Plateau<Case>{
 
 	//Constructeur
 	public PlateauSub() {
-		plateau = new ArrayList<Case>();
+		super.plateau = new ArrayList<Case>();
 		initialisation();
 		this.valeur=new Valeur();
 	}
@@ -65,7 +65,7 @@ public class PlateauSub extends Plateau<Case>{
 	}
 	
 	/**
-	 * Methode ajoutant le symbole aÂ  la position donnee
+	 * Methode ajoutant le symbole aÂ  la position donnee
 	 * 
 	 * @param pos : la position de la case dans le plateau
 	 * @param symbole : le symbole "X" (-1) ou "O" (1)
@@ -160,7 +160,7 @@ public class PlateauSub extends Plateau<Case>{
 		else
 			//Cas ou la zone est gagnee
 			if(!verifZone()) {
-				int gagnant= getSymboleGagnant();
+				int gagnant = getSymboleGagnant();
 				
 				//Cas ou le symbole est une croix
 				if (gagnant==-1) {
@@ -229,8 +229,10 @@ public class PlateauSub extends Plateau<Case>{
 	public boolean verifZone() {
 		//Premiere ligne
 		if(plateau.get(0).getContenu()!=0 && plateau.get(1).getContenu()!=0 && plateau.get(2).getContenu()!=0) {
-			if((plateau.get(0).getContenu()==plateau.get(1).getContenu()) && (plateau.get(0).getContenu()==plateau.get(2).getContenu()))
+			if((plateau.get(0).getContenu()==plateau.get(1).getContenu()) && (plateau.get(0).getContenu()==plateau.get(2).getContenu())) {
+				//plateau.get(0).setSymbole(plateau.get(0).getContenu());
 				return true;
+			}
 		}
 		//Deuxieme ligne
 		if(plateau.get(3).getContenu()!=0 && plateau.get(4).getContenu()!=0 && plateau.get(5).getContenu()!=0) {
