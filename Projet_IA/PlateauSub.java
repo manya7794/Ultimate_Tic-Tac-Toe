@@ -10,7 +10,7 @@ public class PlateauSub extends Plateau<Case>{
 	
 	//Valeur de la zone
 	private Valeur valeur;
-	//test 1
+
 	//Constructeur
 	public PlateauSub() {
 		plateau = new ArrayList<Case>();
@@ -23,8 +23,7 @@ public class PlateauSub extends Plateau<Case>{
 		initialisation();
 		this.valeur=new Valeur(niveau);
 	}
-	//aa
-	//ccc
+
 	//Methodes
 	
 	/**
