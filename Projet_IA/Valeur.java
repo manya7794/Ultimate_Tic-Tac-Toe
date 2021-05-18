@@ -239,4 +239,126 @@ public class Valeur {
 			plat.getPlateau().get(pos-3).getValeur().setPoids(poidsTmp);
 		}
 	}
+	
+	/**
+	 * Methode soustrayant de la valeur aux zones 
+	 * @param pos
+	 * @param plat
+	 */
+	public void zoneValideeAlliee(int pos, PlateauPrincipal plat) {
+		if (pos==0) {
+			//Changement de valeur de la zone 1
+			int poidsTmp=plat.getPlateau().get(pos+1).getValeur().getPoids();
+			poidsTmp-=5;
+			plat.getPlateau().get(pos+1).getValeur().setPoids(poidsTmp);
+			//Changement de valeur de la zone 3
+			poidsTmp=plat.getPlateau().get(pos+3).getValeur().getPoids();
+			poidsTmp-=5;
+			plat.getPlateau().get(pos+3).getValeur().setPoids(poidsTmp);
+		}
+		if(pos==2) {
+			//Changement de valeur de la zone 1
+			int poidsTmp=plat.getPlateau().get(pos-1).getValeur().getPoids();
+			poidsTmp-=5;
+			plat.getPlateau().get(pos+1).getValeur().setPoids(poidsTmp);
+			//Changement de valeur de la zone 5
+			poidsTmp=plat.getPlateau().get(pos+3).getValeur().getPoids();
+			poidsTmp-=5;
+			plat.getPlateau().get(pos+3).getValeur().setPoids(poidsTmp);
+		}
+		if(pos==6) {
+			//Changement de valeur de la zone 3
+			int poidsTmp=plat.getPlateau().get(pos-3).getValeur().getPoids();
+			poidsTmp-=5;
+			plat.getPlateau().get(pos-3).getValeur().setPoids(poidsTmp);
+			//Changement de valeur de la case 7
+			poidsTmp=plat.getPlateau().get(pos+1).getValeur().getPoids();
+			poidsTmp-=5;
+			plat.getPlateau().get(pos+1).getValeur().setPoids(poidsTmp);
+		}
+		if(pos==8) {
+			//Changement de valeur de la zone 5
+			int poidsTmp=plat.getPlateau().get(pos-3).getValeur().getPoids();
+			poidsTmp-=5;
+			plat.getPlateau().get(pos-3).getValeur().setPoids(poidsTmp);
+			//Changement de valeur de la case 7
+			poidsTmp=plat.getPlateau().get(pos-1).getValeur().getPoids();
+			poidsTmp-=5;
+			plat.getPlateau().get(pos-1).getValeur().setPoids(poidsTmp);
+		}
+		if (pos==1) {
+			//Changement de valeur de la zone 0
+			int poidsTmp=plat.getPlateau().get(pos-1).getValeur().getPoids();
+			poidsTmp-=5;
+			plat.getPlateau().get(pos-1).getValeur().setPoids(poidsTmp);
+			//Changement de valeur de la zone 2
+			poidsTmp=plat.getPlateau().get(pos+1).getValeur().getPoids();
+			poidsTmp-=5;
+			plat.getPlateau().get(pos+1).getValeur().setPoids(poidsTmp);
+			//Changement de valeur de la zone 4
+			poidsTmp=plat.getPlateau().get(pos+3).getValeur().getPoids();
+			poidsTmp-=5;
+			plat.getPlateau().get(pos+3).getValeur().setPoids(poidsTmp);
+		}
+		if (pos==7) {
+			//Changement de valeur de la zone 6
+			int poidsTmp=plat.getPlateau().get(pos-1).getValeur().getPoids();
+			poidsTmp-=5;
+			plat.getPlateau().get(pos-1).getValeur().setPoids(poidsTmp);
+			//Changement de valeur de la zone 8
+			poidsTmp=plat.getPlateau().get(pos+1).getValeur().getPoids();
+			poidsTmp-=5;
+			plat.getPlateau().get(pos+1).getValeur().setPoids(poidsTmp);
+			//Changement de valeur de la zone 4
+			poidsTmp=plat.getPlateau().get(pos-3).getValeur().getPoids();
+			poidsTmp-=5;
+			plat.getPlateau().get(pos-3).getValeur().setPoids(poidsTmp);
+		}
+		if (pos==3) {
+			//Changement de valeur de la zone 4
+			int poidsTmp=plat.getPlateau().get(pos+1).getValeur().getPoids();
+			poidsTmp-=5;
+			plat.getPlateau().get(pos+1).getValeur().setPoids(poidsTmp);
+			//Changement de valeur de la zone 6
+			poidsTmp=plat.getPlateau().get(pos+3).getValeur().getPoids();
+			poidsTmp-=5;
+			plat.getPlateau().get(pos+3).getValeur().setPoids(poidsTmp);
+			//Changement de valeur de la zone 0
+			poidsTmp=plat.getPlateau().get(pos-3).getValeur().getPoids();
+			poidsTmp-=5;
+			plat.getPlateau().get(pos-3).getValeur().setPoids(poidsTmp);
+		}
+		if (pos==5) {
+			//Changement de valeur de la zone 4
+			int poidsTmp=plat.getPlateau().get(pos-1).getValeur().getPoids();
+			poidsTmp-=5;
+			plat.getPlateau().get(pos-1).getValeur().setPoids(poidsTmp);
+			//Changement de valeur de la zone 8
+			poidsTmp=plat.getPlateau().get(pos+3).getValeur().getPoids();
+			poidsTmp-=5;
+			plat.getPlateau().get(pos+3).getValeur().setPoids(poidsTmp);
+			//Changement de valeur de la zone 2
+			poidsTmp=plat.getPlateau().get(pos-3).getValeur().getPoids();
+			poidsTmp-=5;
+			plat.getPlateau().get(pos-3).getValeur().setPoids(poidsTmp);
+		}
+		if (pos==4) {
+			//Changement de valeur de la zone 3
+			int poidsTmp=plat.getPlateau().get(pos-1).getValeur().getPoids();
+			poidsTmp+=5;
+			plat.getPlateau().get(pos-1).getValeur().setPoids(poidsTmp);
+			//Changement de valeur de la zone 5
+			poidsTmp=plat.getPlateau().get(pos+1).getValeur().getPoids();
+			poidsTmp-=5;
+			plat.getPlateau().get(pos+1).getValeur().setPoids(poidsTmp);
+			//Changement de valeur de la zone 7
+			poidsTmp=plat.getPlateau().get(pos+3).getValeur().getPoids();
+			poidsTmp-=5;
+			plat.getPlateau().get(pos+3).getValeur().setPoids(poidsTmp);
+			//Changement de valeur de la zone 1
+			poidsTmp=plat.getPlateau().get(pos-3).getValeur().getPoids();
+			poidsTmp-=5;
+			plat.getPlateau().get(pos-3).getValeur().setPoids(poidsTmp);
+		}
+	}
 }
