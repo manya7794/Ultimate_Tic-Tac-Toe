@@ -23,9 +23,7 @@ public class PlateauSub extends Plateau<Case>{
 		initialisation();
 		this.valeur=new Valeur(niveau);
 	}
-	//dd
-	
-	//ccc
+
 	//Methodes
 	
 	/**
