@@ -4,10 +4,10 @@ public class Valeur {
 	//Attributs
 	
 	//Poids de la zone
-	int poids;
+	private int poids;
 	
 	//Niveau de difficulte de l'ordinateur
-	int niveau;
+	private int niveau;
 	
 	//Constructeur
 	/**
@@ -22,5 +22,16 @@ public class Valeur {
 	public Valeur() {
 		this.poids=0;
 		this.niveau=0;
+	}
+	
+	//Methodes
+	
+	/**
+	 * Methode renvoyant le poids de la zone
+	 * 
+	 * @return le poids de la zone
+	 */
+	public int getPoids() {
+		return poids;
 	}
 }
