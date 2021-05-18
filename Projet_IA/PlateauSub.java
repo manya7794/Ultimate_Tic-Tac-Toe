@@ -115,17 +115,17 @@ public class PlateauSub extends Plateau<Case>{
 		//Premiere ligne
 		if(ligne==1) {
 			//Cas ou la zone est gagnee
-			if (!verifZone()) {
+			if (verifZone()) {
 				int gagnant = getSymboleGagnant();
 				
 				//Cas ou le symbole est une croix
 				if (gagnant==-1) {
-					return "| "+gagnant+" |   | "+gagnant+" |";
+					return "| "+"X"+" |   | "+"X"+" |";
 				}
 					
 				//Cas ou le symbole est un cercle
 				else {
-					return "| "+gagnant+" | "+gagnant+" | "+gagnant+" |";
+					return "| "+"O"+" | "+"O"+" | "+"O"+" |";
 				}	
 			}
 			//Cas ou la zone est remplie ou contient encore de l'espace
@@ -137,17 +137,17 @@ public class PlateauSub extends Plateau<Case>{
 		//Deuxieme ligne
 		else if(ligne==2) {
 			//Cas ou la zone est gagnee
-			if(!verifZone()) {
+			if(verifZone()) {
 				int gagnant= getSymboleGagnant();
 				
 				//Cas ou le symbole est une croix
 				if (gagnant==-1) {
-					return "|   | "+gagnant+" |   |";
+					return "|   | "+"X"+" |   |";
 				}
 					
 				//Cas ou le symbole est un cercle
 				else {
-					return "| "+gagnant+" |   | "+gagnant+" |";
+					return "| "+"O"+" |   | "+"O"+" |";
 				}	
 			}
 			//Cas ou la zone est remplie ou contient encore de l'espace
@@ -159,17 +159,17 @@ public class PlateauSub extends Plateau<Case>{
 		//Troisieme ligne
 		else
 			//Cas ou la zone est gagnee
-			if(!verifZone()) {
+			if(verifZone()) {
 				int gagnant = getSymboleGagnant();
 				
 				//Cas ou le symbole est une croix
 				if (gagnant==-1) {
-					return "| "+gagnant+" |   | "+gagnant+" |";
+					return "| "+"X"+" |   | "+"X"+" |";
 				}
 					
 				//Cas ou le symbole est un cercle
 				else {
-					return "| "+gagnant+" | "+gagnant+" | "+gagnant+" |";
+					return "| "+"O"+" | "+"O"+" | "+"O"+" |";
 				}	
 			}
 			//Cas ou la zone est remplie ou contient encore de l'espace
@@ -230,44 +230,58 @@ public class PlateauSub extends Plateau<Case>{
 		//Premiere ligne
 		if(plateau.get(0).getContenu()!=0 && plateau.get(1).getContenu()!=0 && plateau.get(2).getContenu()!=0) {
 			if((plateau.get(0).getContenu()==plateau.get(1).getContenu()) && (plateau.get(0).getContenu()==plateau.get(2).getContenu())) {
-				//plateau.get(0).setSymbole(plateau.get(0).getContenu());
+				setSymboleGagnant(plateau.get(0).getContenu());
 				return true;
 			}
 		}
 		//Deuxieme ligne
 		if(plateau.get(3).getContenu()!=0 && plateau.get(4).getContenu()!=0 && plateau.get(5).getContenu()!=0) {
-			if((plateau.get(3).getContenu()==plateau.get(4).getContenu()) && (plateau.get(3).getContenu()==plateau.get(5).getContenu()))
+			if((plateau.get(3).getContenu()==plateau.get(4).getContenu()) && (plateau.get(3).getContenu()==plateau.get(5).getContenu())) {
+				setSymboleGagnant(plateau.get(3).getContenu());
 				return true;
+			}
 		}
 		//Troisieme ligne
 		if(plateau.get(6).getContenu()!=0 && plateau.get(7).getContenu()!=0 && plateau.get(8).getContenu()!=0) {
-			if((plateau.get(6).getContenu()==plateau.get(7).getContenu()) && (plateau.get(6).getContenu()==plateau.get(8).getContenu()))
+			if((plateau.get(6).getContenu()==plateau.get(7).getContenu()) && (plateau.get(6).getContenu()==plateau.get(8).getContenu())) {
+				setSymboleGagnant(plateau.get(6).getContenu());
 				return true;
+			}
 		}
 		//Premiere colonne
 		if(plateau.get(0).getContenu()!=0 && plateau.get(3).getContenu()!=0 && plateau.get(6).getContenu()!=0) {
-			if((plateau.get(0).getContenu()==plateau.get(3).getContenu()) && (plateau.get(0).getContenu()==plateau.get(6).getContenu()))
+			if((plateau.get(0).getContenu()==plateau.get(3).getContenu()) && (plateau.get(0).getContenu()==plateau.get(6).getContenu())) {
+				setSymboleGagnant(plateau.get(0).getContenu());
 				return true;
+			}
 		}
 		//Deuxieme colonne
 		if(plateau.get(1).getContenu()!=0 && plateau.get(4).getContenu()!=0 && plateau.get(7).getContenu()!=0) {
-			if((plateau.get(1).getContenu()==plateau.get(4).getContenu()) && (plateau.get(1).getContenu()==plateau.get(7).getContenu()))
+			if((plateau.get(1).getContenu()==plateau.get(4).getContenu()) && (plateau.get(1).getContenu()==plateau.get(7).getContenu())) {
+				setSymboleGagnant(plateau.get(1).getContenu());
 				return true;
+			}
 		}
 		//Troisieme colonne
 		if(plateau.get(2).getContenu()!=0 && plateau.get(5).getContenu()!=0 && plateau.get(8).getContenu()!=0) {
-			if((plateau.get(2).getContenu()==plateau.get(5).getContenu()) && (plateau.get(2).getContenu()==plateau.get(8).getContenu()))
+			if((plateau.get(2).getContenu()==plateau.get(5).getContenu()) && (plateau.get(2).getContenu()==plateau.get(8).getContenu())) {
+				setSymboleGagnant(plateau.get(2).getContenu());
 				return true;
+			}
 		}
 		//Diagonale gauche
 		if(plateau.get(4).getContenu()!=0 && plateau.get(0).getContenu()!=0 && plateau.get(8).getContenu()!=0) {
-			if((plateau.get(4).getContenu()==plateau.get(0).getContenu()) && (plateau.get(4).getContenu()==plateau.get(8).getContenu()))
+			if((plateau.get(4).getContenu()==plateau.get(0).getContenu()) && (plateau.get(4).getContenu()==plateau.get(8).getContenu())) {
+				setSymboleGagnant(plateau.get(4).getContenu());
 				return true;
+			}
 		}
 		//Diagonale droite
 		if(plateau.get(4).getContenu()!=0 && plateau.get(2).getContenu()!=0 && plateau.get(6).getContenu()!=0) {
-			if((plateau.get(4).getContenu()==plateau.get(2).getContenu()) && (plateau.get(4).getContenu()==plateau.get(6).getContenu()))
+			if((plateau.get(4).getContenu()==plateau.get(2).getContenu()) && (plateau.get(4).getContenu()==plateau.get(6).getContenu())) {
+				setSymboleGagnant(plateau.get(4).getContenu());
 				return true;
+			}
 		}
 		
 		return false;
