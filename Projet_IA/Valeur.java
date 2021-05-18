@@ -10,6 +10,10 @@ public class Valeur {
 	int niveau;
 	
 	//Constructeur
+	/**
+	 * Constructeur
+	 * @param niveau
+	 */
 	public Valeur(int niveau) {
 		this.poids=0;
 		this.niveau=niveau;

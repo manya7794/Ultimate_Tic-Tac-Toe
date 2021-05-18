@@ -17,7 +17,7 @@ public class PlateauSub extends Plateau<Case>{
 		initialisation();
 		this.valeur=new Valeur();
 	}
-
+//dd
 	public PlateauSub(int niveau) {
 		plateau = new ArrayList<Case>();
 		initialisation();
