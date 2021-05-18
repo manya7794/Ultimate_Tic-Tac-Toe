@@ -3,4 +3,4 @@
 ## A faire
 
 
-- Tester le poids des zones mode facile
+- Tester le poids des zones mode facile (constructeur PlateauSub(1)
