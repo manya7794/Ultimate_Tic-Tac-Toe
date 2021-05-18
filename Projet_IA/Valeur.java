@@ -24,6 +24,7 @@ public class Valeur {
 		this.niveau=0;
 	}
 	
+<<<<<<< HEAD
 	//Methodes
 	
 	/**
@@ -33,5 +34,14 @@ public class Valeur {
 	 */
 	public int getPoids() {
 		return poids;
+=======
+	/**
+	 * Methode renvoyant le niveau choisit par l'utilisateur
+	 * 
+	 * @return le niveau choisit
+	 */
+	public int getNiveau() {
+		return niveau
+>>>>>>> refs/remotes/origin/main
 	}
 }
