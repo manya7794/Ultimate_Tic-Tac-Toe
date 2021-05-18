@@ -57,6 +57,22 @@ public class PlateauSub extends Plateau<Case>{
 	}
 	
 	/**
+	 * Methode renvoyant la valeur de la zone
+	 * @return la valeur de la zone
+	 */
+	public Valeur getValeur() {
+		return valeur;
+	}
+	
+	/**
+	 * Methode changeant la valeur de la zone par celle entree en parametre
+	 * @param v valeur a appliquer
+	 */
+	public void setValeur(Valeur v) {
+		this.valeur=v;
+	}
+	
+	/**
 	 * Fixe la position de la derniere case a avoir ete modifie
 	 * @param pos numero de la case
 	 */
@@ -65,7 +81,7 @@ public class PlateauSub extends Plateau<Case>{
 	}
 	
 	/**
-	 * Methode ajoutant le symbole aÃ‚  la position donnee
+	 * Methode ajoutant le symbole aÂ  la position donnee
 	 * 
 	 * @param pos : la position de la case dans le plateau
 	 * @param symbole : le symbole "X" (-1) ou "O" (1)
