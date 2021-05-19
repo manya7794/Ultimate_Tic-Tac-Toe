@@ -5,9 +5,9 @@ public class TestPlateauPrincipal {
 	public static void main(String[] args) {
 		PlateauPrincipal plat = new PlateauPrincipal();
 		for(int i=0; i<9;i++) {
-			PlateauSub platSub = new PlateauSub();
+			PlateauSub platSub = new PlateauSub(i);
 			for(int j=0; j<9; j++) {
-				Case c = new Case();
+				Case c = new Case(j);
 				platSub.getPlateau().add(c);
 			}
 			plat.plateau.add(platSub);

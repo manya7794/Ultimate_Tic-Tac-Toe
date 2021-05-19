@@ -11,17 +11,22 @@ public class PlateauSub extends Plateau<Case>{
 	//Valeur de la zone
 	private Valeur valeur;
 
+	//Position de la zone dans le plateau principal
+	private int position;
+	
 	//Constructeur
-	public PlateauSub() {
+	public PlateauSub(int position) {
 		super.plateau = new ArrayList<Case>();
 		initialisation();
 		this.valeur=new Valeur();
+		this.position=position;
 	}
 
-	public PlateauSub(int niveau) {
+	public PlateauSub(int position,int niveau) {
 		plateau = new ArrayList<Case>();
 		initialisation();
 		this.valeur=new Valeur(niveau);
+		this.position=position;
 	}
 
 	//Methodes
@@ -32,7 +37,7 @@ public class PlateauSub extends Plateau<Case>{
 	public void initialisation() {
 		
 		for(int i = 0 ; i < 9 ; i++) {
-			Case Case = new Case();
+			Case Case = new Case(i);
 			plateau.add(Case);
 		}
 	}
@@ -317,5 +322,55 @@ public class PlateauSub extends Plateau<Case>{
 			return false;
 		else
 			return true;
+	}
+	
+	/**
+	 * Methode mettant a jour la valeur de la zone et de ses alentours
+	 * en fonction de son contenu
+	 * @param symboleJoueur Symbole du joueur appliquant la methode
+	 * @param platP Plateau principal ou se trouve la zone de jeu
+	 */
+	public void majValeur(int symboleJoueur, PlateauPrincipal platP) {
+		//ArrayList permettant de verifier la disponibilite des lignes
+		ArrayList<Boolean> verifLignesAdverses= new ArrayList<Boolean>();
+		ArrayList<Boolean> verifLignesAlliees= new ArrayList<Boolean>();
+		for(int i=0;i<8;i++) {
+			verifLignesAdverses.add(false);
+			verifLignesAlliees.add(false);
+		}
+		//Analyse des cases
+		for(Case c : plateau) {
+			//Mise a jour de la valeur pour chaque case adverse presente
+			valeur.caseAdversePresente(symboleJoueur, c);
+			//Mise a jour de la valeur pour chaque case alliee presente
+			valeur.caseAllieePresente(symboleJoueur, c);
+			
+			//Mise a jour de la valeur si des cases sont sur des bords si l'IA est intermediaire ou difficile
+			
+			//Mise a jour de la valeur pour chaque case adverse presente sur les bords
+			valeur.caseAdverseBord(symboleJoueur, c);
+			//Mise a jour de la valeur pour chaque case alliee presente sur les bords
+			valeur.caseAllieeBord(symboleJoueur, c);
+			
+			//Mise a jour de la valeur si des lignes adverses sont possibles
+			valeur.ligneAdversePossible(symboleJoueur, c, this, verifLignesAdverses);
+			//Mise a jour de la valeur si des lignes alliees sont possibles
+			valeur.ligneAllieePossible(symboleJoueur, c, this, verifLignesAlliees);
+		}
+		
+		//Cas ou la zone est gagnee par un joueur
+		if(verifZone()) {
+			//Cas ou l'adversaire a rempli la zone
+			if(getSymboleGagnant()!=symboleJoueur) {
+				//Mise a jour de la valeur des zones voisines
+				valeur.zoneValideeAdversaire(position, platP);
+			}
+			
+			//Cas ou la zone est gagnee par le joueur
+			if(getSymboleGagnant()==symboleJoueur) {
+				//Mise a jour des zones voisines
+				valeur.zoneValideeAlliee(position, platP);
+			}
+		}
 	}
 }

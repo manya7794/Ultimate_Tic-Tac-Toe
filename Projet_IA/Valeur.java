@@ -1,5 +1,12 @@
 package Projet_IA;
 
+import java.util.ArrayList;
+
+/**
+ * 
+ * Classe permettant
+ *
+ */
 public class Valeur {
 	//Attributs
 	
@@ -58,31 +65,212 @@ public class Valeur {
 	
 	/**
 	 * Methode augmentant la valeur de la zone si une case adverse est presente
-	 * 
 	 * @param symboleJoueur Symbole du joueur utilsant la methode
 	 * @param c Case a analyser
 	 */
 	public void caseAdversePresente(int symboleJoueur, Case c) {
-		//Niveau facile
-		if(niveau==1) {
 			//S'il s'agit d'une case adverse
-			if(c.getContenu()!=symboleJoueur) {
-				poids+=1;
-			}
+		if(c.getContenu()!=symboleJoueur) {
+			poids+=1;
 		}
 	}
 	
 	/**
 	 * Methode augmentant la valeur de la zone si l'adversaire a une ligne possible
 	 * @param symboleJoueur Symbole du joueur utilisant la methode
-	 * @param c1 Premiere case de la ligne
-	 * @param c2 Seconde case de la ligne
+	 * @param c Case a tester
+	 * @param plat Zone de jeu ou se situe la case
+	 * @param verifDispo ArrayList permettant de verifier que la ligne n'a pas deja ete verifiee
 	 */
-	public void ligneAdversePossible(int symboleJoueur, Case c1, Case c2) {
-		//Niveau facile
-		if(niveau==1) {
-			if(c1.getContenu()==c2.getContenu()) {
-				poids+=5;
+	public void ligneAdversePossible(int symboleJoueur, Case c, PlateauSub plat, ArrayList<Boolean> verifDispo) {
+		if(c.getContenu()!=symboleJoueur) {
+			switch(c.getPosition()) {
+			case 0:
+				//ligne 1
+				if(plat.getCase(1).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				else if(plat.getCase(2).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				//Colonne 1
+				if(plat.getCase(3).getContenu()!=symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(6).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				//Diagonale 1
+				if(plat.getCase(4).getContenu()!=symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(8).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				break;
+			case 1:
+				//ligne 1
+				if(plat.getCase(0).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				else if(plat.getCase(2).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				//Colonne 2
+				if(plat.getCase(4).getContenu()!=symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(7).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				break;
+			case 2:
+				//ligne 1
+				if(plat.getCase(0).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				else if(plat.getCase(1).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				//Colonne 3
+				if(plat.getCase(5).getContenu()!=symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(8).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				//Diagonale 2
+				if(plat.getCase(4).getContenu()!=symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(6).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				break;
+			case 3:
+				//Colonne 1
+				if(plat.getCase(0).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				else if(plat.getCase(6).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				//Ligne 2
+				if(plat.getCase(4).getContenu()!=symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(5).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				break;
+			case 4:
+				//ligne 2
+				if(plat.getCase(3).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				else if(plat.getCase(5).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				//Colonne 2
+				if(plat.getCase(1).getContenu()!=symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(7).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				//Diagonale 1
+				if(plat.getCase(0).getContenu()!=symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(8).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				//Diagonale 2
+				if(plat.getCase(2).getContenu()!=symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(6).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				break;
+			case 5:
+				//ligne 2
+				if(plat.getCase(3).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				else if(plat.getCase(4).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				//Colonne 3
+				if(plat.getCase(2).getContenu()!=symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(8).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				break;
+			case 6:
+				//ligne 3
+				if(plat.getCase(7).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				else if(plat.getCase(8).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				//Colonne 1
+				if(plat.getCase(0).getContenu()!=symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(3).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				//Diagonale 2
+				if(plat.getCase(4).getContenu()!=symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(2).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				break;
+			case 7:
+				//ligne 3
+				if(plat.getCase(6).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				else if(plat.getCase(8).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				//Colonne 2
+				if(plat.getCase(1).getContenu()!=symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(4).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				break;
+			case 8:
+				//ligne 3
+				if(plat.getCase(6).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				else if(plat.getCase(7).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				//Colonne 3
+				if(plat.getCase(2).getContenu()!=symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(5).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				//Diagonale 1
+				if(plat.getCase(4).getContenu()!=symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(0).getContenu()!=symboleJoueur) {
+					poids-=5;
+				}
+				break;
 			}
 		}
 	}
@@ -106,22 +294,207 @@ public class Valeur {
 	/**
 	 * Methode diminuant la valeur de la zone si le joueur a une ligne possible
 	 * @param symboleJoueur Symbole du joueur utilisant la methode
-	 * @param c1 Premiere case de la ligne
-	 * @param c2 Seconde case de la ligne
+	 * @param c Case a tester
+	 * @param plat Zone de jeu ou se situe la case
+	 * @param verifDispo ArrayList permettant de verifier que la ligne n'a pas deja ete verifiee
 	 */
-	public void ligneAllieePossible(int symboleJoueur, Case c1, Case c2) {
-		//Niveau facile
-		if(niveau==1) {
-			if(c1.getContenu()==c2.getContenu()) {
-				poids-=5;
+	public void ligneAllieePossible(int symboleJoueur, Case c, PlateauSub plat, ArrayList<Boolean> verifDispo) {
+		if(c.getContenu()==symboleJoueur) {
+			switch(c.getPosition()) {
+			case 0:
+				//ligne 1
+				if(plat.getCase(1).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				else if(plat.getCase(2).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				//Colonne 1
+				if(plat.getCase(3).getContenu()==symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(6).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				//Diagonale 1
+				if(plat.getCase(4).getContenu()==symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(8).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				break;
+			case 1:
+				//ligne 1
+				if(plat.getCase(0).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				else if(plat.getCase(2).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				//Colonne 2
+				if(plat.getCase(4).getContenu()==symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(7).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				break;
+			case 2:
+				//ligne 1
+				if(plat.getCase(0).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				else if(plat.getCase(1).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				//Colonne 3
+				if(plat.getCase(5).getContenu()==symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(8).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				//Diagonale 2
+				if(plat.getCase(4).getContenu()==symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(6).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				break;
+			case 3:
+				//Colonne 1
+				if(plat.getCase(0).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				else if(plat.getCase(6).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				//Ligne 2
+				if(plat.getCase(4).getContenu()==symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(5).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				break;
+			case 4:
+				//ligne 2
+				if(plat.getCase(3).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				else if(plat.getCase(5).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				//Colonne 2
+				if(plat.getCase(1).getContenu()==symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(7).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				//Diagonale 1
+				if(plat.getCase(0).getContenu()==symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(8).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				//Diagonale 2
+				if(plat.getCase(2).getContenu()==symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(6).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				break;
+			case 5:
+				//ligne 2
+				if(plat.getCase(3).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				else if(plat.getCase(4).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				//Colonne 3
+				if(plat.getCase(2).getContenu()==symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(8).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				break;
+			case 6:
+				//ligne 3
+				if(plat.getCase(7).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				else if(plat.getCase(8).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				//Colonne 1
+				if(plat.getCase(0).getContenu()==symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(3).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				//Diagonale 2
+				if(plat.getCase(4).getContenu()==symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(2).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				break;
+			case 7:
+				//ligne 3
+				if(plat.getCase(6).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				else if(plat.getCase(8).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				//Colonne 2
+				if(plat.getCase(1).getContenu()==symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(4).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				break;
+			case 8:
+				//ligne 3
+				if(plat.getCase(6).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				else if(plat.getCase(7).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				//Colonne 3
+				if(plat.getCase(2).getContenu()==symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(5).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				//Diagonale 1
+				if(plat.getCase(4).getContenu()==symboleJoueur) {
+					poids-=5;
+				} 
+				else if(plat.getCase(0).getContenu()==symboleJoueur) {
+					poids-=5;
+				}
+				break;
 			}
 		}
 	}
 	
 	/**
-	 * Methode ajoutant de la valeur aux zones 
-	 * @param pos
-	 * @param plat
+	 * Methode ajoutant de la valeur aux zones voisines
+	 * @param pos Position de la zone sur le plateau de jeu principal
+	 * @param plat Plateau de jeu principal ou se situe la zone
 	 */
 	public void zoneValideeAdversaire(int pos, PlateauPrincipal plat) {
 		if (pos==0) {
@@ -241,9 +614,9 @@ public class Valeur {
 	}
 	
 	/**
-	 * Methode soustrayant de la valeur aux zones 
-	 * @param pos
-	 * @param plat
+	 * Methode soustrayant de la valeur aux zones voisines
+	 * @param pos Position de la zone sur le plateau de jeu principal
+	 * @param plat Plateau de jeu principal ou se situe la zone
 	 */
 	public void zoneValideeAlliee(int pos, PlateauPrincipal plat) {
 		if (pos==0) {
@@ -369,8 +742,15 @@ public class Valeur {
 	 * @param c Case a analyser
 	 */
 	public void caseAdverseBord(int symboleJoueur, Case c) {
-		if(c.getContenu()!=symboleJoueur) {
-			poids+=1;
+		//Verification du niveau (intermediaire ou difficile)
+		if(niveau>2) {
+			//Verification de la position de la case
+			if((c.getPosition()==0)||(c.getPosition()==2)||(c.getPosition()==6)||(c.getPosition()==8)) {
+				//Verification du contenu de la case
+				if(c.getContenu()!=symboleJoueur) {
+					poids+=1;
+				}
+			}
 		}
 	}
 	
@@ -381,8 +761,15 @@ public class Valeur {
 	 * @param c Case a analyser
 	 */
 	public void caseAllieeBord(int symboleJoueur, Case c) {
-		if(c.getContenu()==symboleJoueur) {
-			poids-=1;
+		//Verification du niveau (intermediaire ou difficile)
+		if(niveau>2) {
+			//Verification de la position de la case
+			if((c.getPosition()==0)||(c.getPosition()==2)||(c.getPosition()==6)||(c.getPosition()==8)) {
+				//Verification du contenu de la case
+				if(c.getContenu()==symboleJoueur) {
+					poids-=1;
+				}
+			}	
 		}
 	}
 	

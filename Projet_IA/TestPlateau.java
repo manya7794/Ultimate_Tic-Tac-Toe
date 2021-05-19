@@ -6,8 +6,8 @@ public class TestPlateau {
 		Plateau plat = new Plateau();
 		System.out.println(plat.toString());
 		
-		PlateauSub plateau = new PlateauSub();
-		System.out.println(plateau.plateau);
+		PlateauSub plateau = new PlateauSub(1);
+		System.out.println(plateau.affiche());
 	}
 
 }

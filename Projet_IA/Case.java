@@ -4,20 +4,34 @@ public class Case {
 	//Attributs
 	private int contenu;
 	
+	//Position de la case sur la zone de jeu
+	private int position;
+	
 	//Constructeurs
-	public Case() {
+	public Case(int position) {
 		this.contenu = 0;
+		this.position=position;
 	}
 	
 	//Méthodes 
 	/**
 	 * Renvoie le contenu de la case 0, -1 ou 1
 	 * 
-	 * @return contenu le contenu de la case
+	 * @return le contenu de la case
 	 */
 	public int getContenu() {
 		return contenu;
 	}
+	
+	/**
+	 * Renvoie la position de la case dans la zone
+	 * ou elle se situe
+	 * @return position de la case
+	 */
+	public int getPosition() {
+		return position;
+	}
+	
 	/**
 	 * Verifie que la case est vide
 	 * 

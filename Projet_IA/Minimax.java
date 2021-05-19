@@ -78,7 +78,12 @@ public class Minimax {
 				//Cas ou il s'agit de la derniere profondeur a analyser
 				else {
 					//Verifier valeur
+					//Appel de la fonction calculant le poids de la zone
+					platSubClone.majValeur(symboleJoueur, platClone);	
+					
+					//Recuperation du poids
 					int poidsZone=platSubClone.getValeur().getPoids();
+					//Cas ou le poids de la zone est superieur au poids final en memoire
 					if(poidsZone>poidsFinal) {
 						poidsFinal=poidsZone;
 					}
@@ -123,7 +128,12 @@ public class Minimax {
 				//Cas ou il s'agit de la derniere profondeur a analyser
 				else {
 					//Verifier valeur
+					//Appel de la fonction calculant le poids de la zone
+					platSubClone.majValeur(symboleJoueur, platClone);	 
+						 
+					//Recuperation du poids
 					int poidsZone=platSubClone.getValeur().getPoids();
+					//Cas ou le poids de la zone est inferieur au poids final en memoire
 					if(poidsZone<poidsFinal) {
 						poidsFinal=poidsZone;
 					}

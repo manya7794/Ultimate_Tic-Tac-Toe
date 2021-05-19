@@ -3,9 +3,9 @@ package Projet_IA;
 public class TestPlateauSub {
 
 	public static void main(String[] args) {
-		PlateauSub plat = new PlateauSub();
+		PlateauSub plat = new PlateauSub(1);
 		for(int i=0; i<9; i++) {
-			Case c = new Case();
+			Case c = new Case(i);
 			plat.getPlateau().add(c);
 		}
 		System.out.println(plat.affiche());

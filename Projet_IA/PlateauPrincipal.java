@@ -24,7 +24,7 @@ public class PlateauPrincipal extends Plateau<PlateauSub>{
 	 */
 	public void initialisation() {
 		for(int i = 0 ; i < 9 ; i++) {
-			PlateauSub platSub = new PlateauSub();
+			PlateauSub platSub = new PlateauSub(i);
 			plateau.add(platSub);
 		}
 	}
