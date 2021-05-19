@@ -10,6 +10,14 @@ public class PlateauPrincipal extends Plateau<PlateauSub>{
 		initialisation();
 	}
 	
+	/**
+	 * Constructeur utilise pour cloner un plateau 
+	 * @param platBis Plateau a cloner
+	 */
+	public PlateauPrincipal(PlateauPrincipal platBis) {
+		this.plateau=(ArrayList<PlateauSub>) platBis.plateau.clone();
+	}
+	
 	//Methodes
 	/**
 	 * Methode ajoutant les 9 plateaux dans le plateau principal
