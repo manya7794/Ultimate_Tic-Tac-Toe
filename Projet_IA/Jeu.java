@@ -7,9 +7,17 @@ public class Jeu {
 	
 	//Attributs
 	private PlateauPrincipal plateauP;
+	
 	private Joueur j1;
+	
 	private Joueur ia;
+	
 	private Minimax minimax;
+	
+	private AlphaBeta alphabeta;
+	
+	private int niveau;
+	
 	private Scanner sc;
 	
 	//Constructeur
@@ -30,20 +38,33 @@ public class Jeu {
 	//Constructeur utilise pour le jouer contre l'IA
 	public Jeu(int niveau) {
 		//Grand Plateau contenant les 9 petits plateaux
-		plateauP = new PlateauPrincipal();
+		plateauP = new PlateauPrincipal(niveau);
+
 		//Joueur j1 commence la partie, avec le symbole "X"
 		j1 = new Joueur(true, -1);
 		//IA, joue en deuxieme, avec le sylbole "O"
 		ia = new Joueur(false,1);
 		
+		this.niveau=niveau;
 		//La profondeur de recherche du minimax depend du niveau
+		
+		//Niveau facile
 		if(niveau == 1) 
 			minimax = new Minimax(1);
-		else if(niveau == 2) 
+		else if(niveau == 2) {
 			minimax = new Minimax(4);
-		else
+			alphabeta = new AlphaBeta(4);
+		}
+			
+		else {
 			minimax = new Minimax(8);
-
+			alphabeta = new AlphaBeta(8);
+		}
+			
+		
+		//Initialise la valeur correspondant au niveau de jeu
+		//val = new Valeur(niveau);
+		
 		sc = new Scanner(System.in);
 	}
 	
@@ -131,7 +152,8 @@ public class Jeu {
 		//Booleen servent a la boucle pour choisir une case / une zone
 		boolean choixC = false;
 		boolean choixZ = false;
-		
+		//Booleen activant l'elagage alphaBeta si l'ordinateur l'utilise
+		boolean activeAlphaBeta=false;
 		//Tant que le plateau principal est jouable, la partie n'est pas terminee
 		while(!plateauP.verifZone() || !plateauP.verifZoneRemplie()) {
 
@@ -188,16 +210,117 @@ public class Jeu {
 				}
 				//L'IA choisit la case
 				else {
-					//L'IA choisit une case en utilisant l'algorithme minimax
-					choixCase = minimax.firstMin(plateauP, choixZone, minimax.getProfondeur(), ia.symbole);
-					System.out.println(choixCase);
-					//Verifie que la case est vide
-					if(plateauP.getPlateau().get(choixZone).getCase(choixCase).verifContenu()) {
-						choixC = true;
+					
+					//IA de niveau 1
+					if(niveau==1) {
+						//L'IA choisit une case en utilisant l'algorithme minimax
+						choixCase = minimax.firstMin(plateauP, choixZone, minimax.getProfondeur(), ia.symbole);
+						System.out.println(choixCase);
+						//Verifie que la case est vide
+						if(plateauP.getPlateau().get(choixZone).getCase(choixCase).verifContenu()) {
+							choixC = true;
+						}
+						//Case deja remplie
+						else
+							choixC = false;
 					}
-					//Case deja remplie
-					else
-						choixC = false;
+					
+					//IA de niveau 2
+					if(niveau==2) {
+						//Verification que pour chaque zone 2 cases sont moins cochees	
+						if(!activeAlphaBeta) {
+							//Verification de chaque zone
+							for(PlateauSub platS : plateauP.getPlateau()) {
+								//Nombre de cases cochees par zone
+								int nbCasesCochees=0;
+								//Verification de la case
+								for(Case c : platS.getPlateau()) {
+									if(c.getContenu()!=0) {
+										nbCasesCochees+=1;
+									}
+									if(nbCasesCochees>=2) {
+										activeAlphaBeta=true;
+									}
+								}
+							}
+						}
+						
+						//Recherche MiniMax si l'elagage n'est pas active
+						if(!activeAlphaBeta) {
+							// L'IA choisit une case en utilisant l'algorithme minimax
+							choixCase = minimax.firstMin(plateauP, choixZone, minimax.getProfondeur(), ia.symbole);
+							System.out.println(choixCase);
+							//Verifie que la case est vide
+							if(plateauP.getPlateau().get(choixZone).getCase(choixCase).verifContenu()) {
+								choixC = true;
+							}
+							//Case deja remplie
+							else
+								choixC = false;
+						}
+						//Elagage active
+						else {
+							// L'IA choisit une case en utilisant l'elagage
+							choixCase = alphabeta.firstBeta(plateauP, choixZone, minimax.getProfondeur(), ia.symbole);
+							System.out.println(choixCase);
+							//Verifie que la case est vide
+							if(plateauP.getPlateau().get(choixZone).getCase(choixCase).verifContenu()) {
+								choixC = true;
+							}
+							//Case deja remplie
+							else
+								choixC = false;
+						}
+
+					}
+					
+					//IA de niveau 3
+					else {
+						//Verification que pour chaque zone 2 cases sont moins cochees	
+						if(!activeAlphaBeta) {
+							//Verification de chaque zone
+							for(PlateauSub platS : plateauP.getPlateau()) {
+								//Nombre de cases cochees par zone
+								int nbCasesCochees=0;
+								//Verification de la case
+								for(Case c : platS.getPlateau()) {
+									if(c.getContenu()!=0) {
+										nbCasesCochees+=1;
+									}
+									if(nbCasesCochees>=2) {
+										activeAlphaBeta=true;
+									}
+								}
+							}
+						}
+						
+						//Recherche MiniMax si l'elagage n'est pas active
+						if(!activeAlphaBeta) {
+							//L'IA choisit une case en utilisant l'algorithme minimax
+							choixCase = minimax.firstMin(plateauP, choixZone, minimax.getProfondeur(), ia.symbole);
+							System.out.println(choixCase);
+							//Verifie que la case est vide
+							if(plateauP.getPlateau().get(choixZone).getCase(choixCase).verifContenu()) {
+								choixC = true;
+							}
+							//Case deja remplie
+							else
+								choixC = false;
+						}
+						//Elagage active
+						else {
+							// L'IA choisit une case en utilisant l'elagage
+							choixCase = alphabeta.firstBeta(plateauP, choixZone, minimax.getProfondeur(), ia.symbole);
+							System.out.println(choixCase);
+							//Verifie que la case est vide
+							if(plateauP.getPlateau().get(choixZone).getCase(choixCase).verifContenu()) {
+								choixC = true;
+							}
+							//Case deja remplie
+							else
+								choixC = false;
+						}
+					}
 				}
 			}
 			choixC = false;
@@ -208,8 +331,6 @@ public class Jeu {
 				plateauP.getPlateau().get(choixZone).getCase(choixCase).setCross();
 				//Desactive le tour du joueur
 				j1.setTour(false);
-				//System.out.println("Tour de l'IA");
-				//System.out.println(plateauP.toString());
 			}
 			
 			//Tour de l'IA
@@ -237,9 +358,9 @@ public class Jeu {
 	private int choix() {
 		boolean sortie=false;
 		int choix=0;
-		// Tant que le choix de l'utilisateur n'est pas valide
+		//Tant que le choix de l'utilisateur n'est pas valide
 		while(!sortie) {
-			//Recupere le choix entrer par l'utilisateur
+			//Recupere le choix entre par l'utilisateur
 			int choixTmp=recupChoix();
 			//Verifie qu'il est bien valide
 			if(choixTmp!=-2) {
@@ -250,7 +371,7 @@ public class Jeu {
 		//Retourne le choix de l'utilisateur
 		return choix;
 	}
-
+	
 	/**
 	 * Methode gerant les exceptions du choix entre par l'utilisateur
 	 * 
@@ -263,6 +384,7 @@ public class Jeu {
 		int choixTmp=0;
 		//Tant que le choix n'est pas bon
 		while(!sortie) {
+			
 			//Recupere le choix de l'utilisateur
 			try {
 				choix=sc.nextLine();
@@ -273,10 +395,11 @@ public class Jeu {
 			//Verification qu'il s'agit bien d'un nombre
 			boolean isNumeric =  choix.matches("[+-]?\\d*(\\.\\d+)?");
 			if(isNumeric) {
+				
 				//Tente de recuperer l'entier
 				try {
 					choixTmp=(Integer.valueOf(choix)-1);
-					
+
 					//Verifie que l'entier est compris entre 0 et 8 (donc 1 et 9 pour l'utilisateur)
 					if((choixTmp>-1)&&(choixTmp<9)) {
 						sortie=true;
@@ -289,8 +412,6 @@ public class Jeu {
 						System.out.println(choix+" n'est pas une entree valide");
 						return -2;
 					}
-				//Verification que le chiffre est present dans le domaine defini
-				
 			}
 			else {
 				System.out.println(choix+" n'est pas une entree valide.\n");

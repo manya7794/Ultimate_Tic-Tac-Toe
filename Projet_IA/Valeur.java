@@ -87,187 +87,187 @@ public class Valeur {
 			switch(c.getPosition()) {
 			case 0:
 				//ligne 1
-				if(plat.getCase(1).getContenu()!=symboleJoueur && plat.getCase(2).getContenu()==0) {
+				if(plat.getCase(1).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
-				else if(plat.getCase(2).getContenu()!=symboleJoueur && plat.getCase(1).getContenu()==0) {
+				else if(plat.getCase(2).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
 				//Colonne 1
-				if(plat.getCase(3).getContenu()!=symboleJoueur && plat.getCase(6).getContenu()==0) {
+				if(plat.getCase(3).getContenu()!=symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(6).getContenu()!=symboleJoueur && plat.getCase(3).getContenu()==0) {
+				else if(plat.getCase(6).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
 				//Diagonale 1
-				if(plat.getCase(4).getContenu()!=symboleJoueur && plat.getCase(8).getContenu()==0) {
+				if(plat.getCase(4).getContenu()!=symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(8).getContenu()!=symboleJoueur && plat.getCase(4).getContenu()==0) {
+				else if(plat.getCase(8).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
 				break;
 			case 1:
 				//ligne 1
-				if(plat.getCase(0).getContenu()!=symboleJoueur && plat.getCase(2).getContenu()==0) {
+				if(plat.getCase(0).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
-				else if(plat.getCase(2).getContenu()!=symboleJoueur && plat.getCase(0).getContenu()==0) {
+				else if(plat.getCase(2).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
 				//Colonne 2
-				if(plat.getCase(4).getContenu()!=symboleJoueur && plat.getCase(7).getContenu()==0) {
+				if(plat.getCase(4).getContenu()!=symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(7).getContenu()!=symboleJoueur && plat.getCase(4).getContenu()==0) {
+				else if(plat.getCase(7).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
 				break;
 			case 2:
 				//ligne 1
-				if(plat.getCase(0).getContenu()!=symboleJoueur && plat.getCase(1).getContenu()==0) {
+				if(plat.getCase(0).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
-				else if(plat.getCase(1).getContenu()!=symboleJoueur && plat.getCase(0).getContenu()==0) {
+				else if(plat.getCase(1).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
 				//Colonne 3
-				if(plat.getCase(5).getContenu()!=symboleJoueur && plat.getCase(8).getContenu()==0) {
+				if(plat.getCase(5).getContenu()!=symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(8).getContenu()!=symboleJoueur && plat.getCase(5).getContenu()==0) {
+				else if(plat.getCase(8).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
 				//Diagonale 2
-				if(plat.getCase(4).getContenu()!=symboleJoueur && plat.getCase(6).getContenu()==0) {
+				if(plat.getCase(4).getContenu()!=symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(6).getContenu()!=symboleJoueur && plat.getCase(4).getContenu()==0) {
+				else if(plat.getCase(6).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
 				break;
 			case 3:
 				//Colonne 1
-				if(plat.getCase(0).getContenu()!=symboleJoueur && plat.getCase(6).getContenu()==0) {
+				if(plat.getCase(0).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
-				else if(plat.getCase(6).getContenu()!=symboleJoueur && plat.getCase(0).getContenu()==0) {
+				else if(plat.getCase(6).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
 				//Ligne 2
-				if(plat.getCase(4).getContenu()!=symboleJoueur && plat.getCase(5).getContenu()==0) {
+				if(plat.getCase(4).getContenu()!=symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(5).getContenu()!=symboleJoueur && plat.getCase(4).getContenu()==0) {
+				else if(plat.getCase(5).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
 				break;
 			case 4:
 				//ligne 2
-				if(plat.getCase(3).getContenu()!=symboleJoueur && plat.getCase(5).getContenu()==0) {
+				if(plat.getCase(3).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
-				else if(plat.getCase(5).getContenu()!=symboleJoueur && plat.getCase(3).getContenu()==0) {
+				else if(plat.getCase(5).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
 				//Colonne 2
-				if(plat.getCase(1).getContenu()!=symboleJoueur && plat.getCase(7).getContenu()==0) {
+				if(plat.getCase(1).getContenu()!=symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(7).getContenu()!=symboleJoueur && plat.getCase(1).getContenu()==0) {
+				else if(plat.getCase(7).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
 				//Diagonale 1
-				if(plat.getCase(0).getContenu()!=symboleJoueur && plat.getCase(8).getContenu()==0) {
+				if(plat.getCase(0).getContenu()!=symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(8).getContenu()!=symboleJoueur && plat.getCase(0).getContenu()==0) {
+				else if(plat.getCase(8).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
 				//Diagonale 2
-				if(plat.getCase(2).getContenu()!=symboleJoueur && plat.getCase(6).getContenu()==0) {
+				if(plat.getCase(2).getContenu()!=symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(6).getContenu()!=symboleJoueur && plat.getCase(2).getContenu()==0) {
+				else if(plat.getCase(6).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
 				break;
 			case 5:
 				//ligne 2
-				if(plat.getCase(3).getContenu()!=symboleJoueur && plat.getCase(4).getContenu()==0) {
+				if(plat.getCase(3).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
-				else if(plat.getCase(4).getContenu()!=symboleJoueur && plat.getCase(3).getContenu()==0) {
+				else if(plat.getCase(4).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
 				//Colonne 3
-				if(plat.getCase(2).getContenu()!=symboleJoueur && plat.getCase(8).getContenu()==0) {
+				if(plat.getCase(2).getContenu()!=symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(8).getContenu()!=symboleJoueur && plat.getCase(2).getContenu()==0) {
+				else if(plat.getCase(8).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
 				break;
 			case 6:
 				//ligne 3
-				if(plat.getCase(7).getContenu()!=symboleJoueur && plat.getCase(8).getContenu()==0) {
+				if(plat.getCase(7).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
-				else if(plat.getCase(8).getContenu()!=symboleJoueur && plat.getCase(7).getContenu()==0) {
+				else if(plat.getCase(8).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
 				//Colonne 1
-				if(plat.getCase(0).getContenu()!=symboleJoueur && plat.getCase(3).getContenu()==0) {
+				if(plat.getCase(0).getContenu()!=symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(3).getContenu()!=symboleJoueur && plat.getCase(0).getContenu()==0) {
+				else if(plat.getCase(3).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
 				//Diagonale 2
-				if(plat.getCase(4).getContenu()!=symboleJoueur && plat.getCase(2).getContenu()==0) {
+				if(plat.getCase(4).getContenu()!=symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(2).getContenu()!=symboleJoueur && plat.getCase(4).getContenu()==0) {
+				else if(plat.getCase(2).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
 				break;
 			case 7:
 				//ligne 3
-				if(plat.getCase(6).getContenu()!=symboleJoueur && plat.getCase(8).getContenu()==0) {
+				if(plat.getCase(6).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
-				else if(plat.getCase(8).getContenu()!=symboleJoueur && plat.getCase(6).getContenu()==0) {
+				else if(plat.getCase(8).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
 				//Colonne 2
-				if(plat.getCase(1).getContenu()!=symboleJoueur && plat.getCase(4).getContenu()==0) {
+				if(plat.getCase(1).getContenu()!=symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(4).getContenu()!=symboleJoueur && plat.getCase(1).getContenu()==0) {
+				else if(plat.getCase(4).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
 				break;
 			case 8:
 				//ligne 3
-				if(plat.getCase(6).getContenu()!=symboleJoueur && plat.getCase(7).getContenu()==0) {
+				if(plat.getCase(6).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
-				else if(plat.getCase(7).getContenu()!=symboleJoueur && plat.getCase(6).getContenu()==0) {
+				else if(plat.getCase(7).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
 				//Colonne 3
-				if(plat.getCase(2).getContenu()!=symboleJoueur && plat.getCase(5).getContenu()==0) {
+				if(plat.getCase(2).getContenu()!=symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(5).getContenu()!=symboleJoueur && plat.getCase(2).getContenu()==0) {
+				else if(plat.getCase(5).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
 				//Diagonale 1
-				if(plat.getCase(4).getContenu()!=symboleJoueur && plat.getCase(0).getContenu()==0) {
+				if(plat.getCase(4).getContenu()!=symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(0).getContenu()!=symboleJoueur && plat.getCase(4).getContenu()==0) {
+				else if(plat.getCase(0).getContenu()!=symboleJoueur) {
 					poids-=5;
 				}
 				break;
@@ -303,187 +303,187 @@ public class Valeur {
 			switch(c.getPosition()) {
 			case 0:
 				//ligne 1
-				if(plat.getCase(1).getContenu()==symboleJoueur && plat.getCase(2).getContenu()==0) {
+				if(plat.getCase(1).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
-				else if(plat.getCase(2).getContenu()==symboleJoueur && plat.getCase(1).getContenu()==0) {
+				else if(plat.getCase(2).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
 				//Colonne 1
-				if(plat.getCase(3).getContenu()==symboleJoueur && plat.getCase(6).getContenu()==0) {
+				if(plat.getCase(3).getContenu()==symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(6).getContenu()==symboleJoueur && plat.getCase(3).getContenu()==0) {
+				else if(plat.getCase(6).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
 				//Diagonale 1
-				if(plat.getCase(4).getContenu()==symboleJoueur && plat.getCase(8).getContenu()==0) {
+				if(plat.getCase(4).getContenu()==symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(8).getContenu()==symboleJoueur && plat.getCase(4).getContenu()==0) {
+				else if(plat.getCase(8).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
 				break;
 			case 1:
 				//ligne 1
-				if(plat.getCase(0).getContenu()==symboleJoueur && plat.getCase(2).getContenu()==0) {
+				if(plat.getCase(0).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
-				else if(plat.getCase(2).getContenu()==symboleJoueur && plat.getCase(0).getContenu()==0) {
+				else if(plat.getCase(2).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
 				//Colonne 2
-				if(plat.getCase(4).getContenu()==symboleJoueur && plat.getCase(7).getContenu()==0) {
+				if(plat.getCase(4).getContenu()==symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(7).getContenu()==symboleJoueur && plat.getCase(4).getContenu()==0) {
+				else if(plat.getCase(7).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
 				break;
 			case 2:
 				//ligne 1
-				if(plat.getCase(0).getContenu()==symboleJoueur && plat.getCase(1).getContenu()==0) {
+				if(plat.getCase(0).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
-				else if(plat.getCase(1).getContenu()==symboleJoueur && plat.getCase(0).getContenu()==0) {
+				else if(plat.getCase(1).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
 				//Colonne 3
-				if(plat.getCase(5).getContenu()==symboleJoueur && plat.getCase(8).getContenu()==0) {
+				if(plat.getCase(5).getContenu()==symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(8).getContenu()==symboleJoueur && plat.getCase(5).getContenu()==0) {
+				else if(plat.getCase(8).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
 				//Diagonale 2
-				if(plat.getCase(4).getContenu()==symboleJoueur && plat.getCase(6).getContenu()==0) {
+				if(plat.getCase(4).getContenu()==symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(6).getContenu()==symboleJoueur && plat.getCase(4).getContenu()==0) {
+				else if(plat.getCase(6).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
 				break;
 			case 3:
 				//Colonne 1
-				if(plat.getCase(0).getContenu()==symboleJoueur && plat.getCase(6).getContenu()==0) {
+				if(plat.getCase(0).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
-				else if(plat.getCase(6).getContenu()==symboleJoueur && plat.getCase(0).getContenu()==0) {
+				else if(plat.getCase(6).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
 				//Ligne 2
-				if(plat.getCase(4).getContenu()==symboleJoueur && plat.getCase(5).getContenu()==0) {
+				if(plat.getCase(4).getContenu()==symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(5).getContenu()==symboleJoueur && plat.getCase(4).getContenu()==0) {
+				else if(plat.getCase(5).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
 				break;
 			case 4:
 				//ligne 2
-				if(plat.getCase(3).getContenu()==symboleJoueur && plat.getCase(5).getContenu()==0) {
+				if(plat.getCase(3).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
-				else if(plat.getCase(5).getContenu()==symboleJoueur && plat.getCase(3).getContenu()==0) {
+				else if(plat.getCase(5).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
 				//Colonne 2
-				if(plat.getCase(1).getContenu()==symboleJoueur && plat.getCase(7).getContenu()==0) {
+				if(plat.getCase(1).getContenu()==symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(7).getContenu()==symboleJoueur && plat.getCase(1).getContenu()==0) {
+				else if(plat.getCase(7).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
 				//Diagonale 1
-				if(plat.getCase(0).getContenu()==symboleJoueur && plat.getCase(8).getContenu()==0) {
+				if(plat.getCase(0).getContenu()==symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(8).getContenu()==symboleJoueur && plat.getCase(0).getContenu()==0) {
+				else if(plat.getCase(8).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
 				//Diagonale 2
-				if(plat.getCase(2).getContenu()==symboleJoueur && plat.getCase(6).getContenu()==0) {
+				if(plat.getCase(2).getContenu()==symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(6).getContenu()==symboleJoueur && plat.getCase(2).getContenu()==0) {
+				else if(plat.getCase(6).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
 				break;
 			case 5:
 				//ligne 2
-				if(plat.getCase(3).getContenu()==symboleJoueur && plat.getCase(4).getContenu()==0) {
+				if(plat.getCase(3).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
-				else if(plat.getCase(4).getContenu()==symboleJoueur && plat.getCase(3).getContenu()==0) {
+				else if(plat.getCase(4).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
 				//Colonne 3
-				if(plat.getCase(2).getContenu()==symboleJoueur && plat.getCase(8).getContenu()==0) {
+				if(plat.getCase(2).getContenu()==symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(8).getContenu()==symboleJoueur && plat.getCase(2).getContenu()==0) {
+				else if(plat.getCase(8).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
 				break;
 			case 6:
 				//ligne 3
-				if(plat.getCase(7).getContenu()==symboleJoueur && plat.getCase(8).getContenu()==0) {
+				if(plat.getCase(7).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
-				else if(plat.getCase(8).getContenu()==symboleJoueur && plat.getCase(7).getContenu()==0) {
+				else if(plat.getCase(8).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
 				//Colonne 1
-				if(plat.getCase(0).getContenu()==symboleJoueur && plat.getCase(3).getContenu()==0) {
+				if(plat.getCase(0).getContenu()==symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(3).getContenu()==symboleJoueur && plat.getCase(0).getContenu()==0) {
+				else if(plat.getCase(3).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
 				//Diagonale 2
-				if(plat.getCase(4).getContenu()==symboleJoueur && plat.getCase(2).getContenu()==0) {
+				if(plat.getCase(4).getContenu()==symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(2).getContenu()==symboleJoueur && plat.getCase(4).getContenu()==0) {
+				else if(plat.getCase(2).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
 				break;
 			case 7:
 				//ligne 3
-				if(plat.getCase(6).getContenu()==symboleJoueur && plat.getCase(8).getContenu()==0) {
+				if(plat.getCase(6).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
-				else if(plat.getCase(8).getContenu()==symboleJoueur && plat.getCase(6).getContenu()==0) {
+				else if(plat.getCase(8).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
 				//Colonne 2
-				if(plat.getCase(1).getContenu()==symboleJoueur && plat.getCase(4).getContenu()==0) {
+				if(plat.getCase(1).getContenu()==symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(4).getContenu()==symboleJoueur && plat.getCase(1).getContenu()==0) {
+				else if(plat.getCase(4).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
 				break;
 			case 8:
 				//ligne 3
-				if(plat.getCase(6).getContenu()==symboleJoueur && plat.getCase(7).getContenu()==0) {
+				if(plat.getCase(6).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
-				else if(plat.getCase(7).getContenu()==symboleJoueur && plat.getCase(6).getContenu()==0) {
+				else if(plat.getCase(7).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
 				//Colonne 3
-				if(plat.getCase(2).getContenu()==symboleJoueur && plat.getCase(5).getContenu()==0) {
+				if(plat.getCase(2).getContenu()==symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(5).getContenu()==symboleJoueur && plat.getCase(2).getContenu()==0) {
+				else if(plat.getCase(5).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
 				//Diagonale 1
-				if(plat.getCase(4).getContenu()==symboleJoueur && plat.getCase(0).getContenu()==0) {
+				if(plat.getCase(4).getContenu()==symboleJoueur) {
 					poids-=5;
 				} 
-				else if(plat.getCase(0).getContenu()==symboleJoueur && plat.getCase(4).getContenu()==0) {
+				else if(plat.getCase(0).getContenu()==symboleJoueur) {
 					poids-=5;
 				}
 				break;

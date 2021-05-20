@@ -12,12 +12,9 @@ public class PlateauPrincipal extends Plateau<PlateauSub> {
 		initialisation();
 	}
 	
-	/**
-	 * Constructeur utilise pour cloner un plateau 
-	 * @param platBis Plateau a cloner
-	 */
-	public PlateauPrincipal(PlateauPrincipal platBis) {
-		this.plateau=(ArrayList<PlateauSub>) platBis.plateau.clone();
+	public PlateauPrincipal(int niveau) {
+		plateau=new ArrayList<PlateauSub>();
+		initialisation(niveau);
 	}
 	
 	//Methodes
@@ -38,6 +35,18 @@ public class PlateauPrincipal extends Plateau<PlateauSub> {
 	public void initialisation() {
 		for(int i = 0 ; i < 9 ; i++) {
 			PlateauSub platSub = new PlateauSub(i);
+			plateau.add(platSub);
+		}
+	}
+	
+	/**
+	 * Methode ajoutant les 9 plateaux dans le plateau principal
+	 * dans le cas ou la partie se deroule avec une IA
+	 * @param niveau
+	 */
+	public void initialisation(int niveau) {
+		for(int i = 0 ; i < 9 ; i++) {
+			PlateauSub platSub = new PlateauSub(i, niveau);
 			plateau.add(platSub);
 		}
 	}

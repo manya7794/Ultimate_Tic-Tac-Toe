@@ -87,7 +87,7 @@ public class PlateauSub extends Plateau<Case> {
 	}
 	
 	/**
-	 * Methode ajoutant le symbole aÂ  la position donnee
+	 * Methode ajoutant le symbole aï¿½  la position donnee
 	 * 
 	 * @param pos : la position de la case dans le plateau
 	 * @param symbole : le symbole "X" (-1) ou "O" (1)
@@ -359,18 +359,20 @@ public class PlateauSub extends Plateau<Case> {
 			valeur.ligneAllieePossible(symboleJoueur, c, this, verifLignesAlliees);
 		}
 		
-		//Cas ou la zone est gagnee par un joueur
-		if(verifZone()) {
-			//Cas ou l'adversaire a rempli la zone
-			if(getSymboleGagnant()!=symboleJoueur) {
-				//Mise a jour de la valeur des zones voisines
-				valeur.zoneValideeAdversaire(position, platP);
-			}
-			
-			//Cas ou la zone est gagnee par le joueur
-			if(getSymboleGagnant()==symboleJoueur) {
-				//Mise a jour des zones voisines
-				valeur.zoneValideeAlliee(position, platP);
+		if(valeur.getNiveau()>=2) {
+			//Cas ou la zone est gagnee par un joueur
+			if(verifZone()) {
+				//Cas ou l'adversaire a rempli la zone
+				if(getSymboleGagnant()!=symboleJoueur) {
+					//Mise a jour de la valeur des zones voisines
+					valeur.zoneValideeAdversaire(position, platP);
+				}
+				
+				//Cas ou la zone est gagnee par le joueur
+				if(getSymboleGagnant()==symboleJoueur) {
+					//Mise a jour des zones voisines
+					valeur.zoneValideeAlliee(position, platP);
+				}
 			}
 		}
 	}

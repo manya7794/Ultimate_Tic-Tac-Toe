@@ -2,6 +2,20 @@ package Projet_IA;
 
 public class AlphaBeta {
 	
+	//Attributs
+	private int profondeur;
+	private int valeurZone=0;
+	
+	//Constructeur
+	
+	/**
+	 * Constructeur de la classe alphaBeta
+	 * @param profondeur Nombre de recherches restantes
+	 */
+	public AlphaBeta(int profondeur) {
+		this.profondeur=profondeur;
+	}
+	
 	/**
 	 * Methode appliquant l'elagage beta de depart de l'elagage alpha-beta
 	 * 
@@ -239,5 +253,21 @@ public class AlphaBeta {
 		}
 		//Retourne le poids de la case ayant la plus faible valeur
 		return poidsFinal;
+	}
+	
+	/**
+	 * Methode renvoyant la profondeur du minimax
+	 * @return la profondeur
+	 */
+	public int getProfondeur() {
+		return profondeur;
+	}
+	
+	/**
+	 * Methode renvoyant la valeur de la zone
+	 * @return la valeur de la zone
+	 */
+	public int getValeurZone() {
+		return valeurZone;
 	}
 }
