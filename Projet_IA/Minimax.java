@@ -35,8 +35,14 @@ public class Minimax {
 				
 				//Verification de la profondeur
 				if(profondeur>0) {
-					//Recuperer le poids de la zone
-					poids = max(platClone, i, profondeur-1, symboleJoueur);
+					//Recuperation du poids de la zone
+					//Changement du symbole joueur
+					if(symboleJoueur==-1) {
+						poids = max(platClone, i, profondeur-1, 1);
+					}
+					if(symboleJoueur==1) {
+						poids = max(platClone, i, profondeur-1, -1);
+					}
 				}
 				
 				//Verifier valeur
@@ -77,7 +83,14 @@ public class Minimax {
 				//Verification de la profondeur
 				if(profondeur>0) {
 					//Recuperer le poids min de la zone
-					int poidsTmp = min(platClone, i, profondeur-1, symboleJoueur);
+					int poidsTmp=0;
+					//Changement du symbole Joueur
+					if(symboleJoueur==-1) {
+						poidsTmp = min(platClone, i, profondeur-1, 1);
+					}
+					if(symboleJoueur==1) {
+						poidsTmp = min(platClone, i, profondeur-1, -1);
+					}
 					//Comparaison de ce poids au poids final actuel
 					if(poidsTmp>poidsFinal) {
 						poidsFinal=poidsTmp;
@@ -127,8 +140,15 @@ public class Minimax {
 				
 				//Verification de la profondeur
 				if(profondeur>0) {
-					//Recuperer le poids max de la zone
-					int poidsTmp = max(platClone, i, profondeur-1, symboleJoueur);
+					//Recuperation du poids de la zone
+					int poidsTmp=0;
+					//Changement du symbole joueur
+					if(symboleJoueur==-1) {
+						poidsTmp = max(platClone, i, profondeur-1, 1);
+					}
+					if(symboleJoueur==1) {
+						poidsTmp = max(platClone, i, profondeur-1, -1);
+					}
 					//Comparaison de ce poids au poids final actuel
 					if(poidsTmp<poidsFinal) {
 						poidsFinal=poidsTmp;

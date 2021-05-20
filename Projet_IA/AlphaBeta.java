@@ -33,8 +33,15 @@ public class AlphaBeta {
 					
 					//Verification de la profondeur
 					if(profondeur>0) {
-						//Recuperer le poids min de la zone
-						int poidsTmp = alpha(platClone, i,0, i, profondeur-1, symboleJoueur);
+						//Recuperation du poids min de la zone
+						//Changement de signe
+						int poidsTmp = 0;
+						if(symboleJoueur==-1) {
+							poidsTmp = alpha(platClone, i,0, i, profondeur-1, 1);
+						}
+						if(symboleJoueur==1) {
+							poidsTmp = alpha(platClone, i,0, i, profondeur-1, -1);
+						}
 						//Comparaison de ce poids au poids final actuel
 						if(poidsTmp>poidsFinal) {
 							poidsFinal=poidsTmp;
@@ -98,8 +105,15 @@ public class AlphaBeta {
 					
 					//Verification de la profondeur
 					if(profondeur>0) {
-						//Recuperer le poids min de la zone
-						int poidsTmp = beta(platClone, i, branche, branche+i, profondeur-1, symboleJoueur);
+						//Recuperer le poids max de la zone
+						//Changement de symbole joueur
+						int poidsTmp=0;
+						if(symboleJoueur==-1) {
+							poidsTmp = beta(platClone, i, branche, branche+i, profondeur-1, 1);
+						}
+						if(symboleJoueur==1) {
+							poidsTmp = beta(platClone, i, branche, branche+i, profondeur-1, -1);
+						}
 						//Comparaison de ce poids au poids final actuel
 						if(poidsTmp>poidsFinal) {
 							poidsFinal=poidsTmp;
@@ -176,7 +190,14 @@ public class AlphaBeta {
 					//Verification de la profondeur
 					if(profondeur>0) {
 						//Recuperer le poids min de la zone
-						int poidsTmp = alpha(platClone, i, branche, branche+i, profondeur-1, symboleJoueur);
+						int poidsTmp =0;
+						//Changement du symbole joueur
+						if(symboleJoueur==-1) {
+							poidsTmp = alpha(platClone, i, branche, branche+i, profondeur-1, 1);
+						}
+						if(symboleJoueur==1) {
+							poidsTmp = alpha(platClone, i, branche, branche+i, profondeur-1, -1);
+						}
 						//Comparaison de ce poids au poids final actuel
 						if(poidsTmp>poidsFinal) {
 							poidsFinal=poidsTmp;
