@@ -21,6 +21,8 @@ public class JeuBis {
 	//Valeur qui sera donner a chaque case / plateau
 	private Valeur val;
 	
+	private Minimax minimax;
+	
 	//Constructeur
 	
 	//Constructeur utilise pour le JVJ
@@ -50,6 +52,8 @@ public class JeuBis {
 		//Initialise la valeur correspondant au niveau de jeu
 		val = new Valeur(niveau);
 		
+		minimax = new Minimax(1);
+		
 		sc = new Scanner(System.in);
 	}
 	
@@ -59,10 +63,15 @@ public class JeuBis {
 	 * 
 	 */
 	public void joueurVersusJoueur() {
+		
 		System.out.println("Tour de X\n");
 		affichageChoixZone();
 		int choixZone = choix();
 		int choixCase = choixZone;
+		
+		PlateauPrincipal platPClone = (PlateauPrincipal)plateauP.clone();
+		minimax.firstMin(platPClone, choixZone, 1, ia.symbole);
+		
 		boolean choixC = false;
 		boolean choixZ = false;
 		
@@ -100,7 +109,7 @@ public class JeuBis {
 			}
 			choixC = false;
 			
-			//Tour du joueur 1
+			//Tour du joueur 1 (Humain max)
 			if(j1.tour) {
 				//Affiche la zone en cours et le choix de la case du joueur en cours
 				//System.out.println("choixZ : "+choixZone+" choixC : "+ choixCase);
@@ -108,15 +117,17 @@ public class JeuBis {
 				plateauP.getPlateau().get(choixZone).getCase(choixCase).setCross();
 				
 				// Affectation d'une valeur a la caseAlliee
-				val.caseAdversePresente(j1.symbole, plateauP.getPlateau().get(choixZone).getCase(choixCase));
-				System.out.println(val);
+				plateauP.getPlateau().get(choixZone).majValeur(j1.symbole, plateauP);
+				minimax.max(plateauP, choixZone, 1, j1.symbole);
+				
+				System.out.println("valeur tour j1 : "+val);
 				
 				//Desactive le tour du joueur 1
 				j1.tour = false;
 				System.out.println("Tour de O\n");
 			}
 			
-			//Tour du joueur 2
+			//Tour du joueur 2 (IA : min)
 			else {
 				//Affiche la zone en cours et le choix de la case du joueur en cours
 				//System.out.println("choixZ : "+choixZone+" choixC : "+ choixCase);
@@ -124,8 +135,10 @@ public class JeuBis {
 				plateauP.getPlateau().get(choixZone).getCase(choixCase).setCircle();
 				
 				// Affectation d'une valeur a la caseAdverse
-				val.caseAllieePresente(ia.symbole, plateauP.getPlateau().get(choixZone).getCase(choixCase));
-				System.out.println(val);
+				plateauP.getPlateau().get(choixZone).majValeur(ia.symbole, plateauP);
+				minimax.min(plateauP, choixZone, 1, ia.symbole);
+				
+				System.out.println("valeur tour ia : "+val);
 				
 				//Active le tour du joueur 1
 				j1.tour = true;

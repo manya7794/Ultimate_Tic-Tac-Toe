@@ -2,8 +2,10 @@ package Projet_IA;
 
 import java.util.ArrayList;
 
-public class PlateauPrincipal extends Plateau<PlateauSub>{
-		
+public class PlateauPrincipal extends Plateau<PlateauSub> {
+	
+	//public ArrayList<PlateauSub> plateau;
+	
 	//Constructeur
 	public PlateauPrincipal() {
 		plateau= new ArrayList<PlateauSub>();
@@ -19,6 +21,17 @@ public class PlateauPrincipal extends Plateau<PlateauSub>{
 	}
 	
 	//Methodes
+	
+	public PlateauPrincipal clone() {
+		PlateauPrincipal plateauPclone = new PlateauPrincipal();
+		for(int i = 0 ; i < 9 ; i++) {
+			for(int j = 0 ; j < 9 ; j++) {
+				plateauPclone.getPlateau().get(i).getCase(j).setSymbole(plateau.get(i).getCase(j).getContenu());
+			}
+		}
+		return plateauPclone;
+	}
+	
 	/**
 	 * Methode ajoutant les 9 plateaux dans le plateau principal
 	 */

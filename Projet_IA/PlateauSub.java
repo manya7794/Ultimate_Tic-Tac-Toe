@@ -2,7 +2,7 @@ package Projet_IA;
 
 import java.util.ArrayList;
 
-public class PlateauSub extends Plateau<Case>{
+public class PlateauSub extends Plateau<Case> {
 	//Attributs
 	
 	//Derniere case remplie par un joueur dans cette zone
@@ -28,6 +28,7 @@ public class PlateauSub extends Plateau<Case>{
 		this.valeur=new Valeur(niveau);
 		this.position=position;
 	}
+	
 
 	//Methodes
 	
@@ -373,4 +374,5 @@ public class PlateauSub extends Plateau<Case>{
 			}
 		}
 	}
+	
 }

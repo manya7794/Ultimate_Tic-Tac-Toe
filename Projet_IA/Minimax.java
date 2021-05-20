@@ -2,6 +2,12 @@ package Projet_IA;
 
 public class Minimax {
 	
+	private int profondeur;
+	
+	public Minimax(int profondeur) {
+		this.profondeur = profondeur;
+	}
+	
 	/**
 	 * Methode appliquant le min de depart de l'algorithme minimax
 	 * @param platP Plateau de jeu a etudier
@@ -18,7 +24,8 @@ public class Minimax {
 		//On parcourt chaque case de la zone
 		for(int i=0; i<9;i++) {
 			//Creation d'un plateau clone pour effectuer la recherche
-			PlateauPrincipal platClone = new PlateauPrincipal(platP);
+			PlateauPrincipal platClone = platP.clone();
+			//PlateauPrincipal platClone = new PlateauPrincipal(platP);
 			//Recuperation de la zone
 			PlateauSub platSubClone=platClone.getPlateau().get(zone); 
 			//Verifier que la case n'est pas deja remplie
@@ -29,7 +36,7 @@ public class Minimax {
 				//Verification de la profondeur
 				if(profondeur>0) {
 					//Recuperer le poids de la zone
-					poids = max(platP, i, profondeur-1, symboleJoueur);
+					poids = max(platClone, i, profondeur-1, symboleJoueur);
 				}
 				
 				//Verifier valeur
@@ -58,9 +65,10 @@ public class Minimax {
 		//On parcourt chaque case de la zone
 		for(int i=0; i<9;i++) {
 			//Creation d'un plateau clone pour effectuer la recherche
-			PlateauPrincipal platClone = new PlateauPrincipal(platP);
+			PlateauPrincipal platClone = platP.clone();
+			//PlateauPrincipal platClone = new PlateauPrincipal(platP);
 			//Recuperation de la zone
-			PlateauSub platSubClone=platClone.getPlateau().get(zone); 
+			PlateauSub platSubClone=platClone.getPlateau().get(zone);
 			//Verifier que la case n'est pas deja remplie
 			if(platSubClone.getPlateau().get(i).verifContenu()) {
 				//Simuler cochage
@@ -69,7 +77,7 @@ public class Minimax {
 				//Verification de la profondeur
 				if(profondeur>0) {
 					//Recuperer le poids min de la zone
-					int poidsTmp = min(platP, i, profondeur-1, symboleJoueur);
+					int poidsTmp = min(platClone, i, profondeur-1, symboleJoueur);
 					//Comparaison de ce poids au poids final actuel
 					if(poidsTmp>poidsFinal) {
 						poidsFinal=poidsTmp;
@@ -108,9 +116,10 @@ public class Minimax {
 		//On parcourt chaque case de la zone
 		for(int i=0; i<9;i++) {
 			//Creation d'un plateau clone pour effectuer la recherche
-			PlateauPrincipal platClone = new PlateauPrincipal(platP);
+			PlateauPrincipal platClone = platP.clone();
+			//PlateauPrincipal platClone = new PlateauPrincipal(platP);
 			//Recuperation de la zone
-			PlateauSub platSubClone=platClone.getPlateau().get(zone); 
+			PlateauSub platSubClone=platClone.getPlateau().get(zone);
 			//Verifier que la case n'est pas deja remplie
 			if(platSubClone.getPlateau().get(i).verifContenu()) {
 				//Simuler cochage
@@ -119,7 +128,7 @@ public class Minimax {
 				//Verification de la profondeur
 				if(profondeur>0) {
 					//Recuperer le poids max de la zone
-					int poidsTmp = max(platP, i, profondeur-1, symboleJoueur);
+					int poidsTmp = max(platClone, i, profondeur-1, symboleJoueur);
 					//Comparaison de ce poids au poids final actuel
 					if(poidsTmp<poidsFinal) {
 						poidsFinal=poidsTmp;
