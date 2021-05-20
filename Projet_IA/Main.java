@@ -21,33 +21,17 @@ public class Main {
 		if(choix==1) {
 			//Choix du niveau de difficulte
 			choix=choixDifficulte(sc);
-			//Mode facile
-			if(choix==1) {
-				//Creation d'une nouvelle partie avec une IA de niveau 1
-				Jeu j1=new Jeu(1);
-				//Lancement de la partie
-				j1.joueurVersusJoueur();
-			}
-			//Mode intermediaire
-			else if(choix==2) {
-				//Creation d'une nouvelle partie avec une IA de niveau 1
-				Jeu j1=new Jeu(2);
-				//Lancement de la partie
-				j1.joueurVersusJoueur();
-			}
-			//Mode difficile
-			else {
-				//Creation d'une nouvelle partie avec une IA de niveau 1
-				Jeu j1=new Jeu(3);
-				//Lancement de la partie
-				j1.joueurVersusJoueur();
-			}
+			//Creation d'une nouvelle partie selon le niveau de difficulte choisit
+			Jeu j1 = new Jeu(choix);
+			//Lancement de la partie contre l'IA
+			j1.joueurVersusIA();
+			
 		}
 		//Cas ou l'utilisateur veut jouer contre un autre humain	
 		else if(choix==2) {
 			//Creation d'une nouvelle partie
 			Jeu j2=new Jeu();
-			//Lancement de la partie
+			//Lancement de la partie contre un autre joueur
 			j2.joueurVersusJoueur();
 		}
 	}
