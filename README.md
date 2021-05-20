@@ -18,3 +18,17 @@
   - Regarder comment faire pour voir qu'il s'agit de la premiere branche
     - Permet ainsi de comparer toutes les valeurs de la premiere branche
   - Ajouter la methode firstMin
+
+- Affichage du menu (Phrase à changer pour rendre mieux)
+  - Bienvenue sur le jeu du Morpion 
+  - Contre qui souhaitez vous jouer ?
+    - 1) Joueur
+    - 2) IA
+      - Niveau 1
+      - Niveau 2
+      - Niveau 3
+
+
+- Option pour quitter en plein milieu de la partie 
+  - Souhaitez vous vraiment quitter la partie en cours ? (La partie ne sera pas sauvegarder)
+    - O/N
