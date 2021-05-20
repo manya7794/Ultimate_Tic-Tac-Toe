@@ -50,4 +50,20 @@ public class Joueur {
 
 		
 	}
+	
+	/**
+	 * Methode retournant un boolean indiquant si c'est au tour du joueur ou non
+	 * @return true si c'est le tour du joueur, false sinon
+	 */
+	public boolean getTour() {
+		return tour;
+	}
+	
+	/**
+	 * Methode pour set le tour a true ou false
+	 * @param tour le tour
+	 */
+	public void setTour(boolean tour) {
+		this.tour = tour;
+	}
 }

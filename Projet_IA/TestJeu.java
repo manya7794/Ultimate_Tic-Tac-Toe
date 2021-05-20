@@ -9,11 +9,14 @@ public class TestJeu {
 		//Jeu newGame = new Jeu();
 		//newGame.joueurVersusJoueur();
 		
+		Jeu newGame = new Jeu(3);
+		newGame.joueurVersusIA();
+		
 		
 		//Test de la classe JeuBis :
 		//Joueur versus IA de niveau 1
-		JeuBis newGameIA = new JeuBis(1);
-		newGameIA.joueurVersusJoueur();
+		//JeuBis newGameIA = new JeuBis(1);
+		//newGameIA.joueurVersusJoueur();
 
 	}
 

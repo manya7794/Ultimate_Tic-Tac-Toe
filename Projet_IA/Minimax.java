@@ -47,12 +47,12 @@ public class Minimax {
 						poidsZone = max(platClone, i, profondeur-1, -1);
 					}
 				}
-					//Verification de la valeur
-					//Poids de la zone actuelle inferieur au poids en memoire
-					if(poidsZone<poids) {
-						poids=poidsZone;
-						caseFinale=i;
-					}	
+				//Verification de la valeur
+				//Poids de la zone actuelle inferieur au poids en memoire
+				if(poidsZone<poids) {
+					poids=poidsZone;
+					caseFinale=i;
+				}	
 			}
 		}
 		
