@@ -7,6 +7,7 @@
 
 - Minimax :
   - Tester le minimax pour un ordi facile (niveau 1)
+ 
 
 - Valeur:
   - Ajouter une verification permettant de voir que la ligne n'a pas deja ete traitee precedemment (verifDispo.get(0)==false par exemple)  
@@ -15,9 +16,7 @@
   - Tester majValeur
 
 - AlphaBeta
-  - Regarder comment faire pour voir qu'il s'agit de la premiere branche
-    - Permet ainsi de comparer toutes les valeurs de la premiere branche
-  - Ajouter la methode firstMin
+  - Tester les methodes
 
 - Affichage du menu (Phrase à changer pour rendre mieux)
   - Bienvenue sur le jeu du Morpion 
@@ -28,7 +27,9 @@
       - Niveau 2
       - Niveau 3
 
-
 - Option pour quitter en plein milieu de la partie 
   - Souhaitez vous vraiment quitter la partie en cours ? (La partie ne sera pas sauvegarder)
     - O/N
+
+- IA
+  - Verifier que toutes les zones ont au moins deux cases remplies avant d'utiliser AlphaBeta
