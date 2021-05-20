@@ -57,8 +57,8 @@ public class Jeu {
 		}
 			
 		else {
-			minimax = new Minimax(6);
-			alphabeta = new AlphaBeta(6);
+			minimax = new Minimax(8);
+			alphabeta = new AlphaBeta(8);
 		}
 			
 		
@@ -85,7 +85,7 @@ public class Jeu {
 		boolean choixZ = false;
 		
 		//Tant que le plateau principal est jouable, la partie n'est pas terminee
-		while(!plateauP.verifZone() || !plateauP.verifZoneRemplie()) {
+		while(!partieFini(true)) {
 
 			//Verifie si la prochaine Zone, est une zone libre, donc jouable, si pas jouable choixZ = false
 			if( choixZ = zoneLibre(choixCase))
@@ -135,7 +135,7 @@ public class Jeu {
 				j1.setTour(true);
 				System.out.println("Tour de X\n");
 			}
-				
+
 		}
 	}
 	
@@ -445,7 +445,7 @@ public class Jeu {
 		boolean choixZ = false;
 		
 		//Tant que le plateau principal est jouable, la partie n'est pas terminee
-		while(!plateauP.verifZone() || !plateauP.verifZoneRemplie()) {
+		while(!partieFini(false)) {
 
 			//Verifie si la prochaine Zone, est une zone libre, donc jouable, si pas jouable choixZ = false
 			if( choixZ = zoneLibre(choixCase))
@@ -559,7 +559,7 @@ public class Jeu {
 		boolean activeAlphaBeta=false;
 		
 		//Tant que le plateau principal est jouable, la partie n'est pas terminee
-		while(!plateauP.verifZone() || !plateauP.verifZoneRemplie()) {
+		while(!partieFini(false)) {
 
 			//Verifie si la prochaine Zone, est une zone libre, donc jouable, si pas jouable choixZ = false
 			if( choixZ = zoneLibre(choixCase))
@@ -694,6 +694,7 @@ public class Jeu {
 				System.out.println("C'est a votre tour de jouer\n");
 			}
 			
+			partieFini(false);
 		}
 	}
 	
@@ -714,7 +715,7 @@ public class Jeu {
 		boolean activeAlphaBeta=false;
 		
 		//Tant que le plateau principal est jouable, la partie n'est pas terminee
-		while(!plateauP.verifZone() || !plateauP.verifZoneRemplie()) {
+		while(!partieFini(false)) {
 
 			//Verifie si la prochaine Zone, est une zone libre, donc jouable, si pas jouable choixZ = false
 			if( choixZ = zoneLibre(choixCase))
@@ -837,18 +838,77 @@ public class Jeu {
 			
 			//Tour de l'IA
 			else {
-				//Choisit la case en fonction de l'algorithme minimax 
-				choixCase = minimax.firstMin(plateauP, choixZone, minimax.getProfondeur(), ia.symbole);
-				//Affectation de la case par l'IA
-				plateauP.getPlateau().get(choixZone).getCase(choixCase).setCircle();
+				if(!activeAlphaBeta) {
+					//Verification de chaque zone
+					//Nombre de zone validant le prerequis
+					int nbZonesValidees=0;
+					for(PlateauSub platS : plateauP.getPlateau()) {
+						//Nombre de cases cochees par zone
+						int nbCasesCochees=0;
+						//Verification de la case
+						for(Case c : platS.getPlateau()) {
+							if(c.getContenu()!=0) {
+								nbCasesCochees+=1;
+							}
+							if(nbCasesCochees>=2) {
+								nbZonesValidees+=1;
+							}
+						}
+					}
+					//Active l'elagage si toutes les zones correspondent au pre-requis
+					if(nbZonesValidees==9) {
+						activeAlphaBeta=true;
+					}
+				}
 				
-				System.out.println("L'IA a joue sur la case : "+(choixCase+1)+" de la zone : "+(choixZone+1));
-				//Active le tour du joueur 
-				j1.setTour(true);
-				//System.out.println("Tour de X\n");
-				System.out.println("C'est a votre tour de jouer\n");
+				//Elagage non actif
+				if(!activeAlphaBeta) {
+					//Choisit la case en fonction de l'algorithme alphabeta
+					choixCase = alphabeta.firstBeta(plateauP, choixZone, alphabeta.getProfondeur(), ia.symbole);
+					//Affectation de la case par l'IA
+					plateauP.getPlateau().get(choixZone).getCase(choixCase).setCircle();
+					
+					System.out.println("L'IA a joue sur la case : "+(choixCase+1)+" de la zone : "+(choixZone+1));
+					//Active le tour du joueur 
+					j1.setTour(true);
+					//System.out.println("Tour de X\n");
+					System.out.println("C'est a votre tour de jouer\n");
+				}
+				else {
+					
+					//Choisit la case en fonction de l'algorithme minimax 
+					choixCase = minimax.firstMin(plateauP, choixZone, minimax.getProfondeur(), ia.symbole);
+					//Affectation de la case par l'IA
+					plateauP.getPlateau().get(choixZone).getCase(choixCase).setCircle();
+					
+					System.out.println("L'IA a joue sur la case : "+(choixCase+1)+" de la zone : "+(choixZone+1));
+					//Active le tour du joueur 
+					j1.setTour(true);
+					//System.out.println("Tour de X\n");
+					System.out.println("C'est a votre tour de jouer\n");
+				}
 			}
-			
+
 		}
+	}
+	
+	/**
+	 * Methode verifiant si une partie est terminee et ou gagnee
+	 * 
+	 * @param joueur true si joue contre un joueur, false sinon
+	 * @return boolean true si la partie est fini, false sinon
+	 */
+	public boolean partieFini(boolean joueur) {
+		if(plateauP.verifZone()) {
+			int gagnant = plateauP.getSymboleGagnant();
+			System.out.println("La partie est terminée, et "+(gagnant==-1?(joueur?"Le 1er joueur gagne, avec le symbole 'X'":"Vous avez gagner contre l'IA !"):
+				(joueur?"Le 2eme joueur gagne, avec le symbole 'O'":"L'IA vous a battu")));
+			return true;
+		}
+		if(plateauP.verifZoneRemplie()) {
+			System.out.println("La partie se termine sur une égalité\n");
+			return true;
+		}
+		return false;
 	}
 }
