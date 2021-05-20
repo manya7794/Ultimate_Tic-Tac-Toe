@@ -13,3 +13,7 @@
 
 - PlateauSub
   - Tester majValeur
+
+- AlphaBeta
+  - Regarder comment faire pour voir qu'il s'agit de la premiere branche
+    - Permet ainsi de comparer toutes les valeurs de la premiere branche
