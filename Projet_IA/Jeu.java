@@ -752,9 +752,24 @@ public class Jeu {
 	 */
 	public boolean partieFinie(boolean joueur) {
 		if(plateauP.verifZone()) {
+			//Recupere le symbole du gagnant
 			int gagnant = plateauP.getSymboleGagnant();
-			System.out.println("La partie est terminée, et "+(gagnant==-1?(joueur?"Le 1er joueur gagne, avec le symbole 'X'":"Vous avez gagne contre l'IA !"):
-				(joueur?"Le 2eme joueur gagne, avec le symbole 'O'":"L'IA vous a battu")));
+			//Verifie si c'est le 1er joueur
+			if(gagnant==-1) {
+				//Verifie si c'etait contre un joueur, si false alors c'etait contre l'IA
+				if(joueur) 
+					System.out.println("Le 1er joueur gagne, avec le symbole 'X'\n");
+				else
+					System.out.println("Vous avez gagne contre l'IA");
+			}
+			//Si c'etait pas le 1er joueur, alors c'est le 2eme
+			else {
+				//Verifie si c'etait contre un joueur
+				if(joueur)
+					System.out.println("Le 2eme joueur gagne, avec le symbole 'O'\n");
+				else
+					System.out.println("L'IA vous a battu\n");
+			}
 			return true;
 		}
 		if(plateauP.verifZoneRemplie()) {
