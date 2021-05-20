@@ -55,6 +55,7 @@ public class Minimax {
 						poids=poidsZone;
 						caseFinale=i;
 					}	
+				}
 			}
 		}
 		//Affecte le poids dans valeurZone
