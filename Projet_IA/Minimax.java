@@ -172,4 +172,12 @@ public class Minimax {
 		//Retourne la case ayant la plus faible valeur
 		return poidsFinal;
 	}
+	
+	/**
+	 * Methode renvoyant la profondeur du minimax
+	 * @return la profondeur
+	 */
+	public int getProfondeur() {
+		return profondeur;
+	}
 }
