@@ -65,21 +65,95 @@ public class PlateauPrincipal extends Plateau<PlateauSub> {
 	}
 	
 	/**
+	 * Verifie qu'un joueur a rempli une ligne de zone
+	 * 
+	 * @return boolean, true si une ligne de zone est remplie par un meme symbole, false sinon
+	 */
+	public boolean verifZone() {
+		//Premiere ligne
+		if(plateau.get(0).getSymboleGagnant()!=0 && plateau.get(1).getSymboleGagnant()!=0 && plateau.get(2).getSymboleGagnant()!=0) {
+			if((plateau.get(0).getSymboleGagnant()==plateau.get(1).getSymboleGagnant()) && (plateau.get(0).getSymboleGagnant()==plateau.get(2).getSymboleGagnant())) {
+				return true;
+			}
+		}
+		//Deuxieme ligne
+		if(plateau.get(3).getSymboleGagnant()!=0 && plateau.get(4).getSymboleGagnant()!=0 && plateau.get(5).getSymboleGagnant()!=0) {
+			if((plateau.get(3).getSymboleGagnant()==plateau.get(4).getSymboleGagnant()) && (plateau.get(3).getSymboleGagnant()==plateau.get(5).getSymboleGagnant())) {
+				return true;
+			}
+		}
+		//Troisieme ligne
+		if(plateau.get(6).getSymboleGagnant()!=0 && plateau.get(7).getSymboleGagnant()!=0 && plateau.get(8).getSymboleGagnant()!=0) {
+			if((plateau.get(6).getSymboleGagnant()==plateau.get(7).getSymboleGagnant()) && (plateau.get(6).getSymboleGagnant()==plateau.get(8).getSymboleGagnant())) {
+				return true;
+			}
+		}
+		//Premiere colonne
+		if(plateau.get(0).getSymboleGagnant()!=0 && plateau.get(3).getSymboleGagnant()!=0 && plateau.get(6).getSymboleGagnant()!=0) {
+			if((plateau.get(0).getSymboleGagnant()==plateau.get(3).getSymboleGagnant()) && (plateau.get(0).getSymboleGagnant()==plateau.get(6).getSymboleGagnant())) {
+				return true;
+			}
+		}
+		//Deuxieme colonne
+		if(plateau.get(1).getSymboleGagnant()!=0 && plateau.get(4).getSymboleGagnant()!=0 && plateau.get(7).getSymboleGagnant()!=0) {
+			if((plateau.get(1).getSymboleGagnant()==plateau.get(4).getSymboleGagnant()) && (plateau.get(1).getSymboleGagnant()==plateau.get(7).getSymboleGagnant())) {
+				return true;
+			}
+		}
+		//Troisieme colonne
+		if(plateau.get(2).getSymboleGagnant()!=0 && plateau.get(5).getSymboleGagnant()!=0 && plateau.get(8).getSymboleGagnant()!=0) {
+			if((plateau.get(2).getSymboleGagnant()==plateau.get(5).getSymboleGagnant()) && (plateau.get(2).getSymboleGagnant()==plateau.get(8).getSymboleGagnant())) {
+				return true;
+			}
+		}
+		//Diagonale gauche
+		if(plateau.get(4).getSymboleGagnant()!=0 && plateau.get(0).getSymboleGagnant()!=0 && plateau.get(8).getSymboleGagnant()!=0) {
+			if((plateau.get(4).getSymboleGagnant()==plateau.get(0).getSymboleGagnant()) && (plateau.get(4).getSymboleGagnant()==plateau.get(8).getSymboleGagnant())) {
+				return true;
+			}
+		}
+		//Diagonale droite
+		if(plateau.get(4).getSymboleGagnant()!=0 && plateau.get(2).getSymboleGagnant()!=0 && plateau.get(6).getSymboleGagnant()!=0) {
+			if((plateau.get(4).getSymboleGagnant()==plateau.get(2).getSymboleGagnant()) && (plateau.get(4).getSymboleGagnant()==plateau.get(6).getSymboleGagnant())) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	/**
+	 * Verifie si la zone est remplie ou non
+	 * 
+	 * @return boolean, true si la zone est remplie donc si les 9 cases contiennent un symbole, false sinon
+	 */
+	public boolean verifZoneRemplie() {
+		//Verifie que toutes les cases sont remplies, donc non vide
+		if(	plateau.get(0).getSymboleGagnant()==0 || plateau.get(1).getSymboleGagnant()==0 || plateau.get(2).getSymboleGagnant()==0 ||
+			plateau.get(3).getSymboleGagnant()==0 || plateau.get(4).getSymboleGagnant()==0 || plateau.get(5).getSymboleGagnant()==0 ||
+			plateau.get(6).getSymboleGagnant()==0 || plateau.get(7).getSymboleGagnant()==0 || plateau.get(8).getSymboleGagnant()==0
+		)
+			return false;
+		else
+			return true;
+	}
+	
+	/**
 	 * Renvoie le plateau sous forme de String
 	 */
 	public String toString() {
 		StringBuilder tmp = new StringBuilder();
-		tmp.append("|¯¯¯T¯¯¯T¯¯¯TT¯¯¯T¯¯¯T¯¯¯TT¯¯¯T¯¯¯T¯¯¯|\n");
+		tmp.append("|Â¯Â¯Â¯TÂ¯Â¯Â¯TÂ¯Â¯Â¯TTÂ¯Â¯Â¯TÂ¯Â¯Â¯TÂ¯Â¯Â¯TTÂ¯Â¯Â¯TÂ¯Â¯Â¯TÂ¯Â¯Â¯|\n");
 		tmp.append(plateau.get(0).afficheLigne(1)+plateau.get(1).afficheLigne(1)+plateau.get(2).afficheLigne(1)+"\n");
 		tmp.append(plateau.get(0).afficheLigne(2)+plateau.get(1).afficheLigne(2)+plateau.get(2).afficheLigne(2)+"\n");
 		tmp.append(plateau.get(0).afficheLigne(3)+plateau.get(1).afficheLigne(3)+plateau.get(2).afficheLigne(3)+"\n");
 		tmp.append("|___|___|___||___|___|___||___|___|___|\n");
-		tmp.append("|¯¯¯|¯¯¯|¯¯¯||¯¯¯|¯¯¯|¯¯¯||¯¯¯|¯¯¯|¯¯¯|\n");
+		tmp.append("|Â¯Â¯Â¯|Â¯Â¯Â¯|Â¯Â¯Â¯||Â¯Â¯Â¯|Â¯Â¯Â¯|Â¯Â¯Â¯||Â¯Â¯Â¯|Â¯Â¯Â¯|Â¯Â¯Â¯|\n");
 		tmp.append(plateau.get(3).afficheLigne(1)+plateau.get(4).afficheLigne(1)+plateau.get(5).afficheLigne(1)+"\n");
 		tmp.append(plateau.get(3).afficheLigne(2)+plateau.get(4).afficheLigne(2)+plateau.get(5).afficheLigne(2)+"\n");
 		tmp.append(plateau.get(3).afficheLigne(3)+plateau.get(4).afficheLigne(3)+plateau.get(5).afficheLigne(3)+"\n");
 		tmp.append("|___|___|___||___|___|___||___|___|___|\n");
-		tmp.append("|¯¯¯|¯¯¯|¯¯¯||¯¯¯|¯¯¯|¯¯¯||¯¯¯|¯¯¯|¯¯¯|\n");
+		tmp.append("|Â¯Â¯Â¯|Â¯Â¯Â¯|Â¯Â¯Â¯||Â¯Â¯Â¯|Â¯Â¯Â¯|Â¯Â¯Â¯||Â¯Â¯Â¯|Â¯Â¯Â¯|Â¯Â¯Â¯|\n");
 		tmp.append(plateau.get(6).afficheLigne(1)+plateau.get(7).afficheLigne(1)+plateau.get(8).afficheLigne(1)+"\n");
 		tmp.append(plateau.get(6).afficheLigne(2)+plateau.get(7).afficheLigne(2)+plateau.get(8).afficheLigne(2)+"\n");
 		tmp.append(plateau.get(6).afficheLigne(3)+plateau.get(7).afficheLigne(3)+plateau.get(8).afficheLigne(3)+"\n");
