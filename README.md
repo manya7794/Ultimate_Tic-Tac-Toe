@@ -17,10 +17,10 @@
 - AlphaBeta
   - Tester les methodes
 
+- IA
+  - Verifier que toutes les zones ont au moins deux cases remplies avant d'utiliser AlphaBeta
 
+----- Optionnel -----
 - Option pour quitter en plein milieu de la partie 
   - Souhaitez vous vraiment quitter la partie en cours ? (La partie ne sera pas sauvegarder)
     - O/N
-
-- IA
-  - Verifier que toutes les zones ont au moins deux cases remplies avant d'utiliser AlphaBeta
