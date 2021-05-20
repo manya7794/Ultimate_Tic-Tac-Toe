@@ -55,6 +55,12 @@ public class Minimax {
 					}	
 			}
 		}
+		
+		//Affecte le poids dans valeurZone
+		valeurZone = poids;
+		//Retourne la case ayant la plus faible valeur
+		return caseFinale;
+	}
 	
 	/**
 	 * Methode renvoyant le plus grand poids trouve pour la zone entree en argument
