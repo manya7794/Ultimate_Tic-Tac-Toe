@@ -85,7 +85,7 @@ public class Jeu {
 		boolean choixZ = false;
 		
 		//Tant que le plateau principal est jouable, la partie n'est pas terminee
-		while(!partieFini(true)) {
+		while(!partieFinie(true)) {
 
 			//Verifie si la prochaine Zone, est une zone libre, donc jouable, si pas jouable choixZ = false
 			if( choixZ = zoneLibre(choixCase))
@@ -445,7 +445,7 @@ public class Jeu {
 		boolean choixZ = false;
 		
 		//Tant que le plateau principal est jouable, la partie n'est pas terminee
-		while(!partieFini(false)) {
+		while(!partieFinie(false)) {
 
 			//Verifie si la prochaine Zone, est une zone libre, donc jouable, si pas jouable choixZ = false
 			if( choixZ = zoneLibre(choixCase))
@@ -559,7 +559,7 @@ public class Jeu {
 		boolean activeAlphaBeta=false;
 		
 		//Tant que le plateau principal est jouable, la partie n'est pas terminee
-		while(!partieFini(false)) {
+		while(!partieFinie(false)) {
 
 			//Verifie si la prochaine Zone, est une zone libre, donc jouable, si pas jouable choixZ = false
 			if( choixZ = zoneLibre(choixCase))
@@ -693,7 +693,7 @@ public class Jeu {
 				//System.out.println("Tour de X\n");
 				System.out.println("C'est a votre tour de jouer\n");
 			}
-			
+			partieFinie(false);
 		}
 	}
 	
@@ -714,7 +714,7 @@ public class Jeu {
 		boolean activeAlphaBeta=false;
 		
 		//Tant que le plateau principal est jouable, la partie n'est pas terminee
-		while(!partieFini(false)) {
+		while(!partieFinie(false)) {
 
 			//Verifie si la prochaine Zone, est une zone libre, donc jouable, si pas jouable choixZ = false
 			if( choixZ = zoneLibre(choixCase))
@@ -858,10 +858,10 @@ public class Jeu {
 	 * @param joueur true si joue contre un joueur, false sinon
 	 * @return boolean true si la partie est fini, false sinon
 	 */
-	public boolean partieFini(boolean joueur) {
+	public boolean partieFinie(boolean joueur) {
 		if(plateauP.verifZone()) {
 			int gagnant = plateauP.getSymboleGagnant();
-			System.out.println("La partie est terminée, et "+(gagnant==-1?(joueur?"Le 1er joueur gagne, avec le symbole 'X'":"Vous avez gagner contre l'IA !"):
+			System.out.println("La partie est terminée, et "+(gagnant==-1?(joueur?"Le 1er joueur gagne, avec le symbole 'X'":"Vous avez gagne contre l'IA !"):
 				(joueur?"Le 2eme joueur gagne, avec le symbole 'O'":"L'IA vous a battu")));
 			return true;
 		}
