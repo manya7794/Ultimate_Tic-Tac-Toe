@@ -24,6 +24,8 @@ public class Minimax {
 		int caseFinale=-1;
 		//On parcourt chaque case de la zone
 		for(int i=0; i<9;i++) {
+			//Poids de la zone actuelle
+			int poidsZone;
 			//Creation d'un plateau clone pour effectuer la recherche
 			PlateauPrincipal platClone = platP.clone();
 			//PlateauPrincipal platClone = new PlateauPrincipal(platP);
@@ -39,19 +41,20 @@ public class Minimax {
 					//Recuperation du poids de la zone
 					//Changement du symbole joueur
 					if(symboleJoueur==-1) {
-						poids = max(platClone, i, profondeur-1, 1);
+						poidsZone = max(platClone, i, profondeur-1, 1);
 					}
 					if(symboleJoueur==1) {
-						poids = max(platClone, i, profondeur-1, -1);
+						poidsZone = max(platClone, i, profondeur-1, -1);
 					}
 				}
-				
-				//Verifier valeur
-				int poidsZone=platSubClone.getValeur().getPoids();
-				if(poidsZone<poids) {
-					poids=poidsZone;
-					caseFinale=i;
-				}
+				else {
+					//Verifier valeur
+					poidsZone=platSubClone.getValeur().getPoids();
+					//Poids de la zone actuelle inferieur au poids en memoire
+					if(poidsZone<poids) {
+						poids=poidsZone;
+						caseFinale=i;
+					}	
 			}
 		}
 		//Affecte le poids dans valeurZone
