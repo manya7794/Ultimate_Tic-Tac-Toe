@@ -340,7 +340,7 @@ public class Jeu {
 				//Affectation de la case par l'IA
 				plateauP.getPlateau().get(choixZone).getCase(choixCase).setCircle();
 				
-				System.out.println("L'IA a jouer sur la case : "+(choixCase+1)+" de la zone : "+(choixZone+1));
+				System.out.println("L'IA a joue sur la case : "+(choixCase+1)+" de la zone : "+(choixZone+1));
 				//Active le tour du joueur 
 				j1.setTour(true);
 				//System.out.println("Tour de X\n");
