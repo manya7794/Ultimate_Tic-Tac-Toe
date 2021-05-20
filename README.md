@@ -4,7 +4,8 @@
 
 
 - Minimax :
-  - Tester le minimax pour un ordi facile (niveau 1)
+  - Tester le minimax pour un ordi facile (niveau 1) ALL OK
+  - Tester le minimax pour un ordi intermediaire (niveau 2)
  
 
 - Valeur:
