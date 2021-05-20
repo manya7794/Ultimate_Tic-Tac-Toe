@@ -7,19 +7,10 @@ public class Jeu {
 	
 	//Attributs
 	private PlateauPrincipal plateauP;
-	//private PlateauSub plateauS;
 	private Joueur j1;
-	//private Case x;
-	
 	private Joueur ia;
-	//private Case o;
-	
 	private Minimax minimax;
-	
 	private Scanner sc;
-	
-	//Valeur qui sera donner a chaque case / plateau
-	//private Valeur val;
 	
 	//Constructeur
 	
@@ -40,11 +31,9 @@ public class Jeu {
 	public Jeu(int niveau) {
 		//Grand Plateau contenant les 9 petits plateaux
 		plateauP = new PlateauPrincipal();
-
 		//Joueur j1 commence la partie, avec le symbole "X"
 		j1 = new Joueur(true, -1);
 		//IA, joue en deuxieme, avec le sylbole "O"
-		//j2 = new Joueur(false,1);
 		ia = new Joueur(false,1);
 		
 		//La profondeur de recherche du minimax depend du niveau
@@ -54,25 +43,23 @@ public class Jeu {
 			minimax = new Minimax(4);
 		else
 			minimax = new Minimax(8);
-		
-		//Initialise la valeur correspondant au niveau de jeu
-		//val = new Valeur(niveau);
-		
+
 		sc = new Scanner(System.in);
 	}
 	
 	//Methodes
 	
 	/**
-	 * 
+	 * Methode lancant la partie contre un deuxieme joueur
 	 */
 	public void joueurVersusJoueur() {
 		System.out.println("Tour de X\n");
 		affichageChoixZone();
 		//Choix de la zone de depart
 		int choixZone = choix();
-		//Initialisation de la case de depart, par rapport a la zone choisit, 
+		//Initialisation de la case par rapport a la zone de depart
 		int choixCase = choixZone;
+		//Booleen servent a la boucle pour choisir une case / une zone
 		boolean choixC = false;
 		boolean choixZ = false;
 		
@@ -112,9 +99,7 @@ public class Jeu {
 			
 			//Tour du joueur 1
 			if(j1.getTour()) {
-				//Affiche la zone en cours et le choix de la case du joueur en cours
-				//System.out.println("choixZ : "+choixZone+" choixC : "+ choixCase);
-				//plateauP.getPlateau().get(choixZone).setCase(choixCase, j1.symbole);
+				//Affecte la croix a la zone et a la case choisit par le joueur 1
 				plateauP.getPlateau().get(choixZone).getCase(choixCase).setCross();
 				//Desactive le tour du joueur 1
 				j1.setTour(false);
@@ -123,9 +108,7 @@ public class Jeu {
 			
 			//Tour du joueur 2
 			else {
-				//Affiche la zone en cours et le choix de la case du joueur en cours
-				//System.out.println("choixZ : "+choixZone+" choixC : "+ choixCase);
-				//plateauP.getPlateau().get(choixZone).setCase(choixCase, j2.symbole);
+				//Affecte le cercle a la zone et a la case choisit par le joueur 2
 				plateauP.getPlateau().get(choixZone).getCase(choixCase).setCircle();
 				//Active le tour du joueur 1
 				j1.setTour(true);
@@ -136,13 +119,16 @@ public class Jeu {
 	}
 	
 	/**
-	 * 
+	 * Methode lancant la partie contre l'IA
 	 */
 	public void joueurVersusIA() {
 		System.out.println("Tour de X\n");
 		affichageChoixZone();
+		//Choix de la zone de depart
 		int choixZone = choix();
+		//Initialisation de la case par rapport a la zone de depart
 		int choixCase = choixZone;
+		//Booleen servent a la boucle pour choisir une case / une zone
 		boolean choixC = false;
 		boolean choixZ = false;
 		
@@ -177,6 +163,7 @@ public class Jeu {
 							choixZone = i;
 						}
 					}
+					//Verifie si la Zone choisie par l'IA est libre, donc jouable
 					choixZ = zoneLibre(choixZone);
 				}
 			}
@@ -188,7 +175,7 @@ public class Jeu {
 				if(j1.getTour()) {
 					affichageZone(choixZone);
 					
-					// Demande a l'utilisateur de choisir la case dans lequel il veut jouer
+					//Demande a l'utilisateur de choisir la case dans lequel il veut jouer
 					choixCase = choix();
 					
 					//Verifie que la case est vide
@@ -201,7 +188,7 @@ public class Jeu {
 				}
 				//L'IA choisit la case
 				else {
-					// L'IA choisit une case en utilisant l'algorithme minimax
+					//L'IA choisit une case en utilisant l'algorithme minimax
 					choixCase = minimax.firstMin(plateauP, choixZone, minimax.getProfondeur(), ia.symbole);
 					System.out.println(choixCase);
 					//Verifie que la case est vide
@@ -217,14 +204,12 @@ public class Jeu {
 			
 			//Tour du joueur 1
 			if(j1.getTour()) {
-				//Affiche la zone en cours et le choix de la case du joueur en cours
-				//System.out.println("choixZ : "+choixZone+" choixC : "+ choixCase);
-				//plateauP.getPlateau().get(choixZone).setCase(choixCase, j1.symbole);
+				//Affecte la croix a la zone et a la case choisit par le joueur 1
 				plateauP.getPlateau().get(choixZone).getCase(choixCase).setCross();
 				//Desactive le tour du joueur
 				j1.setTour(false);
-				//System.out.println("Tour de O\n");
-				System.out.println(plateauP.toString());
+				//System.out.println("Tour de l'IA");
+				//System.out.println(plateauP.toString());
 			}
 			
 			//Tour de l'IA
@@ -252,22 +237,33 @@ public class Jeu {
 	private int choix() {
 		boolean sortie=false;
 		int choix=0;
+		// Tant que le choix de l'utilisateur n'est pas valide
 		while(!sortie) {
+			//Recupere le choix entrer par l'utilisateur
 			int choixTmp=recupChoix();
+			//Verifie qu'il est bien valide
 			if(choixTmp!=-2) {
 				choix=choixTmp;
 				sortie=true;
 			}
 		}
+		//Retourne le choix de l'utilisateur
 		return choix;
 	}
 
+	/**
+	 * Methode gerant les exceptions du choix entre par l'utilisateur
+	 * 
+	 * @return le choix de l'utilisateur
+	 */
 	private int recupChoix() {
 		boolean sortie=false;
 		String choix = null;
 		
 		int choixTmp=0;
+		//Tant que le choix n'est pas bon
 		while(!sortie) {
+			//Recupere le choix de l'utilisateur
 			try {
 				choix=sc.nextLine();
 			}catch (InputMismatchException exception) {
@@ -277,25 +273,31 @@ public class Jeu {
 			//Verification qu'il s'agit bien d'un nombre
 			boolean isNumeric =  choix.matches("[+-]?\\d*(\\.\\d+)?");
 			if(isNumeric) {
-				
+				//Tente de recuperer l'entier
 				try {
-					choixTmp=(Integer.valueOf(choix));
-					//choixTmp=(Integer.valueOf(choix)-1);
-				}
-				 catch(NumberFormatException exception){
-					 System.out.println(choix+" n'est pas une entree valide");
-					 return -2;
+					choixTmp=(Integer.valueOf(choix)-1);
+					
+					//Verifie que l'entier est compris entre 0 et 8 (donc 1 et 9 pour l'utilisateur)
+					if((choixTmp>-1)&&(choixTmp<9)) {
+						sortie=true;
+					}
+					else {
+						System.out.println((choixTmp+1)+" n'est pas une valeur valide.\n");
+						System.out.println("Veuillez choisir une valeur entre 1 et 9 svp.\n");
+					}
+				}	catch(NumberFormatException exception){
+						System.out.println(choix+" n'est pas une entree valide");
+						return -2;
 					}
 				//Verification que le chiffre est present dans le domaine defini
-				if((choixTmp>-1)&&(choixTmp<9)) {
-					sortie=true;
-				}
+				
 			}
 			else {
 				System.out.println(choix+" n'est pas une entree valide.\n");
 				System.out.println("Veuillez choisir une valeur entre 1 et 9 svp.\n");
 			}
 		}
+		//Retourne le choix de l'utilisateur
 		return choixTmp;
 	}
 	
@@ -333,6 +335,7 @@ public class Jeu {
 		System.out.println(plateauP.toString());
 		//Numero de la zone affichee
 		System.out.println("\nZone "+affiche+"\n");
+		//Affiche la zone
 		System.out.println(plateauP.getPlateau().get(choix).affiche());
 		System.out.println("Veuillez choisir la case sur lequel vous voulez jouer (1-9) : \n");
 	}
