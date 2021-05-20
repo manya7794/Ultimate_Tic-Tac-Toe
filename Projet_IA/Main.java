@@ -23,6 +23,12 @@ public class Main {
 			choix=choixDifficulte(sc);
 			//Creation d'une nouvelle partie selon le niveau de difficulte choisit
 			Jeu j1 = new Jeu(choix);
+			if(choix==1)
+				System.out.println("\nLancement de la partie joueur contre ordinateur (mode facile) :\n\n");
+			if(choix==2)
+				System.out.println("\nLancement de la partie joueur contre ordinateur (mode intermediaire) :\n\n");
+			if(choix==3)
+				System.out.println("\nLancement de la partie joueur contre ordinateur (mode difficile) :\n\n");
 			//Lancement de la partie contre l'IA
 			j1.joueurVersusIA();
 			
@@ -31,6 +37,7 @@ public class Main {
 		else if(choix==2) {
 			//Creation d'une nouvelle partie
 			Jeu j2=new Jeu();
+			System.out.println("\nLancement de la partie joueur contre joueur :\n\n");
 			//Lancement de la partie contre un autre joueur
 			j2.joueurVersusJoueur();
 		}
