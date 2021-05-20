@@ -83,10 +83,22 @@ public class Jeu {
 		//Booleen servent a la boucle pour choisir une case / une zone
 		boolean choixC = false;
 		boolean choixZ = false;
+		//Booleen pour ne pas afficher "Tour de X" en debut de partie
+		boolean debut = true;
 		
 		//Tant que le plateau principal est jouable, la partie n'est pas terminee
 		while(!partieFinie(true)) {
-
+			
+			//Affiche si c'est le Tour de X ou de O
+			if(j1.getTour()) {
+				if(!debut) {
+					System.out.println("Tour de X\n");
+				}
+				debut = false;
+			}
+			else
+				System.out.println("Tour de O\n");
+			
 			//Verifie si la prochaine Zone, est une zone libre, donc jouable, si pas jouable choixZ = false
 			if( choixZ = zoneLibre(choixCase))
 				choixZone = choixCase;
@@ -127,7 +139,6 @@ public class Jeu {
 				plateauP.verifZone();
 				//Desactive le tour du joueur 1
 				j1.setTour(false);
-				System.out.println("Tour de O\n");
 			}
 			
 			//Tour du joueur 2
@@ -139,10 +150,11 @@ public class Jeu {
 				plateauP.verifZone();
 				//Active le tour du joueur 1
 				j1.setTour(true);
-				System.out.println("Tour de X\n");
 			}
 
 		}
+		//Affiche l'etat du plateau en fin de partie
+		System.out.println(plateauP.toString());
 	}
 	
 	/**
@@ -278,7 +290,7 @@ public class Jeu {
 	 * Methode lancant une partie en mode Joueur vs IA de niveau facile
 	 */
 	public void iaFacile() {
-		System.out.println("Tour de X\n");
+		System.out.println("Vous commencez la partie\n");
 		affichageChoixZone();
 		//Choix de la zone de depart
 		int choixZone = choix();
@@ -287,9 +299,19 @@ public class Jeu {
 		//Booleen servent a la boucle pour choisir une case / une zone
 		boolean choixC = false;
 		boolean choixZ = false;
+		//Booleen pour ne pas afficher "Tour de X" en debut de partie
+		boolean debut = true;
 		
 		//Tant que le plateau principal est jouable, la partie n'est pas terminee
 		while(!partieFinie(false)) {
+			
+			//Affiche si c'est au tour du joueur de jouer
+			if(j1.getTour()) {
+				if(!debut) {
+					System.out.println("A vous de jouer\n");
+				}
+				debut = false;
+			}
 
 			//Verifie si la prochaine Zone, est une zone libre, donc jouable, si pas jouable choixZ = false
 			if( choixZ = zoneLibre(choixCase))
@@ -355,9 +377,7 @@ public class Jeu {
 						choixC = false;
 				}
 			}
-			choixC = false;
-			
-			
+			choixC = false;		
 			
 			//Tour du joueur 1
 			if(j1.getTour()) {
@@ -368,8 +388,6 @@ public class Jeu {
 				plateauP.verifZone();
 				//Desactive le tour du joueur
 				j1.setTour(false);
-				//System.out.println("Tour de l'IA");
-				//System.out.println(plateauP.toString());
 			}
 			
 			//Tour de l'IA
@@ -385,18 +403,18 @@ public class Jeu {
 				plateauP.verifZone();
 				//Active le tour du joueur 
 				j1.setTour(true);
-				//System.out.println("Tour de X\n");
-				System.out.println("C'est a votre tour de jouer\n");
 			}
 			
 		}
+		//Affiche l'etat du plateau en fin de partie
+		System.out.println(plateauP.toString());
 	}
 	
 	/**
 	 * Methode lancant une partie en mode Joueur vs IA de niveau intermediaire
 	 */
 	public void iaInter() {
-		System.out.println("Tour de X\n");
+		System.out.println("Vous commencez la partie\n");
 		affichageChoixZone();
 		//Choix de la zone de depart
 		int choixZone = choix();
@@ -407,10 +425,20 @@ public class Jeu {
 		boolean choixZ = false;
 		//Booleen activant l'elagage alphaBeta si l'ordinateur l'utilise
 		boolean activeAlphaBeta=false;
+		//Booleen pour ne pas afficher "Tour de X" en debut de partie
+		boolean debut = true;
 		
 		//Tant que le plateau principal est jouable, la partie n'est pas terminee
 		while(!partieFinie(false)) {
 
+			//Affiche si c'est au tour du joueur de jouer
+			if(j1.getTour()) {
+				if(!debut) {
+					System.out.println("A vous de jouer\n");
+				}
+				debut = false;
+			}
+			
 			//Verifie si la prochaine Zone, est une zone libre, donc jouable, si pas jouable choixZ = false
 			if( choixZ = zoneLibre(choixCase))
 				choixZone = choixCase;
@@ -517,9 +545,7 @@ public class Jeu {
 				}
 			}
 			choixC = false;
-			
-			
-			
+
 			//Tour du joueur 1
 			if(j1.getTour()) {
 				//Affecte la croix a la zone et a la case choisit par le joueur 1
@@ -529,8 +555,6 @@ public class Jeu {
 				plateauP.verifZone();
 				//Desactive le tour du joueur
 				j1.setTour(false);
-				//System.out.println("Tour de l'IA");
-				//System.out.println(plateauP.toString());
 			}
 			
 			//Tour de l'IA
@@ -546,18 +570,18 @@ public class Jeu {
 				plateauP.verifZone();
 				//Active le tour du joueur 
 				j1.setTour(true);
-				//System.out.println("Tour de X\n");
-				System.out.println("C'est a votre tour de jouer\n");
 			}
 
 		}
+		//Affiche l'etat du plateau en fin de partie
+		System.out.println(plateauP.toString());
 	}
 	
 	/**
 	 * Methode lancant une partie en mode Joueur vs IA de niveau difficile
 	 */
 	public void iaDifficile() {
-		System.out.println("Tour de X\n");
+		System.out.println("Vous commencez la partie\n");
 		affichageChoixZone();
 		//Choix de la zone de depart
 		int choixZone = choix();
@@ -568,9 +592,19 @@ public class Jeu {
 		boolean choixZ = false;
 		//Booleen activant l'elagage alphaBeta si l'ordinateur l'utilise
 		boolean activeAlphaBeta=false;
+		//Booleen pour ne pas afficher "Tour de X" en debut de partie
+		boolean debut = true;
 		
 		//Tant que le plateau principal est jouable, la partie n'est pas terminee
 		while(!partieFinie(false)) {
+			
+			//Affiche si c'est au tour du joueur de jouer
+			if(j1.getTour()) {
+				if(!debut) {
+					System.out.println("A vous de jouer\n");
+				}
+				debut = false;
+			}
 
 			//Verifie si la prochaine Zone, est une zone libre, donc jouable, si pas jouable choixZ = false
 			if( choixZ = zoneLibre(choixCase))
@@ -679,8 +713,6 @@ public class Jeu {
 			}
 			choixC = false;
 			
-			
-			
 			//Tour du joueur 1
 			if(j1.getTour()) {
 				//Affecte la croix a la zone et a la case choisit par le joueur 1
@@ -690,8 +722,6 @@ public class Jeu {
 				plateauP.verifZone();
 				//Desactive le tour du joueur
 				j1.setTour(false);
-				//System.out.println("Tour de l'IA");
-				//System.out.println(plateauP.toString());
 			}
 			
 			//Tour de l'IA
@@ -707,11 +737,11 @@ public class Jeu {
 				plateauP.verifZone();
 				//Active le tour du joueur 
 				j1.setTour(true);
-				//System.out.println("Tour de X\n");
-				System.out.println("C'est a votre tour de jouer\n");
 			}
 			
 		}
+		//Affiche l'etat du plateau en fin de partie
+		System.out.println(plateauP.toString());
 	}
 	
 	/**
