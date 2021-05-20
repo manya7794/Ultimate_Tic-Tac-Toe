@@ -122,6 +122,9 @@ public class Jeu {
 			if(j1.getTour()) {
 				//Affecte la croix a la zone et a la case choisit par le joueur 1
 				plateauP.getPlateau().get(choixZone).getCase(choixCase).setCross();
+				//Verifie si des lignes (cases/zones) sont faites
+				plateauP.getPlateau().get(choixZone).verifZone();
+				plateauP.verifZone();
 				//Desactive le tour du joueur 1
 				j1.setTour(false);
 				System.out.println("Tour de O\n");
@@ -131,6 +134,9 @@ public class Jeu {
 			else {
 				//Affecte le cercle a la zone et a la case choisit par le joueur 2
 				plateauP.getPlateau().get(choixZone).getCase(choixCase).setCircle();
+				//Verifie si des lignes (cases/zones) sont faites
+				plateauP.getPlateau().get(choixZone).verifZone();
+				plateauP.verifZone();
 				//Active le tour du joueur 1
 				j1.setTour(true);
 				System.out.println("Tour de X\n");
@@ -357,6 +363,9 @@ public class Jeu {
 			if(j1.getTour()) {
 				//Affecte la croix a la zone et a la case choisit par le joueur 1
 				plateauP.getPlateau().get(choixZone).getCase(choixCase).setCross();
+				//Verifie si des lignes (cases/zones) sont faites
+				plateauP.getPlateau().get(choixZone).verifZone();
+				plateauP.verifZone();
 				//Desactive le tour du joueur
 				j1.setTour(false);
 				//System.out.println("Tour de l'IA");
@@ -371,6 +380,9 @@ public class Jeu {
 				plateauP.getPlateau().get(choixZone).getCase(choixCase).setCircle();
 				
 				System.out.println("L'IA a joue sur la case : "+(choixCase+1)+" de la zone : "+(choixZone+1));
+				//Verifie si des lignes (cases/zones) sont faites
+				plateauP.getPlateau().get(choixZone).verifZone();
+				plateauP.verifZone();
 				//Active le tour du joueur 
 				j1.setTour(true);
 				//System.out.println("Tour de X\n");
@@ -512,6 +524,9 @@ public class Jeu {
 			if(j1.getTour()) {
 				//Affecte la croix a la zone et a la case choisit par le joueur 1
 				plateauP.getPlateau().get(choixZone).getCase(choixCase).setCross();
+				//Verifie si des lignes (cases/zones) sont faites
+				plateauP.getPlateau().get(choixZone).verifZone();
+				plateauP.verifZone();
 				//Desactive le tour du joueur
 				j1.setTour(false);
 				//System.out.println("Tour de l'IA");
@@ -526,12 +541,15 @@ public class Jeu {
 				plateauP.getPlateau().get(choixZone).getCase(choixCase).setCircle();
 				
 				System.out.println("L'IA a joue sur la case : "+(choixCase+1)+" de la zone : "+(choixZone+1));
+				//Verifie si des lignes (cases/zones) sont faites
+				plateauP.getPlateau().get(choixZone).verifZone();
+				plateauP.verifZone();
 				//Active le tour du joueur 
 				j1.setTour(true);
 				//System.out.println("Tour de X\n");
 				System.out.println("C'est a votre tour de jouer\n");
 			}
-			partieFinie(false);
+
 		}
 	}
 	
@@ -667,6 +685,9 @@ public class Jeu {
 			if(j1.getTour()) {
 				//Affecte la croix a la zone et a la case choisit par le joueur 1
 				plateauP.getPlateau().get(choixZone).getCase(choixCase).setCross();
+				//Verifie si des lignes (cases/zones) sont faites
+				plateauP.getPlateau().get(choixZone).verifZone();
+				plateauP.verifZone();
 				//Desactive le tour du joueur
 				j1.setTour(false);
 				//System.out.println("Tour de l'IA");
@@ -681,6 +702,9 @@ public class Jeu {
 				plateauP.getPlateau().get(choixZone).getCase(choixCase).setCircle();
 				
 				System.out.println("L'IA a joue sur la case : "+(choixCase+1)+" de la zone : "+(choixZone+1));
+				//Verifie si des lignes (cases/zones) sont faites
+				plateauP.getPlateau().get(choixZone).verifZone();
+				plateauP.verifZone();
 				//Active le tour du joueur 
 				j1.setTour(true);
 				//System.out.println("Tour de X\n");
@@ -699,12 +723,12 @@ public class Jeu {
 	public boolean partieFinie(boolean joueur) {
 		if(plateauP.verifZone()) {
 			int gagnant = plateauP.getSymboleGagnant();
-			System.out.println("La partie est terminée, et "+(gagnant==-1?(joueur?"Le 1er joueur gagne, avec le symbole 'X'":"Vous avez gagne contre l'IA !"):
+			System.out.println("La partie est terminÃ©e, et "+(gagnant==-1?(joueur?"Le 1er joueur gagne, avec le symbole 'X'":"Vous avez gagne contre l'IA !"):
 				(joueur?"Le 2eme joueur gagne, avec le symbole 'O'":"L'IA vous a battu")));
 			return true;
 		}
 		if(plateauP.verifZoneRemplie()) {
-			System.out.println("La partie se termine sur une égalité\n");
+			System.out.println("La partie se termine sur une Ã©galitÃ©\n");
 			return true;
 		}
 		return false;
