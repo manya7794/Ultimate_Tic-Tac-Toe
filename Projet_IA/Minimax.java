@@ -3,6 +3,7 @@ package Projet_IA;
 public class Minimax {
 	
 	private int profondeur;
+	private int valeurZone = 0;
 	
 	public Minimax(int profondeur) {
 		this.profondeur = profondeur;
@@ -53,6 +54,8 @@ public class Minimax {
 				}
 			}
 		}
+		//Affecte le poids dans valeurZone
+		valeurZone = poids;
 		//Retourne la case ayant la plus faible valeur
 		return caseFinale;
 	}
@@ -179,5 +182,13 @@ public class Minimax {
 	 */
 	public int getProfondeur() {
 		return profondeur;
+	}
+	
+	/**
+	 * Methode renvoyant la valeur de la zone
+	 * @return la valeur de la zone
+	 */
+	public int getValeurZone() {
+		return valeurZone;
 	}
 }
