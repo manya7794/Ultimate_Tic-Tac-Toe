@@ -1,5 +1,6 @@
 package Projet_IA;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Jeu {
@@ -249,16 +250,53 @@ public class Jeu {
 	 * @return le numero de la zone/case que l'utilisateur a choisit
 	 */
 	private int choix() {
-		int choix = -2;
-		boolean loop = true;
-		while(loop) {
-			choix = sc.nextInt()-1;
-			if(choix > -1 && choix < 9)
-				return choix;
-			else
-				System.err.println("\nValeur invalide, veuillez choisir entre 1 et 9\n");
+		boolean sortie=false;
+		int choix=0;
+		while(!sortie) {
+			int choixTmp=recupChoix();
+			if(choixTmp!=-2) {
+				choix=choixTmp;
+				sortie=true;
+			}
 		}
 		return choix;
+	}
+
+	private int recupChoix() {
+		boolean sortie=false;
+		String choix = null;
+		
+		int choixTmp=0;
+		while(!sortie) {
+			try {
+				choix=sc.nextLine();
+			}catch (InputMismatchException exception) {
+				System.out.println(choix+" n'est pas une entree valide");
+			}
+
+			//Verification qu'il s'agit bien d'un nombre
+			boolean isNumeric =  choix.matches("[+-]?\\d*(\\.\\d+)?");
+			if(isNumeric) {
+				
+				try {
+					choixTmp=(Integer.valueOf(choix));
+					//choixTmp=(Integer.valueOf(choix)-1);
+				}
+				 catch(NumberFormatException exception){
+					 System.out.println(choix+" n'est pas une entree valide");
+					 return -2;
+					}
+				//Verification que le chiffre est present dans le domaine defini
+				if((choixTmp>-1)&&(choixTmp<9)) {
+					sortie=true;
+				}
+			}
+			else {
+				System.out.println(choix+" n'est pas une entree valide.\n");
+				System.out.println("Veuillez choisir une valeur entre 1 et 9 svp.\n");
+			}
+		}
+		return choixTmp;
 	}
 	
 	/**
@@ -298,5 +336,4 @@ public class Jeu {
 		System.out.println(plateauP.getPlateau().get(choix).affiche());
 		System.out.println("Veuillez choisir la case sur lequel vous voulez jouer (1-9) : \n");
 	}
-	
 }
