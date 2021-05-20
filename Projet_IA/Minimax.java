@@ -25,7 +25,7 @@ public class Minimax {
 		//On parcourt chaque case de la zone
 		for(int i=0; i<9;i++) {
 			//Poids de la zone actuelle
-			int poidsZone;
+			int poidsZone=0;
 			//Creation d'un plateau clone pour effectuer la recherche
 			PlateauPrincipal platClone = platP.clone();
 			//PlateauPrincipal platClone = new PlateauPrincipal(platP);
@@ -47,22 +47,14 @@ public class Minimax {
 						poidsZone = max(platClone, i, profondeur-1, -1);
 					}
 				}
-				else {
-					//Verifier valeur
-					poidsZone=platSubClone.getValeur().getPoids();
+					//Verification de la valeur
 					//Poids de la zone actuelle inferieur au poids en memoire
 					if(poidsZone<poids) {
 						poids=poidsZone;
 						caseFinale=i;
 					}	
-				}
 			}
 		}
-		//Affecte le poids dans valeurZone
-		valeurZone = poids;
-		//Retourne la case ayant la plus faible valeur
-		return caseFinale;
-	}
 	
 	/**
 	 * Methode renvoyant le plus grand poids trouve pour la zone entree en argument
