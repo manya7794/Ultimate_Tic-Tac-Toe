@@ -773,7 +773,7 @@ public class Jeu {
 			return true;
 		}
 		if(plateauP.verifZoneRemplie()) {
-			System.out.println("La partie se termine sur une égalité\n");
+			System.out.println("La partie se termine sur une egalite\n");
 			return true;
 		}
 		return false;
