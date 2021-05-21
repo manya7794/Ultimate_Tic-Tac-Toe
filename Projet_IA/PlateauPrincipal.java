@@ -73,48 +73,56 @@ public class PlateauPrincipal extends Plateau<PlateauSub> {
 		//Premiere ligne
 		if(plateau.get(0).getSymboleGagnant()!=0 && plateau.get(1).getSymboleGagnant()!=0 && plateau.get(2).getSymboleGagnant()!=0) {
 			if((plateau.get(0).getSymboleGagnant()==plateau.get(1).getSymboleGagnant()) && (plateau.get(0).getSymboleGagnant()==plateau.get(2).getSymboleGagnant())) {
+				setSymboleGagnant(plateau.get(0).getSymboleGagnant());
 				return true;
 			}
 		}
 		//Deuxieme ligne
 		if(plateau.get(3).getSymboleGagnant()!=0 && plateau.get(4).getSymboleGagnant()!=0 && plateau.get(5).getSymboleGagnant()!=0) {
 			if((plateau.get(3).getSymboleGagnant()==plateau.get(4).getSymboleGagnant()) && (plateau.get(3).getSymboleGagnant()==plateau.get(5).getSymboleGagnant())) {
+				setSymboleGagnant(plateau.get(3).getSymboleGagnant());
 				return true;
 			}
 		}
 		//Troisieme ligne
 		if(plateau.get(6).getSymboleGagnant()!=0 && plateau.get(7).getSymboleGagnant()!=0 && plateau.get(8).getSymboleGagnant()!=0) {
 			if((plateau.get(6).getSymboleGagnant()==plateau.get(7).getSymboleGagnant()) && (plateau.get(6).getSymboleGagnant()==plateau.get(8).getSymboleGagnant())) {
+				setSymboleGagnant(plateau.get(6).getSymboleGagnant());
 				return true;
 			}
 		}
 		//Premiere colonne
 		if(plateau.get(0).getSymboleGagnant()!=0 && plateau.get(3).getSymboleGagnant()!=0 && plateau.get(6).getSymboleGagnant()!=0) {
 			if((plateau.get(0).getSymboleGagnant()==plateau.get(3).getSymboleGagnant()) && (plateau.get(0).getSymboleGagnant()==plateau.get(6).getSymboleGagnant())) {
+				setSymboleGagnant(plateau.get(0).getSymboleGagnant());
 				return true;
 			}
 		}
 		//Deuxieme colonne
 		if(plateau.get(1).getSymboleGagnant()!=0 && plateau.get(4).getSymboleGagnant()!=0 && plateau.get(7).getSymboleGagnant()!=0) {
 			if((plateau.get(1).getSymboleGagnant()==plateau.get(4).getSymboleGagnant()) && (plateau.get(1).getSymboleGagnant()==plateau.get(7).getSymboleGagnant())) {
+				setSymboleGagnant(plateau.get(1).getSymboleGagnant());
 				return true;
 			}
 		}
 		//Troisieme colonne
 		if(plateau.get(2).getSymboleGagnant()!=0 && plateau.get(5).getSymboleGagnant()!=0 && plateau.get(8).getSymboleGagnant()!=0) {
 			if((plateau.get(2).getSymboleGagnant()==plateau.get(5).getSymboleGagnant()) && (plateau.get(2).getSymboleGagnant()==plateau.get(8).getSymboleGagnant())) {
+				setSymboleGagnant(plateau.get(2).getSymboleGagnant());
 				return true;
 			}
 		}
 		//Diagonale gauche
 		if(plateau.get(4).getSymboleGagnant()!=0 && plateau.get(0).getSymboleGagnant()!=0 && plateau.get(8).getSymboleGagnant()!=0) {
 			if((plateau.get(4).getSymboleGagnant()==plateau.get(0).getSymboleGagnant()) && (plateau.get(4).getSymboleGagnant()==plateau.get(8).getSymboleGagnant())) {
+				setSymboleGagnant(plateau.get(4).getSymboleGagnant());
 				return true;
 			}
 		}
 		//Diagonale droite
 		if(plateau.get(4).getSymboleGagnant()!=0 && plateau.get(2).getSymboleGagnant()!=0 && plateau.get(6).getSymboleGagnant()!=0) {
 			if((plateau.get(4).getSymboleGagnant()==plateau.get(2).getSymboleGagnant()) && (plateau.get(4).getSymboleGagnant()==plateau.get(6).getSymboleGagnant())) {
+				setSymboleGagnant(plateau.get(4).getSymboleGagnant());
 				return true;
 			}
 		}
